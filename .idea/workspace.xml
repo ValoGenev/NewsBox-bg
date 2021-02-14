@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="94dea836-77e1-43a3-8933-fa85f41c10b5" name="Default Changelist" comment="" />
+    <list default="true" id="94dea836-77e1-43a3-8933-fa85f41c10b5" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -69,10 +71,11 @@
     <property name="RequestMappingsPanelWidth0" value="75" />
     <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/java/scam" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15429688" />
     <property name="project.structure.side.proportion" value="0.2" />
   </component>
@@ -136,7 +139,7 @@
       <updated>1613081730595</updated>
       <workItem from="1613081734899" duration="13179000" />
       <workItem from="1613130734366" duration="7084000" />
-      <workItem from="1613301534583" duration="14370000" />
+      <workItem from="1613301534583" duration="14831000" />
     </task>
     <servers />
   </component>
@@ -156,26 +159,30 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="765" y="212" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1613316501005" />
+    <state x="690" y="308" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1613319071165">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="690" y="308" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1613319071165" />
     <state x="690" y="269" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1613316560408">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="690" y="269" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1613316560408" />
-    <state width="1877" height="200" key="GridCell.Tab.0.bottom" timestamp="1613318571079">
+    <state width="1877" height="200" key="GridCell.Tab.0.bottom" timestamp="1613319097584">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="200" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1613318571079" />
-    <state width="1877" height="200" key="GridCell.Tab.0.center" timestamp="1613318571079">
+    <state width="1877" height="200" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1613319097584" />
+    <state width="1877" height="200" key="GridCell.Tab.0.center" timestamp="1613319097584">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="200" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1613318571079" />
-    <state width="1877" height="200" key="GridCell.Tab.0.left" timestamp="1613318571079">
+    <state width="1877" height="200" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1613319097584" />
+    <state width="1877" height="200" key="GridCell.Tab.0.left" timestamp="1613319097584">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="200" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1613318571079" />
-    <state width="1877" height="200" key="GridCell.Tab.0.right" timestamp="1613318571079">
+    <state width="1877" height="200" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1613319097584" />
+    <state width="1877" height="200" key="GridCell.Tab.0.right" timestamp="1613319097584">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="200" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1613318571079" />
+    <state width="1877" height="200" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1613319097584" />
     <state width="1877" height="200" key="GridCell.Tab.1.bottom" timestamp="1613318571079">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -208,6 +215,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1877" height="343" key="GridCell.Tab.2.right/0.0.1920.1040@0.0.1920.1040" timestamp="1613312406930" />
+    <state x="440" y="97" key="SettingsEditor" timestamp="1613319082789">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="440" y="97" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1613319082789" />
     <state x="810" y="412" width="319" height="225" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1" timestamp="1613306152627">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
