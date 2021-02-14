@@ -2,7 +2,94 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="94dea836-77e1-43a3-8933-fa85f41c10b5" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/META-INF/MANIFEST.MF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/META-INF/scamsite.kotlin_module" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/scam/SpringApplication.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/scam/config/AppConfiguration.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/scam/controller/CommentController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/scam/controller/MainController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/scam/controller/PictureController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/scam/controller/PostController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/scam/controller/ThumbNailController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/scam/controller/UserController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/scam/dto/comment/CommentAllPropertiesDto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/scam/dto/comment/CommentWithoutRelationDto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/scam/dto/picture/PictureAllPropertiesDto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/scam/dto/picture/PictureWithoutRelationDto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/scam/dto/post/PostAllPropertiesDto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/scam/dto/post/PostWithoutRelationDto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/scam/dto/thumbnail/ThumbNailAllPropertiesDto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/scam/dto/thumbnail/ThumbNailWithoutPropertiesDto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/scam/dto/user/UserAllPropertiesDto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/scam/dto/user/UserWithoutRelationDto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/scam/entity/CommentEntity.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/scam/entity/PictureEntity.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/scam/entity/PostEntity.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/scam/entity/ThumbNailEntity.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/scam/entity/UserEntity.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/scam/exception/AlreadyExistingEmailException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/scam/exception/AlreadyExistingResourceException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/scam/exception/AlreadyExistingUserNameException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/scam/exception/BucketNotFoundException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/scam/exception/CommentNotFoundException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/scam/exception/ConflictException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/scam/exception/EmailNotEqualException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/scam/exception/EmailNotFoundException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/scam/exception/ErrorMessage.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/scam/exception/InvalidInputException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/scam/exception/OrderNotFoundException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/scam/exception/PictureNotFoundException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/scam/exception/PostNotFoundException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/scam/exception/ProductNotFoundException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/scam/exception/RestaurantNotFoundException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/scam/exception/ServiceException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/scam/exception/ThumbNailNotFoundException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/scam/exception/UserNotFoundException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/scam/exception/UsernameNotEqualException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/scam/exception/handlers/CommentExceptionHandler.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/scam/exception/handlers/PictureExceptionHandler.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/scam/exception/handlers/PostExceptionHandler.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/scam/exception/handlers/ThumbNailExceptionHandler.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/scam/exception/handlers/UserExceptionHandler.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/scam/model/Category.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/scam/model/UserPermission.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/scam/model/UserRole.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/scam/repository/ICommentRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/scam/repository/IPictureRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/scam/repository/IPostRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/scam/repository/IThumbNailRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/scam/repository/IUserRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/scam/security/authentication/JwtAuthentication.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/scam/security/authentication/UsernamePasswordAuthentication.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/scam/security/config/SecurityConfiguration.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/scam/security/filters/CustomLogoutFilter.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/scam/security/filters/JwtTokenAuthenticationFilter.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/scam/security/filters/UnauthorizedExceptionFilter.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/scam/security/filters/UsernamePasswordAuthenticationFilter.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/scam/security/jwt/JwtTokenUtil.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/scam/security/providers/JwtTokenAuthProvider.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/scam/security/providers/UsernamePasswordAuthProvider.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/scam/security/userdetails/UserDetailsImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/scam/security/userdetails/UserDetailsServiceImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/scam/security/wrappers/WrappedHttpServletRequest$BufferedServletInputStream.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/scam/security/wrappers/WrappedHttpServletRequest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/scam/service/CommentService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/scam/service/ICommentService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/scam/service/IPictureService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/scam/service/IPostService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/scam/service/IThumbNailService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/scam/service/IUserService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/scam/service/PictureService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/scam/service/PostService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/scam/service/ThumbNailService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/scam/service/UserService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/scam/utils/Constants.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scamsite-1.0-SNAPSHOT.jar" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,7 +161,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/java/scam" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources" />
     <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15429688" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -139,7 +226,7 @@
       <updated>1613081730595</updated>
       <workItem from="1613081734899" duration="13179000" />
       <workItem from="1613130734366" duration="7084000" />
-      <workItem from="1613301534583" duration="14831000" />
+      <workItem from="1613301534583" duration="15143000" />
     </task>
     <servers />
   </component>
@@ -159,30 +246,34 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="765" y="212" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1613316501005" />
-    <state x="690" y="308" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1613319071165">
+    <state x="690" y="308" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1613319310850">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="690" y="308" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1613319071165" />
+    <state x="690" y="308" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1613319310850" />
     <state x="690" y="269" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1613316560408">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="690" y="269" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1613316560408" />
-    <state width="1877" height="200" key="GridCell.Tab.0.bottom" timestamp="1613319097584">
+    <state x="740" y="277" key="FileChooserDialogImpl" timestamp="1613319331058">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="200" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1613319097584" />
-    <state width="1877" height="200" key="GridCell.Tab.0.center" timestamp="1613319097584">
+    <state x="740" y="277" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1613319331058" />
+    <state width="1877" height="2" key="GridCell.Tab.0.bottom" timestamp="1613319478702">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="200" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1613319097584" />
-    <state width="1877" height="200" key="GridCell.Tab.0.left" timestamp="1613319097584">
+    <state width="1877" height="2" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1613319478702" />
+    <state width="1877" height="2" key="GridCell.Tab.0.center" timestamp="1613319478702">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="200" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1613319097584" />
-    <state width="1877" height="200" key="GridCell.Tab.0.right" timestamp="1613319097584">
+    <state width="1877" height="2" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1613319478702" />
+    <state width="1877" height="2" key="GridCell.Tab.0.left" timestamp="1613319478702">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="200" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1613319097584" />
+    <state width="1877" height="2" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1613319478702" />
+    <state width="1877" height="2" key="GridCell.Tab.0.right" timestamp="1613319478702">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="2" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1613319478702" />
     <state width="1877" height="200" key="GridCell.Tab.1.bottom" timestamp="1613318571079">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -215,10 +306,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1877" height="343" key="GridCell.Tab.2.right/0.0.1920.1040@0.0.1920.1040" timestamp="1613312406930" />
-    <state x="440" y="97" key="SettingsEditor" timestamp="1613319082789">
+    <state x="440" y="97" key="SettingsEditor" timestamp="1613319398835">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="440" y="97" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1613319082789" />
+    <state x="440" y="97" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1613319398835" />
     <state x="810" y="412" width="319" height="225" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1" timestamp="1613306152627">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
