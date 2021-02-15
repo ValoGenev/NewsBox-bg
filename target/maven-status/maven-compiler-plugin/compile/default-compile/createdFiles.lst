@@ -13,6 +13,7 @@ scam\dto\user\UserAllPropertiesDto.class
 scam\SpringApplication.class
 scam\security\userdetails\UserDetailsServiceImpl.class
 scam\model\Category.class
+scam\security\filters\CorsFilter.class
 scam\exception\ThumbNailNotFoundException.class
 scam\exception\handlers\CommentExceptionHandler.class
 scam\controller\PictureController.class
