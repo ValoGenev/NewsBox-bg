@@ -37,7 +37,7 @@ public class PostController {
     }
 
     @GetMapping(produces = APPLICATION_JSON_VALUE)
-    public ResponseEntity<Set<PostWithoutRelationDto>> getAll() {
+    public ResponseEntity<Set<PostAllPropertiesDto>> getAll() {
         LOGGER.info(GET_ALL_POSTS_MESSAGE);
         return ok(postService.findAll());
     }

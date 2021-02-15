@@ -56,14 +56,14 @@ public class PostService implements IPostService {
     }
 
     @Override
-    public Set<PostWithoutRelationDto> findAll() {
+    public Set<PostAllPropertiesDto> findAll() {
         LOGGER.info(GET_ALL_POSTS_MESSAGE);
 
         try {
             return postRepository
                     .findAll()
                     .stream()
-                    .map(post -> modelMapper.map(post, PostWithoutRelationDto.class))
+                    .map(post -> modelMapper.map(post, PostAllPropertiesDto.class))
                     .collect(Collectors.toSet());
         } catch (DataAccessException e) {
             LOGGER.error(DATABASE_ERROR_MESSAGE);

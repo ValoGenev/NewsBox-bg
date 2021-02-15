@@ -8,7 +8,7 @@ import java.util.Set;
 
 public interface IPostService {
 
-    Set<PostWithoutRelationDto> findAll();
+    Set<PostAllPropertiesDto> findAll();
 
     PostAllPropertiesDto findOne(String id);
 
