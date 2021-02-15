@@ -1,6 +1,7 @@
 package scam.entity;
 
 import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.Type;
 import scam.model.Category;
 
 import javax.persistence.*;
@@ -22,10 +23,10 @@ public class PostEntity {
     @Column(name = "id")
     private String id;
 
-    @Column(name = "title")
+    @Column(name = "title",columnDefinition="text", length=10485760)
     private String title;
 
-    @Column(name = "description")
+    @Column(name = "description",columnDefinition="text", length=10485760)
     private String description;
 
     @Column(name = "category")
