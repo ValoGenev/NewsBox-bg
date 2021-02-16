@@ -21,8 +21,11 @@ public class PostAllPropertiesDto {
     @NotBlank(message = "TITLE CANNOT BE EMPTY OR NULL")
     private String title;
 
-    @NotBlank(message = "DESCRIPTION CANNOT BE EMPTY OR NULL")
-    private String description;
+    private String descriptionOne;
+
+    private String descriptionTwo;
+
+    private String descriptionThree;
 
     @NotNull(message = "CATEGORY CANNOT BE EMPTY OR NULL")
     private Category category;
@@ -48,9 +51,11 @@ public class PostAllPropertiesDto {
     public PostAllPropertiesDto(
             String id,
             String title,
-            String description,
             Category category,
             String facebookDescription,
+            String descriptionOne,
+            String descriptionTwo,
+            String descriptionThree,
             String youtubeUrl,
             String authorName,
             LocalDateTime postedOn,
@@ -61,7 +66,9 @@ public class PostAllPropertiesDto {
     ) {
         this.id = id;
         this.title = title;
-        this.description = description;
+        this.descriptionOne=descriptionOne;
+        this.descriptionTwo=descriptionTwo;
+        this.descriptionThree=descriptionThree;
         this.category = category;
         this.facebookDescription=facebookDescription;
         this.youtubeUrl=youtubeUrl;
@@ -92,12 +99,28 @@ public class PostAllPropertiesDto {
         this.title = title;
     }
 
-    public String getDescription() {
-        return description;
+    public String getDescriptionOne() {
+        return descriptionOne;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setDescriptionOne(String descriptionOne) {
+        this.descriptionOne = descriptionOne;
+    }
+
+    public String getDescriptionTwo() {
+        return descriptionTwo;
+    }
+
+    public void setDescriptionTwo(String descriptionTwo) {
+        this.descriptionTwo = descriptionTwo;
+    }
+
+    public String getDescriptionThree() {
+        return descriptionThree;
+    }
+
+    public void setDescriptionThree(String descriptionThree) {
+        this.descriptionThree = descriptionThree;
     }
 
     public Category getCategory() {

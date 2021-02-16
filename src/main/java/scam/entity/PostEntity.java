@@ -26,8 +26,14 @@ public class PostEntity {
     @Column(name = "title",columnDefinition="text", length=10485760)
     private String title;
 
-    @Column(name = "description",columnDefinition="text", length=10485760)
-    private String description;
+    @Column(name = "description_one",columnDefinition="text", length=10485760)
+    private String descriptionOne;
+
+    @Column(name = "description_two",columnDefinition="text", length=10485760)
+    private String descriptionTwo;
+
+    @Column(name = "description_three",columnDefinition="text", length=10485760)
+    private String descriptionThree;
 
     @Column(name = "category")
     @Enumerated(EnumType.STRING)
@@ -75,12 +81,29 @@ public class PostEntity {
         this.title = title;
     }
 
-    public String getDescription() {
-        return description;
+
+    public String getDescriptionOne() {
+        return descriptionOne;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setDescriptionOne(String descriptionOne) {
+        this.descriptionOne = descriptionOne;
+    }
+
+    public String getDescriptionTwo() {
+        return descriptionTwo;
+    }
+
+    public void setDescriptionTwo(String descriptionTwo) {
+        this.descriptionTwo = descriptionTwo;
+    }
+
+    public String getDescriptionThree() {
+        return descriptionThree;
+    }
+
+    public void setDescriptionThree(String descriptionThree) {
+        this.descriptionThree = descriptionThree;
     }
 
     public Category getCategory() {

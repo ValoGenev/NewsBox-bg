@@ -2,6 +2,7 @@ package scam.dto.post;
 
 import scam.model.Category;
 
+import javax.persistence.Column;
 import javax.validation.constraints.Null;
 import java.time.LocalDateTime;
 
@@ -11,7 +12,11 @@ public class PostWithoutRelationDto {
 
     private String title;
 
-    private String description;
+    private String descriptionOne;
+
+    private String descriptionTwo;
+
+    private String descriptionThree;
 
     private String facebookDescription;
 
@@ -26,7 +31,9 @@ public class PostWithoutRelationDto {
     public PostWithoutRelationDto(
             String id,
             String title,
-            String description,
+            String descriptionOne,
+            String descriptionTwo,
+            String descriptionThree,
             String facebookDescription,
             String youtubeUrl,
             String authorName,
@@ -35,7 +42,9 @@ public class PostWithoutRelationDto {
     ) {
         this.id = id;
         this.title = title;
-        this.description = description;
+        this.descriptionOne=descriptionOne;
+        this.descriptionTwo=descriptionTwo;
+        this.descriptionThree=descriptionThree;
         this.facebookDescription=facebookDescription;
         this.youtubeUrl=youtubeUrl;
         this.authorName=authorName;
@@ -62,12 +71,29 @@ public class PostWithoutRelationDto {
         this.title = title;
     }
 
-    public String getDescription() {
-        return description;
+
+    public String getDescriptionOne() {
+        return descriptionOne;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setDescriptionOne(String descriptionOne) {
+        this.descriptionOne = descriptionOne;
+    }
+
+    public String getDescriptionTwo() {
+        return descriptionTwo;
+    }
+
+    public void setDescriptionTwo(String descriptionTwo) {
+        this.descriptionTwo = descriptionTwo;
+    }
+
+    public String getDescriptionThree() {
+        return descriptionThree;
+    }
+
+    public void setDescriptionThree(String descriptionThree) {
+        this.descriptionThree = descriptionThree;
     }
 
     public Category getCategory() {
