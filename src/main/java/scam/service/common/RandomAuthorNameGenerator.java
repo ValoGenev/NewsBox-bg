@@ -8,7 +8,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 
-@Component
+
 public class RandomAuthorNameGenerator {
     
     private final List<String> authors = new ArrayList<>(Arrays.asList(

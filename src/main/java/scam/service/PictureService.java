@@ -95,6 +95,8 @@ public class PictureService implements IPictureService{
 
         PictureEntity picToBeUpdated = modelMapper.map(pic,PictureEntity.class);
 
+        picToBeUpdated.setPost(picInDb.getPost());
+
         return modelMapper.map(createPicture(picToBeUpdated), PictureAllPropertiesDto.class);
     }
 

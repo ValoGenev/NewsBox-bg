@@ -8,6 +8,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import scam.repository.*;
 import scam.service.*;
+import scam.service.common.RandomAuthorNameGenerator;
 
 @Configuration
 public class AppConfiguration {
@@ -45,6 +46,11 @@ public class AppConfiguration {
     @Bean
     public PasswordEncoder encoder() {
         return new BCryptPasswordEncoder();
+    }
+
+    @Bean
+    RandomAuthorNameGenerator randomAuthorNameGenerator(){
+        return new RandomAuthorNameGenerator();
     }
 
 

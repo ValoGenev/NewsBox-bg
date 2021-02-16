@@ -20,6 +20,7 @@ import static scam.utils.Constants.*;
 
 @ControllerAdvice(assignableTypes = CommentController.class)
 public class CommentExceptionHandler {
+
     private static final Logger LOGGER = LoggerFactory.getLogger(PictureExceptionHandler.class);
 
     @ExceptionHandler(ServiceException.class)

@@ -70,6 +70,7 @@ public interface Constants {
     //IMAGE EXCEPTIONS CONSTANTS
     String COMMENT_NOT_FOUND_EXCEPTION="Cannot find COMMENT with ID [%s].";
 
+    String PICTURES_WITH_SAME_URL_EXCEPTION_MESSAGE="CANNOT ADD PICTURES WITH SAME URLS";
     String CREATE_FACEBOOK_USER_MESSAGE="Creating facebook USER with USERNAME [%s]";
 
     String CREATE_GUEST_USER_MESSAGE = "Creating guest user";

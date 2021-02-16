@@ -7,15 +7,22 @@ import scam.entity.PostEntity;
 import scam.entity.UserEntity;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Null;
 
 public class CommentAllPropertiesDto {
 
+    @Null(message = "ID SHOULD BE NULL")
     private String id;
 
+    @NotBlank(message = "COMMENT CANNOT BE NULL OR EMPTY")
     private String comment;
 
+    @NotNull(message = "USER CANNOT BE NULL")
     private UserWithoutRelationDto user;
 
+    @NotNull(message = "POST CANNOT BE NULL")
     private PostWithoutRelationDto post;
 
     public CommentAllPropertiesDto(String id, String comment, UserWithoutRelationDto user, PostWithoutRelationDto post) {

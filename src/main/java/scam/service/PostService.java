@@ -85,8 +85,18 @@ public class PostService implements IPostService {
     public void delete(String id) {
         LOGGER.info(format(DELETE_POST_BY_ID_MESSAGE, id));
 
+
         try {
+            Optional<PostEntity> postEntity  = postRepository.findById(id);
+
+            postEntity.ifPresent(post -> {
+                post.getPictures().forEach(pic->{
+                    pictureService.delete(pic.getId());
+                });
+            });
+
             postRepository.findById(id).ifPresent(postRepository::delete);
+            postEntity.ifPresent(s->thumbNailService.delete(s.getThumbNailPic().getId()));
         } catch (DataIntegrityViolationException e) {
             LOGGER.error(CONFLICT_DELETE_MESSAGE);
             throw new ConflictException(CONFLICT_DELETE_MESSAGE);
@@ -101,13 +111,14 @@ public class PostService implements IPostService {
     public PostAllPropertiesDto create(PostAllPropertiesDto post) {
         LOGGER.info(format(CREATE_POST_MESSAGE, post.getUser().getUsername()));
 
-        PostEntity postToBeCreated = modelMapper.map(post, PostEntity.class);
+        post.setPictures(new HashSet<>(emptyIfNull(post.getPictures())));
 
-        postToBeCreated.setPictures(new HashSet<>(emptyIfNull(postToBeCreated.getPictures())));
+        PostEntity postToBeCreated = modelMapper.map(post, PostEntity.class);
 
         UserAllPropertiesDto userInDb = userService.findOne(post.getUser().getUsername());
 
         ThumbNailAllPropertiesDto thumbNailToBeCreated = modelMapper.map(post.getThumbNailPic(), ThumbNailAllPropertiesDto.class);
+        thumbNailToBeCreated.setId(null);
         ThumbNailAllPropertiesDto createdThumbNail = thumbNailService.create(thumbNailToBeCreated);
 
         postToBeCreated.setThumbNailPic(modelMapper.map(createdThumbNail, ThumbNailEntity.class));
@@ -124,6 +135,7 @@ public class PostService implements IPostService {
            PictureAllPropertiesDto picToBeCreated =  modelMapper.map(pic,PictureAllPropertiesDto.class);
            picToBeCreated.setPost(new PostWithoutRelationDto());
            picToBeCreated.getPost().setId(postEntity.getId());
+           picToBeCreated.setId(null);
            picturesToBeAdded.add(modelMapper.map(pictureService.create(picToBeCreated),PictureEntity.class));
         });
 
@@ -141,17 +153,20 @@ public class PostService implements IPostService {
         PostEntity postToBeUpdated = modelMapper.map(post,PostEntity.class);
 
         postToBeUpdated.setId(postInDb.getId());
+        postToBeUpdated.setPictures(postInDb.getPictures());
 
         ThumbNailAllPropertiesDto thumbNailToBeCreated = modelMapper.map(post.getThumbNailPic(), ThumbNailAllPropertiesDto.class);
-        ThumbNailAllPropertiesDto updatedPicture = thumbNailService.update(thumbNailToBeCreated,thumbNailToBeCreated.getId());
-        postToBeUpdated.setThumbNailPic(modelMapper.map(updatedPicture,ThumbNailEntity.class));
+        ThumbNailAllPropertiesDto updatedThumbNail = thumbNailService.update(thumbNailToBeCreated,thumbNailToBeCreated.getId());
+        postToBeUpdated.setThumbNailPic(modelMapper.map(updatedThumbNail,ThumbNailEntity.class));
 
         PostEntity updatedPost = createPost(postToBeUpdated);
 
         updatedPost.getPictures().forEach(picInDb->{
             PictureWithoutRelationDto pictureWithoutRelationDto = modelMapper.map(picInDb,PictureWithoutRelationDto.class);
+
             if(!post.getPictures().contains(pictureWithoutRelationDto)){
                 pictureService.delete(picInDb.getId());
+                post.getPictures().remove(pictureWithoutRelationDto);
             }
         });
 
@@ -163,10 +178,13 @@ public class PostService implements IPostService {
                 picToBeCreated.setPost(new PostWithoutRelationDto());
                 picToBeCreated.getPost().setId(updatedPost.getId());
                 newPictures.add(modelMapper.map(pictureService.create(picToBeCreated),PictureEntity.class));
+            }else {
+                pictureService.findOne(pic.getId());
+                newPictures.add(modelMapper.map(pic,PictureEntity.class));
             }
         });
 
-        newPictures.addAll(postInDb.getPictures());
+//        newPictures.addAll(post.getPictures().stream().map(p->modelMapper.map(p,PictureEntity.class)).collect(Collectors.toSet()));
 
         updatedPost.setPictures(newPictures);
 

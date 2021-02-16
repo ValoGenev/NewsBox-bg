@@ -4,6 +4,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.support.DefaultMessageSourceResolvable;
 import org.springframework.http.ResponseEntity;
+import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -48,6 +49,13 @@ public class PostExceptionHandler {
         return status(BAD_REQUEST).body(new ErrorMessage(errors, BAD_REQUEST.value()));
     }
 
+    @ExceptionHandler(HttpMessageNotReadableException.class)
+    public ResponseEntity<ErrorMessage> handleMethodArgumentNotValidException(HttpMessageNotReadableException exception) {
+        LOGGER.error(PICTURES_WITH_SAME_URL_EXCEPTION_MESSAGE,exception);
+
+        return status(BAD_REQUEST).body(new ErrorMessage(PICTURES_WITH_SAME_URL_EXCEPTION_MESSAGE, BAD_REQUEST.value()));
+    }
+
     @ExceptionHandler(AlreadyExistingResourceException.class)
     public ResponseEntity<ErrorMessage> handleAlreadyExistingResourceException(AlreadyExistingResourceException exception) {
         LOGGER.error(EXISTING_RESOURCE_MESSAGE,exception);
@@ -72,6 +80,13 @@ public class PostExceptionHandler {
 
     @ExceptionHandler(PostNotFoundException.class)
     public ResponseEntity<ErrorMessage> handlePostNotFoundException(PostNotFoundException exception) {
+        LOGGER.error(NOT_FOUND_MESSAGE,exception);
+
+        return status(NOT_FOUND).body(new ErrorMessage(exception.getMessage(), NOT_FOUND.value()));
+    }
+
+    @ExceptionHandler(PictureNotFoundException.class)
+    public ResponseEntity<ErrorMessage> handlePictureNotFoundException(PictureNotFoundException exception) {
         LOGGER.error(NOT_FOUND_MESSAGE,exception);
 
         return status(NOT_FOUND).body(new ErrorMessage(exception.getMessage(), NOT_FOUND.value()));

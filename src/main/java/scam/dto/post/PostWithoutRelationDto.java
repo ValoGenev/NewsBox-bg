@@ -2,6 +2,7 @@ package scam.dto.post;
 
 import scam.model.Category;
 
+import javax.validation.constraints.Null;
 import java.time.LocalDateTime;
 
 public class PostWithoutRelationDto {

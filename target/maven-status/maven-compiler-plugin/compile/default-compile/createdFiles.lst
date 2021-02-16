@@ -18,6 +18,7 @@ scam\exception\ThumbNailNotFoundException.class
 scam\exception\handlers\CommentExceptionHandler.class
 scam\controller\PictureController.class
 scam\exception\InvalidInputException.class
+scam\dto\thumbnail\ThumbNailCreateDto.class
 scam\exception\AlreadyExistingUserNameException.class
 scam\controller\ThumbNailController.class
 scam\entity\CommentEntity.class

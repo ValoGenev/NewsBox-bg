@@ -96,6 +96,8 @@ public class ThumbNailService implements IThumbNailService {
 
         ThumbNailEntity thumbNailToBeUpdated = modelMapper.map(thumbNail,ThumbNailEntity.class);
 
+        thumbNailToBeUpdated.setPost(thumbNailInDb.getPost());
+
         return modelMapper.map(createThumbNail(thumbNailToBeUpdated), ThumbNailAllPropertiesDto.class);
     }
 

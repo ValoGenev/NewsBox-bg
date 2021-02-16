@@ -7,6 +7,7 @@ C:\Users\seasi\Desktop\coop backup\bot 1\scamsite\src\main\java\scam\exception\h
 C:\Users\seasi\Desktop\coop backup\bot 1\scamsite\src\main\java\scam\service\IPictureService.java
 C:\Users\seasi\Desktop\coop backup\bot 1\scamsite\src\main\java\scam\security\providers\UsernamePasswordAuthProvider.java
 C:\Users\seasi\Desktop\coop backup\bot 1\scamsite\src\main\java\scam\security\filters\CorsFilter.java
+C:\Users\seasi\Desktop\coop backup\bot 1\scamsite\src\main\java\scam\dto\thumbnail\ThumbNailCreateDto.java
 C:\Users\seasi\Desktop\coop backup\bot 1\scamsite\src\main\java\scam\service\ThumbNailService.java
 C:\Users\seasi\Desktop\coop backup\bot 1\scamsite\src\main\java\scam\entity\CommentEntity.java
 C:\Users\seasi\Desktop\coop backup\bot 1\scamsite\src\main\java\scam\exception\AlreadyExistingResourceException.java
