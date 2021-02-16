@@ -12,14 +12,32 @@ public class PostWithoutRelationDto {
 
     private String description;
 
+    private String facebookDescription;
+
+    private String youtubeUrl;
+
+    private String authorName;
+
     private Category category;
 
     private LocalDateTime postedOn;
 
-    public PostWithoutRelationDto(String id, String title, String description, Category category, LocalDateTime postedOn) {
+    public PostWithoutRelationDto(
+            String id,
+            String title,
+            String description,
+            String facebookDescription,
+            String youtubeUrl,
+            String authorName,
+            Category category,
+            LocalDateTime postedOn
+    ) {
         this.id = id;
         this.title = title;
         this.description = description;
+        this.facebookDescription=facebookDescription;
+        this.youtubeUrl=youtubeUrl;
+        this.authorName=authorName;
         this.category = category;
         this.postedOn = postedOn;
     }
@@ -67,5 +85,27 @@ public class PostWithoutRelationDto {
         this.postedOn = postedOn;
     }
 
+    public String getFacebookDescription() {
+        return facebookDescription;
+    }
 
+    public void setFacebookDescription(String facebookDescription) {
+        this.facebookDescription = facebookDescription;
+    }
+
+    public String getYoutubeUrl() {
+        return youtubeUrl;
+    }
+
+    public void setYoutubeUrl(String youtubeUrl) {
+        this.youtubeUrl = youtubeUrl;
+    }
+
+    public String getAuthorName() {
+        return authorName;
+    }
+
+    public void setAuthorName(String authorName) {
+        this.authorName = authorName;
+    }
 }

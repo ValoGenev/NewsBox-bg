@@ -23,5 +23,4 @@ public class MainController {
 
     private static final Logger LOGGER = getLogger(CommentController.class);
 
-   //TODO
 }

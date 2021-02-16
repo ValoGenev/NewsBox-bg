@@ -21,8 +21,8 @@ public class PictureEntity {
     @Column(name = "id")
     private String id;
 
+    @Column(name = "picture_url",columnDefinition="text", length=10485760)
     private String pictureUrl;
-
 
     @ManyToOne(targetEntity = PostEntity.class)
     @JoinColumn(name = "post_id",referencedColumnName = "id")

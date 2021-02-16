@@ -67,20 +67,6 @@ public class UserExceptionHandler {
         return status(NOT_FOUND).body(new ErrorMessage(exception.getMessage(), NOT_FOUND.value()));
     }
 
-    @ExceptionHandler(AlreadyExistingEmailException.class)
-    public ResponseEntity<ErrorMessage> handleAlreadyExistingEmailException(AlreadyExistingEmailException exception) {
-        LOGGER.error(EXISTING_EMAIL_MESSAGE,exception);
-
-        return status(BAD_REQUEST).body(new ErrorMessage(exception.getMessage(), BAD_REQUEST.value()));
-    }
-
-    @ExceptionHandler(UsernameNotEqualException.class)
-    public ResponseEntity<ErrorMessage> handleAlreadyUsernameNotEqualException(AlreadyExistingEmailException exception) {
-        LOGGER.error(EXISTING_EMAIL_MESSAGE,exception);
-
-        return status(BAD_REQUEST).body(new ErrorMessage(exception.getMessage(), BAD_REQUEST.value()));
-    }
-
     @ExceptionHandler(AlreadyExistingUserNameException.class)
     public ResponseEntity<ErrorMessage> handleAlreadyExistingUserNameException(AlreadyExistingUserNameException exception) {
         LOGGER.error(EXISTING_USERNAME_MESSAGE,exception);
@@ -88,10 +74,11 @@ public class UserExceptionHandler {
         return status(BAD_REQUEST).body(new ErrorMessage(exception.getMessage(), BAD_REQUEST.value()));
     }
 
-    @ExceptionHandler(EmailNotFoundException.class)
-    public ResponseEntity<ErrorMessage> handleEmailNotFoundException(EmailNotFoundException exception) {
-        LOGGER.error(NOT_FOUND_MESSAGE,exception);
+    @ExceptionHandler(UsernameNotEqualException.class)
+    public ResponseEntity<ErrorMessage> handleUsernameNotEqualException(UsernameNotEqualException exception) {
+        LOGGER.error(USERNAME_NOT_EQUAL_MESSAGE,exception);
 
-        return status(NOT_FOUND).body(new ErrorMessage(exception.getMessage(), NOT_FOUND.value()));
+        return status(BAD_REQUEST).body(new ErrorMessage(exception.getMessage(), BAD_REQUEST.value()));
     }
+
 }

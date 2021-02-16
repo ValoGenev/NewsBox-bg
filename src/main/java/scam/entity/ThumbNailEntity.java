@@ -19,6 +19,7 @@ public class ThumbNailEntity {
     @Column(name = "id")
     private String id;
 
+    @Column(name = "picture_url",columnDefinition="text", length=10485760)
     private String pictureUrl;
 
     @OneToOne(targetEntity = PostEntity.class,mappedBy = "thumbNailPic")

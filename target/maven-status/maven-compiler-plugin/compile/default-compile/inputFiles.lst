@@ -32,6 +32,7 @@ C:\Users\seasi\Desktop\coop backup\bot 1\scamsite\src\main\java\scam\controller\
 C:\Users\seasi\Desktop\coop backup\bot 1\scamsite\src\main\java\scam\security\filters\JwtTokenAuthenticationFilter.java
 C:\Users\seasi\Desktop\coop backup\bot 1\scamsite\src\main\java\scam\service\IPostService.java
 C:\Users\seasi\Desktop\coop backup\bot 1\scamsite\src\main\java\scam\security\providers\JwtTokenAuthProvider.java
+C:\Users\seasi\Desktop\coop backup\bot 1\scamsite\src\main\java\scam\dto\user\UserCreateDto.java
 C:\Users\seasi\Desktop\coop backup\bot 1\scamsite\src\main\java\scam\security\authentication\JwtAuthentication.java
 C:\Users\seasi\Desktop\coop backup\bot 1\scamsite\src\main\java\scam\exception\OrderNotFoundException.java
 C:\Users\seasi\Desktop\coop backup\bot 1\scamsite\src\main\java\scam\exception\ThumbNailNotFoundException.java
@@ -48,6 +49,7 @@ C:\Users\seasi\Desktop\coop backup\bot 1\scamsite\src\main\java\scam\repository\
 C:\Users\seasi\Desktop\coop backup\bot 1\scamsite\src\main\java\scam\exception\PictureNotFoundException.java
 C:\Users\seasi\Desktop\coop backup\bot 1\scamsite\src\main\java\scam\exception\InvalidInputException.java
 C:\Users\seasi\Desktop\coop backup\bot 1\scamsite\src\main\java\scam\model\UserRole.java
+C:\Users\seasi\Desktop\coop backup\bot 1\scamsite\src\main\java\scam\service\common\RandomAuthorNameGenerator.java
 C:\Users\seasi\Desktop\coop backup\bot 1\scamsite\src\main\java\scam\repository\IPostRepository.java
 C:\Users\seasi\Desktop\coop backup\bot 1\scamsite\src\main\java\scam\dto\post\PostAllPropertiesDto.java
 C:\Users\seasi\Desktop\coop backup\bot 1\scamsite\src\main\java\scam\service\CommentService.java

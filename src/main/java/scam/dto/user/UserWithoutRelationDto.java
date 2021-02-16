@@ -6,12 +6,9 @@ public class UserWithoutRelationDto {
 
     private String username;
 
-    private String password;
-
-    public UserWithoutRelationDto(String id, String username, String password) {
+    public UserWithoutRelationDto(String id, String username) {
         this.id = id;
         this.username = username;
-        this.password = password;
     }
 
     public UserWithoutRelationDto() {
@@ -33,11 +30,4 @@ public class UserWithoutRelationDto {
         this.username = username;
     }
 
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
 }

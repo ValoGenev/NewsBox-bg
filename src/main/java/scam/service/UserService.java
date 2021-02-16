@@ -9,6 +9,7 @@ import org.springframework.dao.DataAccessException;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import scam.dto.user.UserAllPropertiesDto;
+import scam.dto.user.UserCreateDto;
 import scam.dto.user.UserWithoutRelationDto;
 import scam.entity.UserEntity;
 import scam.exception.*;
@@ -75,35 +76,34 @@ public class UserService implements IUserService {
     }
 
     @Override
-    public UserAllPropertiesDto create(UserAllPropertiesDto user) {
+    public UserAllPropertiesDto create(UserCreateDto user) {
         LOGGER.info(format(CREATE_USER_MESSAGE, user.getUsername()));
 
         assertNotExistingUsername(user.getUsername());
 
-        user.setPassword(passwordEncoder.encode(user.getPassword()));
-
-        user.setComments(new HashSet<>());
-
-        user.setPosts(new HashSet<>());
-
         UserEntity userToBeCreated = modelMapper.map(user,UserEntity.class);
+
+        userToBeCreated.setPassword(passwordEncoder.encode(user.getPassword()));
+        userToBeCreated.setComments(new HashSet<>());
+        userToBeCreated.setPosts(new HashSet<>());
 
         return modelMapper.map(createUser(userToBeCreated), UserAllPropertiesDto.class);
     }
 
     @Override
-    public UserAllPropertiesDto update(UserAllPropertiesDto user, String userName) {
+    public UserAllPropertiesDto update(UserCreateDto user, String userName) {
         LOGGER.info(format(UPDATE_USER_BY_USERNAME_MESSAGE, user.getUsername()));
 
         UserEntity userInDb = findUser(userName);
 
         assertEqualUsername(user.getUsername(), userInDb.getUsername());
 
-        user.setPassword(passwordEncoder.encode(user.getPassword()));
-
-        user.setId(userInDb.getId());
-
         UserEntity userToBeUpdated = modelMapper.map(user,UserEntity.class);
+
+        userToBeUpdated.setId(userInDb.getId());
+        userToBeUpdated.setPassword(passwordEncoder.encode(user.getPassword()));
+        userToBeUpdated.setComments(userInDb.getComments());
+        userToBeUpdated.setPosts(userInDb.getPosts());
 
         return modelMapper.map(createUser(userToBeUpdated), UserAllPropertiesDto.class);
     }

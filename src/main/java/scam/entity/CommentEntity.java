@@ -19,7 +19,7 @@ public class CommentEntity {
     @Column(name = "id")
     private String id;
 
-    @Column(name = "comment")
+    @Column(name = "comment",columnDefinition="text", length=10485760)
     private String comment;
 
     @ManyToOne(targetEntity = UserEntity.class)

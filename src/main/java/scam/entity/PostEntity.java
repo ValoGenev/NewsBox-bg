@@ -33,6 +33,15 @@ public class PostEntity {
     @Enumerated(EnumType.STRING)
     private Category category;
 
+    @Column(name="facebook_description",columnDefinition="text", length=10485760)
+    private String facebookDescription;
+
+    @Column(name = "youtube_url",columnDefinition="text", length=10485760)
+    private String youtubeUrl;
+
+    @Column(name = "author_name",columnDefinition="text", length=10485760)
+    private String authorName;
+
     @Column(name = "postedOn")
     private LocalDateTime postedOn;
 
@@ -80,6 +89,30 @@ public class PostEntity {
 
     public void setCategory(Category category) {
         this.category = category;
+    }
+
+    public String getFacebookDescription() {
+        return facebookDescription;
+    }
+
+    public void setFacebookDescription(String facebookDescription) {
+        this.facebookDescription = facebookDescription;
+    }
+
+    public String getYoutubeUrl() {
+        return youtubeUrl;
+    }
+
+    public void setYoutubeUrl(String youtubeUrl) {
+        this.youtubeUrl = youtubeUrl;
+    }
+
+    public String getAuthorName() {
+        return authorName;
+    }
+
+    public void setAuthorName(String authorName) {
+        this.authorName = authorName;
     }
 
     public LocalDateTime getPostedOn() {

@@ -1,6 +1,7 @@
 package scam.service;
 
 import scam.dto.user.UserAllPropertiesDto;
+import scam.dto.user.UserCreateDto;
 import scam.dto.user.UserWithoutRelationDto;
 
 import java.util.Set;
@@ -13,7 +14,7 @@ public interface IUserService {
 
     void delete(String userName);
 
-    UserAllPropertiesDto create(UserAllPropertiesDto user);
+    UserAllPropertiesDto create(UserCreateDto user);
 
-    UserAllPropertiesDto update(UserAllPropertiesDto user, String userName);
+    UserAllPropertiesDto update(UserCreateDto user, String userName);
 }

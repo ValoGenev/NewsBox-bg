@@ -18,16 +18,13 @@ public class UserAllPropertiesDto {
 
     private String username;
 
-    private String password;
-
     private Set<PostWithoutRelationDto> posts;
 
     private Set<CommentWithoutRelationDto> comments;
 
-    public UserAllPropertiesDto(String id, String username, String password, Set<PostWithoutRelationDto> posts, Set<CommentWithoutRelationDto> comments) {
+    public UserAllPropertiesDto(String id, String username, Set<PostWithoutRelationDto> posts, Set<CommentWithoutRelationDto> comments) {
         this.id = id;
         this.username = username;
-        this.password = password;
         this.posts = posts;
         this.comments = comments;
     }
@@ -51,13 +48,6 @@ public class UserAllPropertiesDto {
         this.username = username;
     }
 
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
 
     public Set<PostWithoutRelationDto> getPosts() {
         return posts;

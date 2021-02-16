@@ -1,5 +1,6 @@
 package scam.service;
 
+import org.apache.commons.collections4.CollectionUtils;
 import org.hibernate.service.spi.ServiceException;
 import org.modelmapper.ModelMapper;
 import org.slf4j.Logger;
@@ -14,7 +15,6 @@ import scam.dto.post.PostAllPropertiesDto;
 import scam.dto.post.PostWithoutRelationDto;
 import scam.dto.thumbnail.ThumbNailAllPropertiesDto;
 import scam.dto.user.UserAllPropertiesDto;
-import scam.dto.user.UserWithoutRelationDto;
 import scam.entity.PictureEntity;
 import scam.entity.PostEntity;
 import scam.entity.ThumbNailEntity;
@@ -22,16 +22,15 @@ import scam.entity.UserEntity;
 import scam.exception.AlreadyExistingResourceException;
 import scam.exception.ConflictException;
 import scam.exception.PostNotFoundException;
-import scam.exception.UserNotFoundException;
 import scam.repository.IPostRepository;
-import scam.repository.IThumbNailRepository;
+import scam.service.common.RandomAuthorNameGenerator;
 
 import java.time.LocalDateTime;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 import java.util.stream.Collectors;
 
 import static java.lang.String.format;
+import static org.apache.commons.collections4.CollectionUtils.*;
 import static scam.utils.Constants.*;
 
 public class PostService implements IPostService {
@@ -40,6 +39,9 @@ public class PostService implements IPostService {
     private final IPostRepository postRepository;
     private final IUserService userService;
     private final ModelMapper modelMapper;
+
+    @Autowired
+    private RandomAuthorNameGenerator randomAuthorNameGenerator;
 
     @Autowired
     private IThumbNailService thumbNailService;
@@ -53,6 +55,7 @@ public class PostService implements IPostService {
         this.postRepository = postRepository;
         this.modelMapper = modelMapper;
         this.userService = userService;
+
     }
 
     @Override
@@ -100,6 +103,8 @@ public class PostService implements IPostService {
 
         PostEntity postToBeCreated = modelMapper.map(post, PostEntity.class);
 
+        postToBeCreated.setPictures(new HashSet<>(emptyIfNull(postToBeCreated.getPictures())));
+
         UserAllPropertiesDto userInDb = userService.findOne(post.getUser().getUsername());
 
         ThumbNailAllPropertiesDto thumbNailToBeCreated = modelMapper.map(post.getThumbNailPic(), ThumbNailAllPropertiesDto.class);
@@ -109,6 +114,7 @@ public class PostService implements IPostService {
         postToBeCreated.setUser(modelMapper.map(userInDb, UserEntity.class));
         postToBeCreated.setComments(new HashSet<>());
         postToBeCreated.setPostedOn(LocalDateTime.now());
+        postToBeCreated.setAuthorName(randomAuthorNameGenerator.getRandomAuthor());
 
         PostEntity postEntity = createPost(postToBeCreated);
 
@@ -133,7 +139,6 @@ public class PostService implements IPostService {
         PostEntity postInDb = findPost(id);
 
         PostEntity postToBeUpdated = modelMapper.map(post,PostEntity.class);
-        postToBeUpdated.setPictures(postInDb.getPictures());
 
         postToBeUpdated.setId(postInDb.getId());
 
@@ -193,4 +198,6 @@ public class PostService implements IPostService {
             throw new ServiceException(DATABASE_ERROR_MESSAGE);
         }
     }
+
+
 }
