@@ -3,13 +3,16 @@ package scam.controller;
 import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import scam.dto.post.PostAllPropertiesDto;
 import scam.dto.post.PostWithoutRelationDto;
 import scam.dto.user.UserAllPropertiesDto;
 import scam.dto.user.UserWithoutRelationDto;
+import scam.model.Category;
 import scam.service.IPostService;
 import scam.service.IUserService;
+import scam.validation.ValidPostCategory;
 
 import javax.validation.Valid;
 
@@ -26,6 +29,7 @@ import static scam.utils.Constants.*;
 
 @RestController
 @RequestMapping("/config/api/v1/posts")
+@Validated
 public class PostController {
 
     private static final Logger LOGGER = getLogger(PostController.class);
@@ -47,6 +51,13 @@ public class PostController {
         LOGGER.info(format(FIND_POST_BY_ID_MESSAGE, id));
         return ok(postService.findOne(id));
     }
+
+    @GetMapping(produces = APPLICATION_JSON_VALUE,params = "category")
+    public ResponseEntity<Set<PostAllPropertiesDto>> findAllWithSpecificCategory(@RequestParam("category") @ValidPostCategory String category) {
+        LOGGER.info(format(GET_ALL_POSTS_WITH_CATEGORY_MESSAGE, category));
+        return ok(postService.findAllWithCategory(Category.valueOf(category)));
+    }
+
 
     @PostMapping(consumes = APPLICATION_JSON_VALUE, produces = APPLICATION_JSON_VALUE)
     public ResponseEntity<PostAllPropertiesDto> create(@Valid @RequestBody PostAllPropertiesDto post) {

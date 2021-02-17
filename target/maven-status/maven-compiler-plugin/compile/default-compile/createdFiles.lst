@@ -50,6 +50,7 @@ scam\service\ICommentService.class
 scam\exception\UserNotFoundException.class
 scam\security\authentication\JwtAuthentication.class
 scam\config\AppConfiguration.class
+scam\validation\ValidPostCategory.class
 scam\entity\PostEntity.class
 scam\dto\user\UserCreateDto.class
 scam\security\config\SecurityConfiguration.class
@@ -82,3 +83,4 @@ scam\controller\UserController.class
 scam\exception\ConflictException.class
 scam\security\jwt\JwtTokenUtil.class
 scam\service\PictureService.class
+scam\validation\PostCategoryValidator.class

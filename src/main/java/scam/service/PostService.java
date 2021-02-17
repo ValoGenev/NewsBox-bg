@@ -22,6 +22,7 @@ import scam.entity.UserEntity;
 import scam.exception.AlreadyExistingResourceException;
 import scam.exception.ConflictException;
 import scam.exception.PostNotFoundException;
+import scam.model.Category;
 import scam.repository.IPostRepository;
 import scam.service.common.RandomAuthorNameGenerator;
 
@@ -184,11 +185,25 @@ public class PostService implements IPostService {
             }
         });
 
-//        newPictures.addAll(post.getPictures().stream().map(p->modelMapper.map(p,PictureEntity.class)).collect(Collectors.toSet()));
-
         updatedPost.setPictures(newPictures);
 
         return modelMapper.map(updatedPost,PostAllPropertiesDto.class);
+    }
+
+    @Override
+    public Set<PostAllPropertiesDto> findAllWithCategory(Category category) {
+        LOGGER.info(format(GET_ALL_POSTS_WITH_CATEGORY_MESSAGE,category));
+
+        try {
+            return postRepository
+                    .findAllByCategory(category)
+                    .stream()
+                    .map(post -> modelMapper.map(post, PostAllPropertiesDto.class))
+                    .collect(Collectors.toSet());
+        } catch (DataAccessException e) {
+            LOGGER.error(DATABASE_ERROR_MESSAGE);
+            throw new ServiceException(DATABASE_ERROR_MESSAGE);
+        }
     }
 
     private PostEntity createPost(PostEntity post) {

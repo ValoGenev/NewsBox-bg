@@ -12,6 +12,7 @@ import scam.controller.PostController;
 import scam.controller.UserController;
 import scam.exception.*;
 
+import javax.validation.ConstraintViolationException;
 import java.util.stream.Collectors;
 
 import static org.springframework.http.HttpStatus.*;
@@ -75,6 +76,11 @@ public class PostExceptionHandler {
         LOGGER.error(NOT_FOUND_MESSAGE,exception);
 
         return status(NOT_FOUND).body(new ErrorMessage(exception.getMessage(), NOT_FOUND.value()));
+    }
+
+    @ExceptionHandler(ConstraintViolationException.class)
+    public ResponseEntity<ErrorMessage> handleConstraintViolationException(ConstraintViolationException exception) {
+        return status(BAD_REQUEST).body(new ErrorMessage(exception.getMessage().substring(exception.getMessage().indexOf(":")),BAD_REQUEST.value()));
     }
 
 

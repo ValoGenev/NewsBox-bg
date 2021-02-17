@@ -3,6 +3,7 @@ C:\Users\seasi\Desktop\coop backup\bot 1\scamsite\src\main\java\scam\service\ICo
 C:\Users\seasi\Desktop\coop backup\bot 1\scamsite\src\main\java\scam\exception\handlers\PostExceptionHandler.java
 C:\Users\seasi\Desktop\coop backup\bot 1\scamsite\src\main\java\scam\exception\PostNotFoundException.java
 C:\Users\seasi\Desktop\coop backup\bot 1\scamsite\src\main\java\scam\service\PostService.java
+C:\Users\seasi\Desktop\coop backup\bot 1\scamsite\src\main\java\scam\validation\PostCategoryValidator.java
 C:\Users\seasi\Desktop\coop backup\bot 1\scamsite\src\main\java\scam\exception\handlers\UserExceptionHandler.java
 C:\Users\seasi\Desktop\coop backup\bot 1\scamsite\src\main\java\scam\service\IPictureService.java
 C:\Users\seasi\Desktop\coop backup\bot 1\scamsite\src\main\java\scam\security\providers\UsernamePasswordAuthProvider.java
@@ -20,6 +21,7 @@ C:\Users\seasi\Desktop\coop backup\bot 1\scamsite\src\main\java\scam\config\AppC
 C:\Users\seasi\Desktop\coop backup\bot 1\scamsite\src\main\java\scam\dto\user\UserWithoutRelationDto.java
 C:\Users\seasi\Desktop\coop backup\bot 1\scamsite\src\main\java\scam\security\authentication\UsernamePasswordAuthentication.java
 C:\Users\seasi\Desktop\coop backup\bot 1\scamsite\src\main\java\scam\service\IThumbNailService.java
+C:\Users\seasi\Desktop\coop backup\bot 1\scamsite\src\main\java\scam\validation\ValidPostCategory.java
 C:\Users\seasi\Desktop\coop backup\bot 1\scamsite\src\main\java\scam\dto\comment\CommentWithoutRelationDto.java
 C:\Users\seasi\Desktop\coop backup\bot 1\scamsite\src\main\java\scam\exception\AlreadyExistingEmailException.java
 C:\Users\seasi\Desktop\coop backup\bot 1\scamsite\src\main\java\scam\security\config\SecurityConfiguration.java

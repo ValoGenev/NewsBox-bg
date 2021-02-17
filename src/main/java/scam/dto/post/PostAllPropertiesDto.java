@@ -5,8 +5,8 @@ import scam.dto.picture.PictureWithoutRelationDto;
 import scam.dto.thumbnail.ThumbNailWithoutPropertiesDto;
 import scam.dto.user.UserWithoutRelationDto;
 import scam.model.Category;
+import scam.validation.ValidPostCategory;
 
-import javax.persistence.Column;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Null;
@@ -28,7 +28,8 @@ public class PostAllPropertiesDto {
     private String descriptionThree;
 
     @NotNull(message = "CATEGORY CANNOT BE EMPTY OR NULL")
-    private Category category;
+    @ValidPostCategory
+    private String category;
 
     private String facebookDescription;
 
@@ -51,7 +52,7 @@ public class PostAllPropertiesDto {
     public PostAllPropertiesDto(
             String id,
             String title,
-            Category category,
+            String category,
             String facebookDescription,
             String descriptionOne,
             String descriptionTwo,
@@ -123,11 +124,11 @@ public class PostAllPropertiesDto {
         this.descriptionThree = descriptionThree;
     }
 
-    public Category getCategory() {
+    public String getCategory() {
         return category;
     }
 
-    public void setCategory(Category category) {
+    public void setCategory(String category) {
         this.category = category;
     }
 
