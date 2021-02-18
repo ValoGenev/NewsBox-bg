@@ -58,6 +58,8 @@ public class UsernamePasswordAuthenticationFilter extends OncePerRequestFilter {
 
             Cookie cookie = new Cookie("jwt-token",token);
 
+            cookie.setDomain("http://localhost:63342");
+
             httpServletResponse.addCookie(cookie);
         }
         filterChain.doFilter(httpServletRequest,httpServletResponse);
