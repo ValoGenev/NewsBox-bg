@@ -4,6 +4,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import org.apache.commons.io.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
@@ -21,7 +22,9 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 public class UsernamePasswordAuthenticationFilter extends OncePerRequestFilter {
@@ -58,7 +61,19 @@ public class UsernamePasswordAuthenticationFilter extends OncePerRequestFilter {
 
             Cookie cookie = new Cookie("jwt-token",token);
 
-            httpServletResponse.addCookie(cookie);
+//            if (cookies != null && cookies.length > 0) {
+//                List<Cookie> cookieList = Arrays.asList(cookies);
+//                Cookie sessionCookie = cookieList
+//                        .stream()
+//                        .filter(cookie -> SESSION_COOKIE_NAME.equals(cookie.getName())).findFirst().orElse(null);
+//                if (sessionCookie != null) {
+//                    resp.setHeader(HttpHeaders.SET_COOKIE, sessionCookie.getName() + "=" + sessionCookie.getValue() + SAME_SITE_ATTRIBUTE_VALUES);
+//                }
+//            }
+
+            httpServletResponse.setHeader(HttpHeaders.SET_COOKIE,cookie.getName()+"="+cookie.getValue()+";HttpOnly;Secure;SameSite=None");
+
+//            httpServletResponse.addCookie(cookie);
 
         }
         filterChain.doFilter(httpServletRequest,httpServletResponse);

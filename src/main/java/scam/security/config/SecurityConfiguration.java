@@ -69,10 +69,10 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         return new CustomLogoutFilter();
     }
 
-    @Bean
-    SessionCookieFilter cookieFilter(){
-        return new SessionCookieFilter();
-    }
+//    @Bean
+//    SessionCookieFilter cookieFilter(){
+//        return new SessionCookieFilter();
+//    }
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
@@ -112,7 +112,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         http.addFilterAt(usernamePasswordAuthenticationFilter(authenticationManager()), BasicAuthenticationFilter.class);
         http.addFilterBefore(jwtTokenAuthenticationFilter(authenticationManager(),jwtTokenUtil()), UsernamePasswordAuthenticationFilter.class);
         http.addFilterBefore(unauthorizedExceptionFilter(), CustomLogoutFilter.class);
-        http.addFilterAfter(cookieFilter(),BasicAuthenticationFilter.class);
+       // http.addFilterAfter(cookieFilter(),BasicAuthenticationFilter.class);
     }
 
 //    @Bean
