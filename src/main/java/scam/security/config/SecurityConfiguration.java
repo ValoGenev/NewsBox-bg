@@ -32,22 +32,24 @@ import static scam.model.UserRole.USER;
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     @Bean
-    public UnauthorizedExceptionFilter unauthorizedExceptionFilter(){
+    public UnauthorizedExceptionFilter unauthorizedExceptionFilter() {
         return new UnauthorizedExceptionFilter();
     }
 
     @Bean
-    JwtTokenAuthProvider jwtTokenAuthProvider(JwtTokenUtil jwtTokenUtil){
-        return new JwtTokenAuthProvider(userDetailsService,jwtTokenUtil);
+    JwtTokenAuthProvider jwtTokenAuthProvider(JwtTokenUtil jwtTokenUtil) {
+        return new JwtTokenAuthProvider(userDetailsService, jwtTokenUtil);
     }
 
+    @Autowired
+    IUserRepository userRepository;
 
     @Autowired
     UserDetailsServiceImpl userDetailsService;
 
     @Bean
-    UsernamePasswordAuthProvider usernamePasswordAuthProvider(){
-        return new UsernamePasswordAuthProvider(userDetailsService,passwordEncoder());
+    UsernamePasswordAuthProvider usernamePasswordAuthProvider() {
+        return new UsernamePasswordAuthProvider(userDetailsService, passwordEncoder());
     }
 
 
@@ -59,7 +61,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     }
 
     @Bean
-    CustomLogoutFilter customLogoutFilter(){
+    CustomLogoutFilter customLogoutFilter() {
         return new CustomLogoutFilter();
     }
 
@@ -68,47 +70,40 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         http.
                 csrf().disable()
                 .authorizeRequests()
-                .antMatchers("/","/index","/css/*","/js/*").permitAll()
-                .antMatchers("/config/api/v1/login","/config/api/v1/register","/config/api/v1/logout").permitAll()
+                .antMatchers("/", "/index", "/css/*", "/js/*").permitAll()
+                .antMatchers("/config/api/v1/login", "/config/api/v1/logout").permitAll()
+
+                .antMatchers(HttpMethod.POST,"/config/api/v1/posts").hasRole(ADMIN.name())
+                .antMatchers(HttpMethod.PUT,"/config/api/v1/posts/**").hasRole(ADMIN.name())
+                .antMatchers(HttpMethod.DELETE,"/config/api/v1/posts/**").hasRole(ADMIN.name())
+
+                .antMatchers(HttpMethod.PUT,"/config/api/v1/users/**").hasRole(ADMIN.name())
+                .antMatchers(HttpMethod.DELETE,"/config/api/v1/users/**").hasRole(ADMIN.name())
+
+                .antMatchers(HttpMethod.POST,"/config/api/v1/thumbnails").hasRole(ADMIN.name())
+                .antMatchers(HttpMethod.DELETE,"/config/api/v1/thumbnails/**").hasRole(ADMIN.name())
+                .antMatchers(HttpMethod.PUT,"/config/api/v1/thumbnails/**").hasRole(ADMIN.name())
+                .antMatchers(HttpMethod.GET,"/config/api/v1/thumbnails").hasRole(ADMIN.name())
+
+                .antMatchers(HttpMethod.POST,"/config/api/v1/pictures").hasRole(ADMIN.name())
+                .antMatchers(HttpMethod.DELETE,"/config/api/v1/pictures/**").hasRole(ADMIN.name())
+                .antMatchers(HttpMethod.PUT,"/config/api/v1/pictures/**").hasRole(ADMIN.name())
+                .antMatchers(HttpMethod.GET,"/config/api/v1/pictures").hasRole(ADMIN.name())
                 .antMatchers("**").permitAll()
-
-//                .antMatchers(HttpMethod.GET,"/config/api/v1/users").hasAnyRole(ADMIN.name())
-//                .antMatchers(HttpMethod.GET,"/config/api/v1/users/**").hasAnyRole(ADMIN.name(), USER.name())
-//                .antMatchers(HttpMethod.DELETE,"/config/api/v1/users/**").hasRole(ADMIN.name())
-//                .antMatchers(HttpMethod.PUT,"/config/api/v1/users/**").hasAnyRole(ADMIN.name(), USER.name())
-//                .antMatchers(HttpMethod.POST,"/config/api/v1/users").hasAnyRole(ADMIN.name())
-//
-//                .antMatchers(HttpMethod.GET,"/config/api/v1/results").hasAnyRole(ADMIN.name(), USER.name())
-//                .antMatchers(HttpMethod.GET,"/config/api/v1/results/**").hasAnyRole(ADMIN.name(), USER.name())
-//                .antMatchers(HttpMethod.POST,"/config/api/v1/results").hasAnyRole(ADMIN.name(), USER.name())
-//                .antMatchers(HttpMethod.PUT,"/config/api/v1/results/**").hasAnyRole(ADMIN.name(), USER.name())
-//                .antMatchers(HttpMethod.DELETE,"/config/api/v1/results/**").hasRole(ADMIN.name())
-//                .antMatchers(HttpMethod.GET,"/config/api/v1/results/**/snapshots").hasAnyRole(ADMIN.name(), USER.name())
-//
-//
-//                .antMatchers(HttpMethod.GET,"/config/api/v1/snapshots").hasAnyRole(ADMIN.name(), USER.name())
-//                .antMatchers(HttpMethod.GET,"/config/api/v1/snapshots/**").hasAnyRole(ADMIN.name(), USER.name())
-//                .antMatchers(HttpMethod.POST,"/config/api/v1/snapshots").hasAnyRole(ADMIN.name())
-//                .antMatchers(HttpMethod.PUT,"/config/api/v1/snapshots/**").hasAnyRole(ADMIN.name())
-//                .antMatchers(HttpMethod.DELETE,"/config/api/v1/snapshots/**").hasRole(ADMIN.name())
-//                .antMatchers(HttpMethod.GET,"/config/api/v1/results/**/snapshots").hasAnyRole(ADMIN.name(),USER.name())
-//
-
                 .anyRequest()
                 .authenticated()
                 .and()
                 .httpBasic();
 
-//        http.sessionManagement()
-//                .sessionCreationPolicy(SessionCreationPolicy.STATELESS);
-//
-//
-//        http.addFilterAt(customLogoutFilter(),LogoutFilter.class);
-//        http.addFilterAt(usernamePasswordAuthenticationFilter(authenticationManager()), BasicAuthenticationFilter.class);
-//        http.addFilterBefore(jwtTokenAuthenticationFilter(authenticationManager(),jwtTokenUtil()), UsernamePasswordAuthenticationFilter.class);
-//        http.addFilterBefore(unauthorizedExceptionFilter(), LogoutFilter.class);
-    }
+        http.sessionManagement()
+                .sessionCreationPolicy(SessionCreationPolicy.STATELESS);
 
+
+        http.addFilterAt(customLogoutFilter(),LogoutFilter.class);
+        http.addFilterAt(usernamePasswordAuthenticationFilter(authenticationManager()), BasicAuthenticationFilter.class);
+        http.addFilterBefore(jwtTokenAuthenticationFilter(authenticationManager(),jwtTokenUtil()), UsernamePasswordAuthenticationFilter.class);
+        http.addFilterBefore(unauthorizedExceptionFilter(), CustomLogoutFilter.class);
+    }
 
 
     @Bean(name = BeanIds.AUTHENTICATION_MANAGER)
@@ -118,27 +113,23 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     }
 
     @Bean
-    public UsernamePasswordAuthenticationFilter usernamePasswordAuthenticationFilter(AuthenticationManager authenticationManager){
+    public UsernamePasswordAuthenticationFilter usernamePasswordAuthenticationFilter(AuthenticationManager authenticationManager) {
         return new UsernamePasswordAuthenticationFilter(authenticationManager);
     }
 
     @Bean
-    public JwtTokenAuthenticationFilter jwtTokenAuthenticationFilter(AuthenticationManager authenticationManager, JwtTokenUtil jwtTokenUtil){
-        return new JwtTokenAuthenticationFilter(authenticationManager,jwtTokenUtil);
+    public JwtTokenAuthenticationFilter jwtTokenAuthenticationFilter(AuthenticationManager authenticationManager, JwtTokenUtil jwtTokenUtil) {
+        return new JwtTokenAuthenticationFilter(authenticationManager, jwtTokenUtil);
     }
 
     @Bean
-    public JwtTokenUtil jwtTokenUtil(){
+    public JwtTokenUtil jwtTokenUtil() {
         return new JwtTokenUtil();
     }
 
-//    @Bean
-//    public TokenAuthenticationFilter tokenAuthenticationFilter(AuthenticationManager authenticationManager){
-//        return new TokenAuthenticationFilter(authenticationManager);
-//    }
 
     @Bean
-    public PasswordEncoder passwordEncoder(){
+    public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder(5);
     }
 

@@ -3,11 +3,9 @@ package scam.security.filters;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpStatus;
-import org.springframework.security.authentication.BadCredentialsException;
-import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
 import org.springframework.web.servlet.HandlerExceptionResolver;
+import scam.exception.ErrorMessage;
 
 import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
@@ -22,20 +20,20 @@ public class UnauthorizedExceptionFilter extends OncePerRequestFilter {
 
     @Override
     protected void doFilterInternal(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, FilterChain filterChain) throws ServletException, IOException {
-//        try{
-//            filterChain.doFilter(httpServletRequest,httpServletResponse);
-//        }catch (BadCredentialsException e){
-//
-//            handlerExceptionResolver.resolveException(httpServletRequest,httpServletResponse,null,e);
-//
-//            httpServletResponse.resetBuffer();
-//            httpServletResponse.setStatus(403);
-//            httpServletResponse.setHeader(HttpHeaders.CONTENT_TYPE, "application/json");
-//            httpServletResponse.getOutputStream();
-//            //httpServletResponse.getOutputStream().print(new ObjectMapper().writeValueAsString(errorMessage));
-//            httpServletResponse.flushBuffer();
-
+        try{
             filterChain.doFilter(httpServletRequest,httpServletResponse);
-        //}
+        }
+        catch (Exception e) {
+            handlerExceptionResolver.resolveException(httpServletRequest, httpServletResponse, null, e);
+
+            httpServletResponse.resetBuffer();
+            httpServletResponse.setStatus(401);
+            httpServletResponse.setHeader(HttpHeaders.CONTENT_TYPE, "application/json");
+            httpServletResponse.getOutputStream();
+            httpServletResponse.getOutputStream().print(new ObjectMapper().writeValueAsString(new ErrorMessage("Wrong username or password",401)));
+            httpServletResponse.flushBuffer();
+
+            //filterChain.doFilter(httpServletRequest, httpServletResponse);
+        }
     }
 }

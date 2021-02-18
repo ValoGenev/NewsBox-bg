@@ -2,11 +2,13 @@ package scam.security.filters;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import org.apache.commons.io.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.web.filter.OncePerRequestFilter;
+import scam.dto.user.UserLoginRegisterDto;
 import scam.security.authentication.UsernamePasswordAuthentication;
 import scam.security.jwt.JwtTokenUtil;
 import scam.security.userdetails.UserDetailsImpl;
@@ -37,37 +39,27 @@ public class UsernamePasswordAuthenticationFilter extends OncePerRequestFilter {
 
     @Override
     protected void doFilterInternal(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, FilterChain filterChain) throws ServletException, IOException {
-//
-//        ObjectMapper objectMapper = new ObjectMapper();
-//
-//        httpServletRequest = new WrappedHttpServletRequest(httpServletRequest);
-//
-//        String userName = httpServletRequest.getParameter("username");
-//        String password = httpServletRequest.getParameter("password");
-//
-//        System.out.println(userName + " "+ password);
-//
-//
-////        ServletInputStream servletInputStream = httpServletRequest.getInputStream();
-////
-////        UserLoginDto userLoginDto = objectMapper.readValue(servletInputStream,UserLoginDto.class);
-//
-//        Authentication a = new UsernamePasswordAuthentication(userName,password);
-//        a=authenticationManager.authenticate(a);
-//
-//        String loggedUserUsername = (String) a.getPrincipal();
-//        String loggedUserPassword = (String) a.getCredentials();
-//        Set<GrantedAuthority> loggedUserAuthorities= new HashSet<>(a.getAuthorities());
-//
-//        if(a.isAuthenticated()){
-//            String token = jwtTokenUtil.generateToken(new UserDetailsImpl(loggedUserUsername,loggedUserPassword,loggedUserAuthorities));
-//
-//            Cookie cookie = new Cookie("jwt-token",token);
-////            cookie.setHttpOnly(false);
-////            cookie.setSecure(false);
-//
-//            httpServletResponse.addCookie(cookie);
-//        }
+
+        httpServletRequest = new WrappedHttpServletRequest(httpServletRequest);
+
+        UserLoginRegisterDto user = new ObjectMapper().readValue(IOUtils.toString(httpServletRequest.getInputStream()), UserLoginRegisterDto.class);
+
+        System.out.println(user.getUsername() + " "+ user.getPassword());
+
+        Authentication a = new UsernamePasswordAuthentication(user.getUsername(),user.getPassword());
+        a=authenticationManager.authenticate(a);
+
+        String loggedUserUsername = (String) a.getPrincipal();
+        String loggedUserPassword = (String) a.getCredentials();
+        Set<GrantedAuthority> loggedUserAuthorities= new HashSet<>(a.getAuthorities());
+
+        if(a.isAuthenticated()){
+            String token = jwtTokenUtil.generateToken(new UserDetailsImpl(loggedUserUsername,loggedUserPassword,loggedUserAuthorities));
+
+            Cookie cookie = new Cookie("jwt-token",token);
+
+            httpServletResponse.addCookie(cookie);
+        }
         filterChain.doFilter(httpServletRequest,httpServletResponse);
     }
 

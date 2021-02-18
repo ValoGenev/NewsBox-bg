@@ -17,14 +17,14 @@ public class CustomLogoutFilter extends OncePerRequestFilter {
 
     @Override
     protected void doFilterInternal(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, FilterChain filterChain) throws ServletException, IOException {
-//        Cookie jwtCookie =  Arrays.stream(httpServletRequest.getCookies())
-//                .filter(cookie -> cookie.getName().equals("jwt-token"))
-//                .findFirst().orElse(null);
-//
-//        if(jwtCookie!=null){
-//            jwtCookie.setValue(null);
-//            httpServletResponse.addCookie(jwtCookie);
-//        }
+        Cookie jwtCookie =  Arrays.stream(httpServletRequest.getCookies())
+                .filter(cookie -> cookie.getName().equals("jwt-token"))
+                .findFirst().orElse(null);
+
+        if(jwtCookie!=null){
+            jwtCookie.setValue(null);
+            httpServletResponse.addCookie(jwtCookie);
+        }
 
         filterChain.doFilter(httpServletRequest,httpServletResponse);
     }

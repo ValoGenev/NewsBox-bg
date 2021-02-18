@@ -12,6 +12,7 @@ scam\dto\post\PostWithoutRelationDto.class
 scam\dto\user\UserAllPropertiesDto.class
 scam\SpringApplication.class
 scam\security\userdetails\UserDetailsServiceImpl.class
+scam\security\runner\InitialAdminRunner.class
 scam\model\Category.class
 scam\security\filters\CorsFilter.class
 scam\exception\ThumbNailNotFoundException.class
@@ -19,6 +20,7 @@ scam\exception\handlers\CommentExceptionHandler.class
 scam\controller\PictureController.class
 scam\exception\InvalidInputException.class
 scam\dto\thumbnail\ThumbNailCreateDto.class
+scam\dto\user\UserLoginRegisterDto.class
 scam\exception\AlreadyExistingUserNameException.class
 scam\controller\ThumbNailController.class
 scam\entity\CommentEntity.class
@@ -52,7 +54,6 @@ scam\security\authentication\JwtAuthentication.class
 scam\config\AppConfiguration.class
 scam\validation\ValidPostCategory.class
 scam\entity\PostEntity.class
-scam\dto\user\UserCreateDto.class
 scam\security\config\SecurityConfiguration.class
 scam\exception\OrderNotFoundException.class
 scam\exception\ProductNotFoundException.class

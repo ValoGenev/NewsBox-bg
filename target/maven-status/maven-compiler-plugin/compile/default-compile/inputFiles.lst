@@ -23,6 +23,7 @@ C:\Users\seasi\Desktop\coop backup\bot 1\scamsite\src\main\java\scam\security\au
 C:\Users\seasi\Desktop\coop backup\bot 1\scamsite\src\main\java\scam\service\IThumbNailService.java
 C:\Users\seasi\Desktop\coop backup\bot 1\scamsite\src\main\java\scam\validation\ValidPostCategory.java
 C:\Users\seasi\Desktop\coop backup\bot 1\scamsite\src\main\java\scam\dto\comment\CommentWithoutRelationDto.java
+C:\Users\seasi\Desktop\coop backup\bot 1\scamsite\src\main\java\scam\dto\user\UserLoginRegisterDto.java
 C:\Users\seasi\Desktop\coop backup\bot 1\scamsite\src\main\java\scam\exception\AlreadyExistingEmailException.java
 C:\Users\seasi\Desktop\coop backup\bot 1\scamsite\src\main\java\scam\security\config\SecurityConfiguration.java
 C:\Users\seasi\Desktop\coop backup\bot 1\scamsite\src\main\java\scam\repository\IUserRepository.java
@@ -35,12 +36,12 @@ C:\Users\seasi\Desktop\coop backup\bot 1\scamsite\src\main\java\scam\controller\
 C:\Users\seasi\Desktop\coop backup\bot 1\scamsite\src\main\java\scam\security\filters\JwtTokenAuthenticationFilter.java
 C:\Users\seasi\Desktop\coop backup\bot 1\scamsite\src\main\java\scam\service\IPostService.java
 C:\Users\seasi\Desktop\coop backup\bot 1\scamsite\src\main\java\scam\security\providers\JwtTokenAuthProvider.java
-C:\Users\seasi\Desktop\coop backup\bot 1\scamsite\src\main\java\scam\dto\user\UserCreateDto.java
 C:\Users\seasi\Desktop\coop backup\bot 1\scamsite\src\main\java\scam\security\authentication\JwtAuthentication.java
 C:\Users\seasi\Desktop\coop backup\bot 1\scamsite\src\main\java\scam\exception\OrderNotFoundException.java
 C:\Users\seasi\Desktop\coop backup\bot 1\scamsite\src\main\java\scam\exception\ThumbNailNotFoundException.java
 C:\Users\seasi\Desktop\coop backup\bot 1\scamsite\src\main\java\scam\model\Category.java
 C:\Users\seasi\Desktop\coop backup\bot 1\scamsite\src\main\java\scam\exception\handlers\CommentExceptionHandler.java
+C:\Users\seasi\Desktop\coop backup\bot 1\scamsite\src\main\java\scam\security\runner\InitialAdminRunner.java
 C:\Users\seasi\Desktop\coop backup\bot 1\scamsite\src\main\java\scam\exception\handlers\PictureExceptionHandler.java
 C:\Users\seasi\Desktop\coop backup\bot 1\scamsite\src\main\java\scam\security\filters\UsernamePasswordAuthenticationFilter.java
 C:\Users\seasi\Desktop\coop backup\bot 1\scamsite\src\main\java\scam\security\userdetails\UserDetailsServiceImpl.java

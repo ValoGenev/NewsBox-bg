@@ -31,15 +31,16 @@ public class UserEntity {
     @Enumerated(EnumType.STRING)
     private UserRole role;
 
-    @OneToMany(mappedBy = "user",targetEntity = PostEntity.class)
+    @OneToMany(mappedBy = "user",targetEntity = PostEntity.class,fetch = FetchType.EAGER)
     private Set<PostEntity> posts;
 
-    @OneToMany(mappedBy = "user",targetEntity = CommentEntity.class)
+    @OneToMany(mappedBy = "user",targetEntity = CommentEntity.class,fetch = FetchType.EAGER)
     private Set<CommentEntity> comments;
 
 
     public UserEntity() {
     }
+
 
     public String getId() {
         return id;

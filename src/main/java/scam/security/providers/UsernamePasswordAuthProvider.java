@@ -29,13 +29,12 @@ public class UsernamePasswordAuthProvider implements AuthenticationProvider {
         String username = authentication.getName();
         String passWord = (String) authentication.getCredentials();
         UserDetails user = userDetailsService.loadUserByUsername(username);
-        System.out.println("user is db " + user.getUsername());
 
         if(passwordEncoder.matches(passWord,user.getPassword())){
             return new UsernamePasswordAuthentication(username,passWord,user.getAuthorities());
         }
 
-        throw  new BadCredentialsException(":(");
+        throw new BadCredentialsException(":(");
     }
 
     @Override

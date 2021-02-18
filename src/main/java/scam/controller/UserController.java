@@ -5,7 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import scam.dto.user.UserAllPropertiesDto;
-import scam.dto.user.UserCreateDto;
+import scam.dto.user.UserLoginRegisterDto;
 import scam.dto.user.UserWithoutRelationDto;
 import scam.service.IUserService;
 
@@ -47,7 +47,7 @@ public class UserController {
     }
 
     @PostMapping(consumes = APPLICATION_JSON_VALUE, produces = APPLICATION_JSON_VALUE)
-    public ResponseEntity<UserAllPropertiesDto> create(@Valid @RequestBody UserCreateDto user) {
+    public ResponseEntity<UserAllPropertiesDto> create(@Valid @RequestBody UserLoginRegisterDto user) {
         LOGGER.info(format(CREATE_USER_MESSAGE, user.getUsername()));
         return status(CREATED).body(userService.create(user));
     }
@@ -60,8 +60,13 @@ public class UserController {
     }
 
     @PutMapping(value = "/{username}", consumes = APPLICATION_JSON_VALUE, produces = APPLICATION_JSON_VALUE)
-    public ResponseEntity<UserAllPropertiesDto> update(@Valid @RequestBody UserCreateDto user, @PathVariable("username") String username) {
+    public ResponseEntity<UserAllPropertiesDto> update(@Valid @RequestBody UserLoginRegisterDto user, @PathVariable("username") String username) {
         LOGGER.info(format(UPDATE_USER_BY_USERNAME_MESSAGE, username));
         return ok(userService.update(user, username));
     }
+
+
+
+
+
 }

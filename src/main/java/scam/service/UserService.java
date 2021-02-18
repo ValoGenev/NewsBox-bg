@@ -9,10 +9,11 @@ import org.springframework.dao.DataAccessException;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import scam.dto.user.UserAllPropertiesDto;
-import scam.dto.user.UserCreateDto;
+import scam.dto.user.UserLoginRegisterDto;
 import scam.dto.user.UserWithoutRelationDto;
 import scam.entity.UserEntity;
 import scam.exception.*;
+import scam.model.UserRole;
 import scam.repository.IUserRepository;
 
 import java.util.HashSet;
@@ -20,6 +21,7 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 import static java.lang.String.format;
+import static scam.model.UserRole.*;
 import static scam.utils.Constants.*;
 
 public class UserService implements IUserService {
@@ -76,13 +78,14 @@ public class UserService implements IUserService {
     }
 
     @Override
-    public UserAllPropertiesDto create(UserCreateDto user) {
+    public UserAllPropertiesDto create(UserLoginRegisterDto user) {
         LOGGER.info(format(CREATE_USER_MESSAGE, user.getUsername()));
 
         assertNotExistingUsername(user.getUsername());
 
         UserEntity userToBeCreated = modelMapper.map(user,UserEntity.class);
 
+        userToBeCreated.setRole(USER);
         userToBeCreated.setPassword(passwordEncoder.encode(user.getPassword()));
         userToBeCreated.setComments(new HashSet<>());
         userToBeCreated.setPosts(new HashSet<>());
@@ -91,7 +94,7 @@ public class UserService implements IUserService {
     }
 
     @Override
-    public UserAllPropertiesDto update(UserCreateDto user, String userName) {
+    public UserAllPropertiesDto update(UserLoginRegisterDto user, String userName) {
         LOGGER.info(format(UPDATE_USER_BY_USERNAME_MESSAGE, user.getUsername()));
 
         UserEntity userInDb = findUser(userName);
