@@ -47,7 +47,6 @@ C:\Users\seasi\Desktop\coop backup\bot 1\scamsite\src\main\java\scam\security\fi
 C:\Users\seasi\Desktop\coop backup\bot 1\scamsite\src\main\java\scam\security\userdetails\UserDetailsServiceImpl.java
 C:\Users\seasi\Desktop\coop backup\bot 1\scamsite\src\main\java\scam\controller\ThumbNailController.java
 C:\Users\seasi\Desktop\coop backup\bot 1\scamsite\src\main\java\scam\exception\ConflictException.java
-C:\Users\seasi\Desktop\coop backup\bot 1\scamsite\src\main\java\scam\security\filters\SessionCookieFilter.java
 C:\Users\seasi\Desktop\coop backup\bot 1\scamsite\src\main\java\scam\dto\comment\CommentAllPropertiesDto.java
 C:\Users\seasi\Desktop\coop backup\bot 1\scamsite\src\main\java\scam\entity\UserEntity.java
 C:\Users\seasi\Desktop\coop backup\bot 1\scamsite\src\main\java\scam\repository\IThumbNailRepository.java

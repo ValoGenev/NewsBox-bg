@@ -1,14 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="94dea836-77e1-43a3-8933-fa85f41c10b5" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/scam/security/config/SecurityConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/scam/security/config/SecurityConfiguration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/scam/security/filters/SessionCookieFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/scam/security/filters/SessionCookieFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/scam/security/filters/UsernamePasswordAuthenticationFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/scam/security/filters/UsernamePasswordAuthenticationFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/scam/security/filters/SessionCookieFilter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/scam/security/filters/SessionCookieFilter.class" afterDir="false" />
-    </list>
+    <list default="true" id="94dea836-77e1-43a3-8933-fa85f41c10b5" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -146,7 +139,7 @@
       <workItem from="1613379363713" duration="13063000" />
       <workItem from="1613469641732" duration="19475000" />
       <workItem from="1613556471615" duration="26850000" />
-      <workItem from="1613637107167" duration="10327000" />
+      <workItem from="1613637107167" duration="10726000" />
     </task>
     <servers />
   </component>
@@ -181,26 +174,26 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="740" y="277" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1613323797167" />
-    <state width="1877" height="239" key="GridCell.Tab.0.bottom" timestamp="1613652456895">
+    <state width="1877" height="239" key="GridCell.Tab.0.bottom" timestamp="1613652854648">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1877" height="92" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1613380248915" />
-    <state width="1877" height="239" key="GridCell.Tab.0.bottom/1920.37.1680.1010/0.0.1920.1040@0.0.1920.1040" timestamp="1613652456895" />
-    <state width="1877" height="239" key="GridCell.Tab.0.center" timestamp="1613652456894">
+    <state width="1877" height="239" key="GridCell.Tab.0.bottom/1920.37.1680.1010/0.0.1920.1040@0.0.1920.1040" timestamp="1613652854648" />
+    <state width="1877" height="239" key="GridCell.Tab.0.center" timestamp="1613652854648">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1877" height="92" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1613380248915" />
-    <state width="1877" height="239" key="GridCell.Tab.0.center/1920.37.1680.1010/0.0.1920.1040@0.0.1920.1040" timestamp="1613652456894" />
-    <state width="1877" height="239" key="GridCell.Tab.0.left" timestamp="1613652456894">
+    <state width="1877" height="239" key="GridCell.Tab.0.center/1920.37.1680.1010/0.0.1920.1040@0.0.1920.1040" timestamp="1613652854648" />
+    <state width="1877" height="239" key="GridCell.Tab.0.left" timestamp="1613652854648">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1877" height="92" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1613380248915" />
-    <state width="1877" height="239" key="GridCell.Tab.0.left/1920.37.1680.1010/0.0.1920.1040@0.0.1920.1040" timestamp="1613652456894" />
-    <state width="1877" height="239" key="GridCell.Tab.0.right" timestamp="1613652456894">
+    <state width="1877" height="239" key="GridCell.Tab.0.left/1920.37.1680.1010/0.0.1920.1040@0.0.1920.1040" timestamp="1613652854648" />
+    <state width="1877" height="239" key="GridCell.Tab.0.right" timestamp="1613652854648">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1877" height="92" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1613380248915" />
-    <state width="1877" height="239" key="GridCell.Tab.0.right/1920.37.1680.1010/0.0.1920.1040@0.0.1920.1040" timestamp="1613652456894" />
+    <state width="1877" height="239" key="GridCell.Tab.0.right/1920.37.1680.1010/0.0.1920.1040@0.0.1920.1040" timestamp="1613652854648" />
     <state width="1877" height="239" key="GridCell.Tab.1.bottom" timestamp="1613652450824">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
