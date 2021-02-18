@@ -1,11 +1,15 @@
 package scam.security.config;
 
+import org.apache.tomcat.util.http.LegacyCookieProcessor;
 import org.apache.tomcat.util.http.Rfc6265CookieProcessor;
 import org.apache.tomcat.util.http.SameSiteCookies;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.web.embedded.tomcat.TomcatContextCustomizer;
+import org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory;
+import org.springframework.boot.web.server.WebServerFactoryCustomizer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Profile;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.BeanIds;
@@ -108,13 +112,23 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         http.addFilterBefore(unauthorizedExceptionFilter(), CustomLogoutFilter.class);
     }
 
+//    @Bean
+////    public TomcatContextCustomizer sameSiteCookiesConfig() {
+////        return context -> {
+////            final Rfc6265CookieProcessor cookieProcessor = new Rfc6265CookieProcessor();
+////            cookieProcessor.setSameSiteCookies(SameSiteCookies.NONE.getValue());
+////            context.setCookieProcessor(cookieProcessor);
+////        };
+////    }
+
     @Bean
-    public TomcatContextCustomizer sameSiteCookiesConfig() {
-        return context -> {
-            final Rfc6265CookieProcessor cookieProcessor = new Rfc6265CookieProcessor();
-            cookieProcessor.setSameSiteCookies(SameSiteCookies.NONE.getValue());
-            context.setCookieProcessor(cookieProcessor);
-        };
+    @Profile("prod")
+    public WebServerFactoryCustomizer<TomcatServletWebServerFactory> cookieProcessorCustomizer() {
+        return (factory) -> factory.addContextCustomizers((context) -> {
+            LegacyCookieProcessor legacyCookieProcessor = new LegacyCookieProcessor();
+            legacyCookieProcessor.setSameSiteCookies(SameSiteCookies.NONE.getValue());
+            context.setCookieProcessor(legacyCookieProcessor);
+        });
     }
 
 
