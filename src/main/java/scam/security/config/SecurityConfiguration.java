@@ -23,10 +23,7 @@ import org.springframework.security.web.authentication.logout.LogoutFilter;
 import org.springframework.security.web.authentication.www.BasicAuthenticationFilter;
 import org.springframework.web.filter.CorsFilter;
 import scam.repository.IUserRepository;
-import scam.security.filters.CustomLogoutFilter;
-import scam.security.filters.JwtTokenAuthenticationFilter;
-import scam.security.filters.UnauthorizedExceptionFilter;
-import scam.security.filters.UsernamePasswordAuthenticationFilter;
+import scam.security.filters.*;
 import scam.security.jwt.JwtTokenUtil;
 import scam.security.providers.JwtTokenAuthProvider;
 import scam.security.providers.UsernamePasswordAuthProvider;
@@ -72,6 +69,11 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         return new CustomLogoutFilter();
     }
 
+    @Bean
+    SessionCookieFilter cookieFilter(){
+        return new SessionCookieFilter();
+    }
+
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.
@@ -110,6 +112,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         http.addFilterAt(usernamePasswordAuthenticationFilter(authenticationManager()), BasicAuthenticationFilter.class);
         http.addFilterBefore(jwtTokenAuthenticationFilter(authenticationManager(),jwtTokenUtil()), UsernamePasswordAuthenticationFilter.class);
         http.addFilterBefore(unauthorizedExceptionFilter(), CustomLogoutFilter.class);
+        http.addFilterAfter(cookieFilter(),BasicAuthenticationFilter.class);
     }
 
 //    @Bean
