@@ -180,7 +180,9 @@ public class PostService implements IPostService {
                 picToBeCreated.getPost().setId(updatedPost.getId());
                 newPictures.add(modelMapper.map(pictureService.create(picToBeCreated),PictureEntity.class));
             }else {
-                pictureService.findOne(pic.getId());
+                PictureAllPropertiesDto picture = pictureService.findOne(pic.getId());
+                picture.setPictureUrl(pic.getPictureUrl());
+                pictureService.update(picture,pic.getId());
                 newPictures.add(modelMapper.map(pic,PictureEntity.class));
             }
         });

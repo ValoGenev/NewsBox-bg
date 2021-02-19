@@ -39,12 +39,11 @@ public class PictureWithoutRelationDto {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         PictureWithoutRelationDto that = (PictureWithoutRelationDto) o;
-        return id.equals(that.id) &&
-                pictureUrl.equals(that.pictureUrl);
+        return id.equals(that.id);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, pictureUrl);
+        return Objects.hash(id);
     }
 }
