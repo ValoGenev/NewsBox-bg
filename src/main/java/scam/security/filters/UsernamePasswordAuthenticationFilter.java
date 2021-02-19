@@ -43,6 +43,8 @@ public class UsernamePasswordAuthenticationFilter extends OncePerRequestFilter {
     @Override
     protected void doFilterInternal(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, FilterChain filterChain) throws ServletException, IOException {
 
+        System.out.println("USERNAME PASSWORD AUTHENTICATION FILTER");
+
         httpServletRequest = new WrappedHttpServletRequest(httpServletRequest);
 
         UserLoginRegisterDto user = new ObjectMapper().readValue(IOUtils.toString(httpServletRequest.getInputStream()), UserLoginRegisterDto.class);

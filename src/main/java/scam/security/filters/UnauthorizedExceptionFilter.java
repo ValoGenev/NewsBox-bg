@@ -20,6 +20,9 @@ public class UnauthorizedExceptionFilter extends OncePerRequestFilter {
 
     @Override
     protected void doFilterInternal(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, FilterChain filterChain) throws ServletException, IOException {
+
+        System.out.println("UNAUTHORIZED FILTER CALLED");
+
         try{
             filterChain.doFilter(httpServletRequest,httpServletResponse);
         }

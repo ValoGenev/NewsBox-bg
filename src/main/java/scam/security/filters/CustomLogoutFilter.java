@@ -17,6 +17,7 @@ public class CustomLogoutFilter extends OncePerRequestFilter {
 
     @Override
     protected void doFilterInternal(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, FilterChain filterChain) throws ServletException, IOException {
+        System.out.println("CUSTOM LOGOUT FILTER CALLED");
         Cookie jwtCookie =  Arrays.stream(httpServletRequest.getCookies())
                 .filter(cookie -> cookie.getName().equals("jwt-token"))
                 .findFirst().orElse(null);

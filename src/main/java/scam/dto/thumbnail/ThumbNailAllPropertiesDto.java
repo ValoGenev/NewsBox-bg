@@ -6,6 +6,7 @@ import scam.entity.PostEntity;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 public class ThumbNailAllPropertiesDto {
 
@@ -14,6 +15,7 @@ public class ThumbNailAllPropertiesDto {
     @NotBlank(message = "PICTURE URL CANNOT BE NULL OR EMPTY")
     private String pictureUrl;
 
+    @NotNull(message = "POST CANNOT BE NULL")
     private PostWithoutRelationDto post;
 
     public ThumbNailAllPropertiesDto(String id, String pictureUrl, PostWithoutRelationDto post) {

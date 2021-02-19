@@ -15,6 +15,8 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.BeanIds;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.builders.WebSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -33,6 +35,7 @@ import static scam.model.UserRole.ADMIN;
 import static scam.model.UserRole.USER;
 
 @Configuration
+@EnableWebSecurity
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     @Bean
@@ -74,6 +77,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 //        return new SessionCookieFilter();
 //    }
 
+
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.
@@ -92,12 +96,11 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .antMatchers(HttpMethod.POST,"/config/api/v1/thumbnails").hasRole(ADMIN.name())
                 .antMatchers(HttpMethod.DELETE,"/config/api/v1/thumbnails/**").hasRole(ADMIN.name())
                 .antMatchers(HttpMethod.PUT,"/config/api/v1/thumbnails/**").hasRole(ADMIN.name())
-                .antMatchers(HttpMethod.GET,"/config/api/v1/thumbnails").hasRole(ADMIN.name())
 
                 .antMatchers(HttpMethod.POST,"/config/api/v1/pictures").hasRole(ADMIN.name())
                 .antMatchers(HttpMethod.DELETE,"/config/api/v1/pictures/**").hasRole(ADMIN.name())
                 .antMatchers(HttpMethod.PUT,"/config/api/v1/pictures/**").hasRole(ADMIN.name())
-                .antMatchers(HttpMethod.GET,"/config/api/v1/pictures").hasRole(ADMIN.name())
+
                 .antMatchers("**").permitAll()
                 .anyRequest()
                 .authenticated()
@@ -112,7 +115,6 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         http.addFilterAt(usernamePasswordAuthenticationFilter(authenticationManager()), BasicAuthenticationFilter.class);
         http.addFilterBefore(jwtTokenAuthenticationFilter(authenticationManager(),jwtTokenUtil()), UsernamePasswordAuthenticationFilter.class);
         http.addFilterBefore(unauthorizedExceptionFilter(), CustomLogoutFilter.class);
-       // http.addFilterAfter(cookieFilter(),BasicAuthenticationFilter.class);
     }
 
 //    @Bean
@@ -124,15 +126,15 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 ////        };
 ////    }
 
-    @Bean
-    @Profile("prod")
-    public WebServerFactoryCustomizer<TomcatServletWebServerFactory> cookieProcessorCustomizer() {
-        return (factory) -> factory.addContextCustomizers((context) -> {
-            LegacyCookieProcessor legacyCookieProcessor = new LegacyCookieProcessor();
-            legacyCookieProcessor.setSameSiteCookies(SameSiteCookies.NONE.getValue());
-            context.setCookieProcessor(legacyCookieProcessor);
-        });
-    }
+//    @Bean
+//    @Profile("prod")
+//    public WebServerFactoryCustomizer<TomcatServletWebServerFactory> cookieProcessorCustomizer() {
+//        return (factory) -> factory.addContextCustomizers((context) -> {
+//            LegacyCookieProcessor legacyCookieProcessor = new LegacyCookieProcessor();
+//            legacyCookieProcessor.setSameSiteCookies(SameSiteCookies.NONE.getValue());
+//            context.setCookieProcessor(legacyCookieProcessor);
+//        });
+//    }
 
 
     @Bean(name = BeanIds.AUTHENTICATION_MANAGER)

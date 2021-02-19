@@ -1,5 +1,6 @@
 package scam.dto.post;
 
+import scam.dto.comment.CommentWithUserDto;
 import scam.dto.comment.CommentWithoutRelationDto;
 import scam.dto.picture.PictureWithoutRelationDto;
 import scam.dto.thumbnail.ThumbNailWithoutPropertiesDto;
@@ -47,7 +48,7 @@ public class PostAllPropertiesDto {
     @NotNull(message = "USER PROPERTY CANNOT BE NULL")
     private UserWithoutRelationDto user;
 
-    private Set<CommentWithoutRelationDto> comments;
+    private Set<CommentWithUserDto> comments;
 
     public PostAllPropertiesDto(
             String id,
@@ -63,7 +64,7 @@ public class PostAllPropertiesDto {
             ThumbNailWithoutPropertiesDto thumbNailPic,
             Set<PictureWithoutRelationDto> pictures,
             UserWithoutRelationDto user,
-            Set<CommentWithoutRelationDto> comments
+            Set<CommentWithUserDto> comments
     ) {
         this.id = id;
         this.title = title;
@@ -188,11 +189,11 @@ public class PostAllPropertiesDto {
         this.user = user;
     }
 
-    public Set<CommentWithoutRelationDto> getComments() {
+    public Set<CommentWithUserDto> getComments() {
         return comments;
     }
 
-    public void setComments(Set<CommentWithoutRelationDto> comments) {
+    public void setComments(Set<CommentWithUserDto> comments) {
         this.comments = comments;
     }
 }

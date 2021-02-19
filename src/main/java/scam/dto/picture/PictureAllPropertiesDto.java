@@ -2,14 +2,18 @@ package scam.dto.picture;
 
 import scam.dto.post.PostWithoutRelationDto;
 
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import java.util.Set;
 
 public class PictureAllPropertiesDto {
 
     private String id;
 
+    @NotBlank(message = "PICTURE URL CANNOT BE EMPTY OR NULL")
     private String pictureUrl;
 
+    @NotNull(message = "POST CANNOT BE NULL")
     private PostWithoutRelationDto post;
 
     public PictureAllPropertiesDto(String id, String pictureUrl, PostWithoutRelationDto post) {

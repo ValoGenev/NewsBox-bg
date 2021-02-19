@@ -9,6 +9,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.filter.OncePerRequestFilter;
 import scam.security.authentication.JwtAuthentication;
 import scam.security.jwt.JwtTokenUtil;
+import scam.security.wrappers.WrappedHttpServletRequest;
 
 import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
@@ -16,7 +17,9 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class JwtTokenAuthenticationFilter extends OncePerRequestFilter {
 
@@ -25,9 +28,9 @@ public class JwtTokenAuthenticationFilter extends OncePerRequestFilter {
     private final JwtTokenUtil jwtTokenUtil;
 
     @Autowired
-    public JwtTokenAuthenticationFilter(AuthenticationManager authenticationManager,JwtTokenUtil jwtTokenUtil) {
+    public JwtTokenAuthenticationFilter(AuthenticationManager authenticationManager, JwtTokenUtil jwtTokenUtil) {
         this.authenticationManager = authenticationManager;
-        this.jwtTokenUtil=jwtTokenUtil;
+        this.jwtTokenUtil = jwtTokenUtil;
     }
 
     @Override
@@ -36,23 +39,37 @@ public class JwtTokenAuthenticationFilter extends OncePerRequestFilter {
 
         Cookie[] cookies = httpServletRequest.getCookies();
 
-        Cookie jwtCookie =  Arrays.stream(cookies)
+        Cookie jwtCookie = Arrays.stream(cookies)
                 .filter(cookie -> cookie.getName().equals("jwt-token"))
                 .findFirst().orElseThrow(() -> new BadCredentialsException("BAD CREDENTIALS"));
 
         System.out.println(jwtCookie.getValue());
 
-        Authentication auth= authenticationManager.authenticate(new JwtAuthentication(jwtCookie.getValue(),null));
+        Authentication auth = authenticationManager.authenticate(new JwtAuthentication(jwtCookie.getValue(), null));
 
-        if(auth.isAuthenticated()){
+        if (auth.isAuthenticated()) {
 
             SecurityContextHolder.getContext().setAuthentication(auth);
         }
-        filterChain.doFilter(httpServletRequest,httpServletResponse);
+        filterChain.doFilter(httpServletRequest, httpServletResponse);
     }
 
     @Override
     protected boolean shouldNotFilter(HttpServletRequest request) throws ServletException {
-      return (request.getServletPath().equals("/config/api/v1/login") || request.getServletPath().equals("/config/api/v1/users") || request.getServletPath().equals("/config/api/v1/logout"));
+
+        //TODO disable not logged in user admin : GET ALL USERS
+        String method = request.getMethod();
+
+        if (method.equals("GET")
+                && request.getServletPath().matches("/config/api/v1/posts.*")) {
+            return true;
+        }
+
+        if(method.equals("GET") || method.equals("POST") && request.getServletPath().matches("/config/api/v1/users.*")){
+            return true;
+        }
+
+
+        return (request.getServletPath().equals("/config/api/v1/login") || request.getServletPath().equals("/config/api/v1/logout"));
     }
 }

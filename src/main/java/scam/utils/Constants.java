@@ -48,6 +48,8 @@ public interface Constants {
     // CAR EXCEPTIONS CONSTANTS
     String PIC_NOT_FOUND_MESSAGE="Cannot find PIC WITH ID [%s].";
 
+    String GET_POST_COMMENTS_MESSAGE="GETTING COMMENTS from POST WITH ID [%s]";
+
     //IMAGE EXCEPTIONS CONSTANTS
     String THUMBNAIL_NOT_FOUND_EXCEPTION="Cannot find THUMBNAIL with ID [%s].";
 

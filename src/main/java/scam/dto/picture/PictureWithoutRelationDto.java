@@ -4,8 +4,6 @@ import java.util.Objects;
 
 public class PictureWithoutRelationDto {
 
-    private static final long serialVersionUID = 1L;
-
     private String id;
 
     private String pictureUrl;
@@ -39,11 +37,12 @@ public class PictureWithoutRelationDto {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         PictureWithoutRelationDto that = (PictureWithoutRelationDto) o;
-        return id.equals(that.id);
+        return Objects.equals(id, that.id) &&
+                Objects.equals(pictureUrl, that.pictureUrl);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id);
+        return Objects.hash(id, pictureUrl);
     }
 }

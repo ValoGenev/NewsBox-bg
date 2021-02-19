@@ -9,7 +9,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.transaction.annotation.Transactional;
+import scam.dto.comment.CommentWithUserDto;
 import scam.dto.picture.PictureAllPropertiesDto;
+import scam.dto.picture.PictureWithIdHashCodeDto;
 import scam.dto.picture.PictureWithoutRelationDto;
 import scam.dto.post.PostAllPropertiesDto;
 import scam.dto.post.PostWithoutRelationDto;
@@ -165,7 +167,9 @@ public class PostService implements IPostService {
         updatedPost.getPictures().forEach(picInDb->{
             PictureWithoutRelationDto pictureWithoutRelationDto = modelMapper.map(picInDb,PictureWithoutRelationDto.class);
 
-            if(!post.getPictures().contains(pictureWithoutRelationDto)){
+            Set<PictureWithIdHashCodeDto> test = post.getPictures().stream().map(p->modelMapper.map(p,PictureWithIdHashCodeDto.class)).collect(Collectors.toSet());
+
+            if(!test.contains(modelMapper.map(pictureWithoutRelationDto,PictureWithIdHashCodeDto.class))){
                 pictureService.delete(picInDb.getId());
                 post.getPictures().remove(pictureWithoutRelationDto);
             }
@@ -206,6 +210,55 @@ public class PostService implements IPostService {
             LOGGER.error(DATABASE_ERROR_MESSAGE);
             throw new ServiceException(DATABASE_ERROR_MESSAGE);
         }
+    }
+
+    @Override
+    public Set<CommentWithUserDto> getPostComments(String id) {
+        LOGGER.info(format(GET_POST_COMMENTS_MESSAGE,id));
+
+        return findPost(id).getComments()
+                .stream()
+                .map(comment->modelMapper.map(comment,CommentWithUserDto.class))
+                .collect(Collectors.toSet());
+    }
+
+    @Override
+    public Set<PostAllPropertiesDto> getRandomPosts() {
+
+        Random random = new Random();
+
+        List<PostAllPropertiesDto> posts =
+                postRepository
+                        .findAll()
+                        .stream().map(post->modelMapper.map(post,PostAllPropertiesDto.class))
+                .collect(Collectors.toList());
+
+        List<PostAllPropertiesDto> randomPosts = new ArrayList<>();
+
+        int listSize = posts.size();
+
+        if(listSize==0) return new HashSet<>();
+
+        int randomNumber = random.nextInt(listSize);
+
+        List<Integer> existingNumber = new ArrayList<>();
+        existingNumber.add(randomNumber);
+
+        randomPosts.add(posts.get(randomNumber));
+
+        for(int i=0;i<posts.size()-1;i++){
+            if(i==1){
+                break;
+            }
+            randomNumber = random.nextInt(listSize);
+            while(existingNumber.contains(randomNumber)){
+                randomNumber = random.nextInt(listSize);
+            }
+            randomPosts.add(posts.get(randomNumber));
+        }
+
+
+        return new HashSet<>(randomPosts);
     }
 
     private PostEntity createPost(PostEntity post) {

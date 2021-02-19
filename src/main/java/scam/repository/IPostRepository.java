@@ -17,4 +17,6 @@ public interface IPostRepository extends JpaRepository<PostEntity,String> {
     @Query("select p from PostEntity as p where p.category = :category")
     Set<PostEntity> findAllByCategory(@Param("category") Category category);
 
+
+
 }

@@ -5,12 +5,14 @@ scam\security\filters\JwtTokenAuthenticationFilter.class
 scam\exception\handlers\PostExceptionHandler.class
 scam\exception\AlreadyExistingResourceException.class
 scam\security\userdetails\UserDetailsImpl.class
+scam\dto\picture\PictureWithIdHashCodeDto.class
 scam\service\IThumbNailService.class
 scam\controller\PostController.class
 scam\exception\RestaurantNotFoundException.class
 scam\dto\post\PostWithoutRelationDto.class
 scam\dto\user\UserAllPropertiesDto.class
 scam\SpringApplication.class
+scam\dto\comment\CommentWithUserDto.class
 scam\security\userdetails\UserDetailsServiceImpl.class
 scam\security\runner\InitialAdminRunner.class
 scam\model\Category.class

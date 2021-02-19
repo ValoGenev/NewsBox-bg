@@ -71,7 +71,6 @@ public class PostWithoutRelationDto {
         this.title = title;
     }
 
-
     public String getDescriptionOne() {
         return descriptionOne;
     }

@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
+import scam.dto.comment.CommentWithUserDto;
 import scam.dto.post.PostAllPropertiesDto;
 import scam.dto.post.PostWithoutRelationDto;
 import scam.dto.user.UserAllPropertiesDto;
@@ -77,4 +78,22 @@ public class PostController {
         LOGGER.info(format(UPDATE_POST_BY_ID_MESSAGE, id));
         return ok(postService.update(post, id));
     }
+
+
+    @GetMapping(value = "/{id}/comments",  produces = APPLICATION_JSON_VALUE)
+    public ResponseEntity<Set<CommentWithUserDto>> getPostComments(@PathVariable("id") String id) {
+        LOGGER.info(format(GET_POST_COMMENTS_MESSAGE, id));
+        return ok(postService.getPostComments(id));
+    }
+
+    @GetMapping(value = "/random",  produces = APPLICATION_JSON_VALUE)
+    public ResponseEntity<Set<PostAllPropertiesDto>> getRandomPosts() {
+        LOGGER.info("GET RANDOM POSTS");
+        return ok(postService.getRandomPosts());
+    }
+
+
+
+
+
 }
