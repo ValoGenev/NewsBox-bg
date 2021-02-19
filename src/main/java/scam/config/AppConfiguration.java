@@ -9,6 +9,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import scam.repository.*;
 import scam.service.*;
 import scam.service.common.RandomAuthorNameGenerator;
+import scam.service.common.RandomAvatarColorGenerator;
 
 @Configuration
 public class AppConfiguration {
@@ -29,8 +30,8 @@ public class AppConfiguration {
     }
 
     @Bean
-    IUserService userService(ModelMapper modelMapper, IUserRepository userRepository, PasswordEncoder passwordEncoder) {
-        return new UserService(userRepository,modelMapper,passwordEncoder);
+    IUserService userService(ModelMapper modelMapper, IUserRepository userRepository, PasswordEncoder passwordEncoder,RandomAvatarColorGenerator randomAvatarColorGenerator) {
+        return new UserService(userRepository,modelMapper,passwordEncoder,randomAvatarColorGenerator);
     }
 
     @Bean
@@ -51,6 +52,11 @@ public class AppConfiguration {
     @Bean
     RandomAuthorNameGenerator randomAuthorNameGenerator(){
         return new RandomAuthorNameGenerator();
+    }
+
+    @Bean
+    RandomAvatarColorGenerator randomAvatarColorGenerator(){
+        return new RandomAvatarColorGenerator();
     }
 
 

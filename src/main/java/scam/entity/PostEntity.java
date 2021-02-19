@@ -26,6 +26,9 @@ public class PostEntity {
     @Column(name = "title",columnDefinition="text", length=10485760)
     private String title;
 
+    @Column(name = "url",columnDefinition="text", length=200)
+    private String url;
+
     @Column(name = "description_one",columnDefinition="text", length=10485760)
     private String descriptionOne;
 
@@ -38,6 +41,7 @@ public class PostEntity {
     @Column(name = "category")
     @Enumerated(EnumType.STRING)
     private Category category;
+
 
     @Column(name="facebook_description",columnDefinition="text", length=10485760)
     private String facebookDescription;
@@ -84,7 +88,6 @@ public class PostEntity {
         this.title = title;
     }
 
-
     public String getDescriptionOne() {
         return descriptionOne;
     }
@@ -103,6 +106,14 @@ public class PostEntity {
 
     public String getDescriptionThree() {
         return descriptionThree;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
     }
 
     public void setDescriptionThree(String descriptionThree) {

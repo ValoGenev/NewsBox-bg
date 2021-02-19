@@ -27,6 +27,9 @@ public class UserEntity {
     @Column(name = "password")
     private String password;
 
+    @Column(name = "avatar_color")
+    private String avatarColor;
+
     @Column(name = "role")
     @Enumerated(EnumType.STRING)
     private UserRole role;
@@ -72,6 +75,14 @@ public class UserEntity {
 
     public void setRole(UserRole role) {
         this.role = role;
+    }
+
+    public String getAvatarColor() {
+        return avatarColor;
+    }
+
+    public void setAvatarColor(String avatarColor) {
+        this.avatarColor = avatarColor;
     }
 
     public Set<PostEntity> getPosts() {

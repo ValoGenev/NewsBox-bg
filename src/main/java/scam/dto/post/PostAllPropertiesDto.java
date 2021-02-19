@@ -32,6 +32,8 @@ public class PostAllPropertiesDto {
     @ValidPostCategory
     private String category;
 
+    private String url;
+
     private String facebookDescription;
 
     private String youtubeUrl;
@@ -61,6 +63,7 @@ public class PostAllPropertiesDto {
             String descriptionTwo,
             String descriptionThree,
             int views,
+            String url,
             String youtubeUrl,
             String authorName,
             LocalDateTime postedOn,
@@ -74,6 +77,7 @@ public class PostAllPropertiesDto {
         this.descriptionOne=descriptionOne;
         this.descriptionTwo=descriptionTwo;
         this.descriptionThree=descriptionThree;
+        this.url=url;
         this.category = category;
         this.views=views;
         this.facebookDescription=facebookDescription;
@@ -103,6 +107,14 @@ public class PostAllPropertiesDto {
 
     public void setTitle(String title) {
         this.title = title;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
     }
 
     public String getDescriptionOne() {
@@ -168,6 +180,8 @@ public class PostAllPropertiesDto {
     public int getViews() {
         return views;
     }
+
+
 
     public void setViews(int views) {
         this.views = views;

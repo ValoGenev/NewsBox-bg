@@ -1,5 +1,6 @@
 package scam.service;
 
+import scam.dto.comment.CommentAllPropertiesDto;
 import scam.dto.comment.CommentWithUserDto;
 import scam.dto.post.PostAllPropertiesDto;
 import scam.dto.post.PostWithoutRelationDto;
@@ -22,7 +23,7 @@ public interface IPostService {
 
     Set<PostAllPropertiesDto> findAllWithCategory(Category category);
 
-    Set<CommentWithUserDto> getPostComments(String id);
+    Set<CommentAllPropertiesDto> getPostComments(String id);
 
     Set<PostAllPropertiesDto> getRandomPosts();
 

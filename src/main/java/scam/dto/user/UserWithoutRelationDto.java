@@ -6,9 +6,12 @@ public class UserWithoutRelationDto {
 
     private String username;
 
-    public UserWithoutRelationDto(String id, String username) {
+    private String avatarColor;
+
+    public UserWithoutRelationDto(String id, String username,String avatarColor) {
         this.id = id;
         this.username = username;
+        this.avatarColor=avatarColor;
     }
 
     public UserWithoutRelationDto() {
@@ -30,4 +33,11 @@ public class UserWithoutRelationDto {
         this.username = username;
     }
 
+    public String getAvatarColor() {
+        return avatarColor;
+    }
+
+    public void setAvatarColor(String avatarColor) {
+        this.avatarColor = avatarColor;
+    }
 }

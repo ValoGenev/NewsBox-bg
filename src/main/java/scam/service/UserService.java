@@ -15,6 +15,7 @@ import scam.entity.UserEntity;
 import scam.exception.*;
 import scam.model.UserRole;
 import scam.repository.IUserRepository;
+import scam.service.common.RandomAvatarColorGenerator;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -31,12 +32,14 @@ public class UserService implements IUserService {
     private final IUserRepository userRepository;
     private final ModelMapper modelMapper;
     private final PasswordEncoder passwordEncoder;
+    private final RandomAvatarColorGenerator randomAvatarColorGenerator;
 
     @Autowired
-    public UserService(IUserRepository userRepository, ModelMapper modelMapper, PasswordEncoder passwordEncoder) {
+    public UserService(IUserRepository userRepository, ModelMapper modelMapper, PasswordEncoder passwordEncoder,RandomAvatarColorGenerator randomAvatarColorGenerator) {
         this.userRepository = userRepository;
         this.modelMapper = modelMapper;
         this.passwordEncoder = passwordEncoder;
+        this.randomAvatarColorGenerator=randomAvatarColorGenerator;
     }
 
     @Override
@@ -85,6 +88,7 @@ public class UserService implements IUserService {
 
         UserEntity userToBeCreated = modelMapper.map(user,UserEntity.class);
 
+        userToBeCreated.setAvatarColor(randomAvatarColorGenerator.getRandomColor());
         userToBeCreated.setRole(USER);
         userToBeCreated.setPassword(passwordEncoder.encode(user.getPassword()));
         userToBeCreated.setComments(new HashSet<>());

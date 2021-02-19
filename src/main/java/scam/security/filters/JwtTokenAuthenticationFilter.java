@@ -65,6 +65,10 @@ public class JwtTokenAuthenticationFilter extends OncePerRequestFilter {
             return true;
         }
 
+        if(method.equals("PATCH") && request.getServletPath().matches("/config/api/v1/posts/.*/incrementView")){
+            return true;
+        }
+
         if(method.equals("GET") || method.equals("POST") && request.getServletPath().matches("/config/api/v1/users.*")){
             return true;
         }

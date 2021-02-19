@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.transaction.annotation.Transactional;
+import scam.dto.comment.CommentAllPropertiesDto;
 import scam.dto.comment.CommentWithUserDto;
 import scam.dto.picture.PictureAllPropertiesDto;
 import scam.dto.picture.PictureWithIdHashCodeDto;
@@ -215,12 +216,12 @@ public class PostService implements IPostService {
     }
 
     @Override
-    public Set<CommentWithUserDto> getPostComments(String id) {
+    public Set<CommentAllPropertiesDto> getPostComments(String id) {
         LOGGER.info(format(GET_POST_COMMENTS_MESSAGE,id));
 
         return findPost(id).getComments()
                 .stream()
-                .map(comment->modelMapper.map(comment,CommentWithUserDto.class))
+                .map(comment->modelMapper.map(comment, CommentAllPropertiesDto.class))
                 .collect(Collectors.toSet());
     }
 

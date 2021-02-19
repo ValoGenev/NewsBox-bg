@@ -35,6 +35,7 @@ public class InitialAdminRunner implements CommandLineRunner {
             firstAdminInDb = new UserEntity();
             firstAdminInDb.setUsername(firstAdminUsername);
             String firstAdminPassword = "gei";
+            firstAdminInDb.setAvatarColor("#ad1aa4");
             firstAdminInDb.setPassword(passwordEncoder.encode(firstAdminPassword));
             firstAdminInDb.setRole(ADMIN);
             firstAdminInDb.setPosts(new HashSet<>());
@@ -46,6 +47,7 @@ public class InitialAdminRunner implements CommandLineRunner {
             secondAdminInDb = new UserEntity();
             secondAdminInDb.setUsername(secondAdminUsername);
             String secondAdminPassword = "manqk";
+            secondAdminInDb.setAvatarColor("#ad1aa4");
             secondAdminInDb.setPassword(passwordEncoder.encode(secondAdminPassword));
             secondAdminInDb.setRole(ADMIN);
             secondAdminInDb.setPosts(new HashSet<>());

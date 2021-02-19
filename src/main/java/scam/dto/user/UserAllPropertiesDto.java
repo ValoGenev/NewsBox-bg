@@ -18,13 +18,16 @@ public class UserAllPropertiesDto {
 
     private String username;
 
+    private String avatarColor;
+
     private Set<PostWithoutRelationDto> posts;
 
     private Set<CommentWithoutRelationDto> comments;
 
-    public UserAllPropertiesDto(String id, String username, Set<PostWithoutRelationDto> posts, Set<CommentWithoutRelationDto> comments) {
+    public UserAllPropertiesDto(String id, String username,String avatarColor, Set<PostWithoutRelationDto> posts, Set<CommentWithoutRelationDto> comments) {
         this.id = id;
         this.username = username;
+        this.avatarColor=avatarColor;
         this.posts = posts;
         this.comments = comments;
     }
@@ -48,7 +51,6 @@ public class UserAllPropertiesDto {
         this.username = username;
     }
 
-
     public Set<PostWithoutRelationDto> getPosts() {
         return posts;
     }
@@ -63,5 +65,13 @@ public class UserAllPropertiesDto {
 
     public void setComments(Set<CommentWithoutRelationDto> comments) {
         this.comments = comments;
+    }
+
+    public String getAvatarColor() {
+        return avatarColor;
+    }
+
+    public void setAvatarColor(String avatarColor) {
+        this.avatarColor = avatarColor;
     }
 }

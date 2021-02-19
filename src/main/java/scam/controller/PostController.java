@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
+import scam.dto.comment.CommentAllPropertiesDto;
 import scam.dto.comment.CommentWithUserDto;
 import scam.dto.post.PostAllPropertiesDto;
 import scam.dto.post.PostWithoutRelationDto;
@@ -81,7 +82,7 @@ public class PostController {
 
 
     @GetMapping(value = "/{id}/comments",  produces = APPLICATION_JSON_VALUE)
-    public ResponseEntity<Set<CommentWithUserDto>> getPostComments(@PathVariable("id") String id) {
+    public ResponseEntity<Set<CommentAllPropertiesDto>> getPostComments(@PathVariable("id") String id) {
         LOGGER.info(format(GET_POST_COMMENTS_MESSAGE, id));
         return ok(postService.getPostComments(id));
     }

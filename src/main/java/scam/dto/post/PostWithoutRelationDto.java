@@ -20,6 +20,8 @@ public class PostWithoutRelationDto {
 
     private String descriptionThree;
 
+    private String url;
+
     private String facebookDescription;
 
     private String youtubeUrl;
@@ -37,6 +39,7 @@ public class PostWithoutRelationDto {
             String descriptionTwo,
             String descriptionThree,
             String facebookDescription,
+            String url,
             int views,
             String youtubeUrl,
             String authorName,
@@ -49,6 +52,7 @@ public class PostWithoutRelationDto {
         this.descriptionTwo=descriptionTwo;
         this.descriptionThree=descriptionThree;
         this.facebookDescription=facebookDescription;
+        this.url=url;
         this.views=views;
         this.youtubeUrl=youtubeUrl;
         this.authorName=authorName;
@@ -97,6 +101,14 @@ public class PostWithoutRelationDto {
 
     public void setDescriptionThree(String descriptionThree) {
         this.descriptionThree = descriptionThree;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
     }
 
     public Category getCategory() {
