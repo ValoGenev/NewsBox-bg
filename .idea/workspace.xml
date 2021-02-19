@@ -4,39 +4,22 @@
     <list default="true" id="94dea836-77e1-43a3-8933-fa85f41c10b5" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/scam/controller/PostController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/scam/controller/PostController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/scam/dto/picture/PictureAllPropertiesDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/scam/dto/picture/PictureAllPropertiesDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/scam/dto/picture/PictureWithoutRelationDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/scam/dto/picture/PictureWithoutRelationDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/scam/dto/comment/CommentAllPropertiesDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/scam/dto/comment/CommentAllPropertiesDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/scam/dto/comment/CommentWithUserDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/scam/dto/comment/CommentWithUserDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/scam/dto/comment/CommentWithoutRelationDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/scam/dto/comment/CommentWithoutRelationDto.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/scam/dto/post/PostAllPropertiesDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/scam/dto/post/PostAllPropertiesDto.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/scam/dto/post/PostWithoutRelationDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/scam/dto/post/PostWithoutRelationDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/scam/dto/thumbnail/ThumbNailAllPropertiesDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/scam/dto/thumbnail/ThumbNailAllPropertiesDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/scam/repository/IPostRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/scam/repository/IPostRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/scam/security/config/SecurityConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/scam/security/config/SecurityConfiguration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/scam/security/filters/CorsFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/scam/security/filters/CorsFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/scam/security/filters/CustomLogoutFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/scam/security/filters/CustomLogoutFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/scam/security/filters/JwtTokenAuthenticationFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/scam/security/filters/JwtTokenAuthenticationFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/scam/security/filters/UnauthorizedExceptionFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/scam/security/filters/UnauthorizedExceptionFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/scam/security/filters/UsernamePasswordAuthenticationFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/scam/security/filters/UsernamePasswordAuthenticationFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/scam/entity/CommentEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/scam/entity/CommentEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/scam/entity/PostEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/scam/entity/PostEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/scam/service/CommentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/scam/service/CommentService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/scam/service/IPostService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/scam/service/IPostService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/scam/service/PostService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/scam/service/PostService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/scam/utils/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/scam/utils/Constants.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/scam/controller/PostController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/scam/controller/PostController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/scam/dto/picture/PictureAllPropertiesDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/scam/dto/picture/PictureAllPropertiesDto.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/scam/dto/picture/PictureWithoutRelationDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/scam/dto/picture/PictureWithoutRelationDto.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/scam/dto/post/PostAllPropertiesDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/scam/dto/post/PostAllPropertiesDto.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/scam/dto/post/PostWithoutRelationDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/scam/dto/post/PostWithoutRelationDto.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/scam/dto/thumbnail/ThumbNailAllPropertiesDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/scam/dto/thumbnail/ThumbNailAllPropertiesDto.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/scam/security/config/SecurityConfiguration.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/scam/security/config/SecurityConfiguration.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/scam/security/filters/CorsFilter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/scam/security/filters/CorsFilter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/scam/security/filters/CustomLogoutFilter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/scam/security/filters/CustomLogoutFilter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/scam/security/filters/JwtTokenAuthenticationFilter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/scam/security/filters/JwtTokenAuthenticationFilter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/scam/security/filters/UnauthorizedExceptionFilter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/scam/security/filters/UnauthorizedExceptionFilter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/scam/security/filters/UsernamePasswordAuthenticationFilter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/scam/security/filters/UsernamePasswordAuthenticationFilter.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/scam/service/IPostService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/scam/service/IPostService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/scam/service/PostService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/scam/service/PostService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/scam/utils/Constants.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/scam/utils/Constants.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scamsite-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/scamsite-1.0-SNAPSHOT.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scamsite-1.0-SNAPSHOT.jar.original" beforeDir="false" afterPath="$PROJECT_DIR$/target/scamsite-1.0-SNAPSHOT.jar.original" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -176,7 +159,7 @@
       <workItem from="1613469641732" duration="19475000" />
       <workItem from="1613556471615" duration="26850000" />
       <workItem from="1613637107167" duration="13979000" />
-      <workItem from="1613729787451" duration="14462000" />
+      <workItem from="1613729787451" duration="16131000" />
     </task>
     <servers />
   </component>
@@ -197,11 +180,11 @@
     </state>
     <state x="552" y="181" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1613082892789" />
     <state x="552" y="181" key="#com.intellij.execution.impl.EditConfigurationsDialog/1920.37.1680.1010/0.0.1920.1040@0.0.1920.1040" timestamp="1613478671346" />
-    <state x="765" y="212" key="#com.intellij.ide.util.MemberChooser" timestamp="1613742614048">
+    <state x="765" y="212" key="#com.intellij.ide.util.MemberChooser" timestamp="1613746288728">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="765" y="212" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1613316501005" />
-    <state x="765" y="212" key="#com.intellij.ide.util.MemberChooser/1920.37.1680.1010/0.0.1920.1040@0.0.1920.1040" timestamp="1613742614048" />
+    <state x="765" y="212" key="#com.intellij.ide.util.MemberChooser/1920.37.1680.1010/0.0.1920.1040@0.0.1920.1040" timestamp="1613746288728" />
     <state x="690" y="308" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1613319310850">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -216,46 +199,46 @@
     </state>
     <state x="740" y="277" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1613323797167" />
     <state x="740" y="277" key="FileChooserDialogImpl/1920.37.1680.1010/0.0.1920.1040@0.0.1920.1040" timestamp="1613743799783" />
-    <state width="1877" height="110" key="GridCell.Tab.0.bottom" timestamp="1613744762417">
+    <state width="1877" height="422" key="GridCell.Tab.0.bottom" timestamp="1613746458955">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1877" height="92" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1613380248915" />
-    <state width="1877" height="110" key="GridCell.Tab.0.bottom/1920.37.1680.1010/0.0.1920.1040@0.0.1920.1040" timestamp="1613744762417" />
-    <state width="1877" height="110" key="GridCell.Tab.0.center" timestamp="1613744762416">
+    <state width="1877" height="422" key="GridCell.Tab.0.bottom/1920.37.1680.1010/0.0.1920.1040@0.0.1920.1040" timestamp="1613746458955" />
+    <state width="1877" height="422" key="GridCell.Tab.0.center" timestamp="1613746458954">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1877" height="92" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1613380248915" />
-    <state width="1877" height="110" key="GridCell.Tab.0.center/1920.37.1680.1010/0.0.1920.1040@0.0.1920.1040" timestamp="1613744762416" />
-    <state width="1877" height="110" key="GridCell.Tab.0.left" timestamp="1613744762416">
+    <state width="1877" height="422" key="GridCell.Tab.0.center/1920.37.1680.1010/0.0.1920.1040@0.0.1920.1040" timestamp="1613746458954" />
+    <state width="1877" height="422" key="GridCell.Tab.0.left" timestamp="1613746458954">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1877" height="92" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1613380248915" />
-    <state width="1877" height="110" key="GridCell.Tab.0.left/1920.37.1680.1010/0.0.1920.1040@0.0.1920.1040" timestamp="1613744762416" />
-    <state width="1877" height="110" key="GridCell.Tab.0.right" timestamp="1613744762417">
+    <state width="1877" height="422" key="GridCell.Tab.0.left/1920.37.1680.1010/0.0.1920.1040@0.0.1920.1040" timestamp="1613746458954" />
+    <state width="1877" height="422" key="GridCell.Tab.0.right" timestamp="1613746458955">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1877" height="92" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1613380248915" />
-    <state width="1877" height="110" key="GridCell.Tab.0.right/1920.37.1680.1010/0.0.1920.1040@0.0.1920.1040" timestamp="1613744762417" />
-    <state width="1877" height="110" key="GridCell.Tab.1.bottom" timestamp="1613744755752">
+    <state width="1877" height="422" key="GridCell.Tab.0.right/1920.37.1680.1010/0.0.1920.1040@0.0.1920.1040" timestamp="1613746458955" />
+    <state width="1877" height="422" key="GridCell.Tab.1.bottom" timestamp="1613746458955">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1877" height="449" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1613379967153" />
-    <state width="1877" height="110" key="GridCell.Tab.1.bottom/1920.37.1680.1010/0.0.1920.1040@0.0.1920.1040" timestamp="1613744755752" />
-    <state width="1877" height="110" key="GridCell.Tab.1.center" timestamp="1613744755752">
+    <state width="1877" height="422" key="GridCell.Tab.1.bottom/1920.37.1680.1010/0.0.1920.1040@0.0.1920.1040" timestamp="1613746458955" />
+    <state width="1877" height="422" key="GridCell.Tab.1.center" timestamp="1613746458955">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1877" height="449" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1613379967153" />
-    <state width="1877" height="110" key="GridCell.Tab.1.center/1920.37.1680.1010/0.0.1920.1040@0.0.1920.1040" timestamp="1613744755752" />
-    <state width="1877" height="110" key="GridCell.Tab.1.left" timestamp="1613744755752">
+    <state width="1877" height="422" key="GridCell.Tab.1.center/1920.37.1680.1010/0.0.1920.1040@0.0.1920.1040" timestamp="1613746458955" />
+    <state width="1877" height="422" key="GridCell.Tab.1.left" timestamp="1613746458955">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1877" height="449" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1613379967153" />
-    <state width="1877" height="110" key="GridCell.Tab.1.left/1920.37.1680.1010/0.0.1920.1040@0.0.1920.1040" timestamp="1613744755752" />
-    <state width="1877" height="110" key="GridCell.Tab.1.right" timestamp="1613744755752">
+    <state width="1877" height="422" key="GridCell.Tab.1.left/1920.37.1680.1010/0.0.1920.1040@0.0.1920.1040" timestamp="1613746458955" />
+    <state width="1877" height="422" key="GridCell.Tab.1.right" timestamp="1613746458955">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1877" height="449" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1613379967153" />
-    <state width="1877" height="110" key="GridCell.Tab.1.right/1920.37.1680.1010/0.0.1920.1040@0.0.1920.1040" timestamp="1613744755752" />
+    <state width="1877" height="422" key="GridCell.Tab.1.right/1920.37.1680.1010/0.0.1920.1040@0.0.1920.1040" timestamp="1613746458955" />
     <state width="1877" height="368" key="GridCell.Tab.2.bottom" timestamp="1613658636107">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

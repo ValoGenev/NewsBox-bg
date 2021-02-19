@@ -92,6 +92,12 @@ public class PostController {
         return ok(postService.getRandomPosts());
     }
 
+    @PatchMapping(value = "/{id}/incrementView",  produces = APPLICATION_JSON_VALUE)
+    public ResponseEntity<PostAllPropertiesDto> incrementViews(@PathVariable("id") String id) {
+        LOGGER.info(format("INCREMENTING VIEWS ON POST WITH ID [%s]",id));
+        return ok(postService.incrementView(id));
+    }
+
 
 
 

@@ -51,6 +51,9 @@ public class PostEntity {
     @Column(name = "postedOn")
     private LocalDateTime postedOn;
 
+    @Column(name = "views")
+    private int views;
+
     @OneToOne(targetEntity = ThumbNailEntity.class)
     @JoinColumn(name = "thumb_nail_pic_id",referencedColumnName = "id")
     private ThumbNailEntity thumbNailPic;
@@ -144,6 +147,14 @@ public class PostEntity {
 
     public void setPostedOn(LocalDateTime postedOn) {
         this.postedOn = postedOn;
+    }
+
+    public int getViews() {
+        return views;
+    }
+
+    public void setViews(int views) {
+        this.views = views;
     }
 
     public ThumbNailEntity getThumbNailPic() {

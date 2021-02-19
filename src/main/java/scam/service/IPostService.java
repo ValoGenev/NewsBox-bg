@@ -25,4 +25,6 @@ public interface IPostService {
     Set<CommentWithUserDto> getPostComments(String id);
 
     Set<PostAllPropertiesDto> getRandomPosts();
+
+    PostAllPropertiesDto incrementView(String id);
 }

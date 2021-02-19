@@ -3,6 +3,7 @@ package scam.entity;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "comments")
@@ -21,6 +22,9 @@ public class CommentEntity {
 
     @Column(name = "comment",columnDefinition="text", length=10485760)
     private String comment;
+
+    @Column(name = "postedOn")
+    private LocalDateTime postedOn;
 
     @ManyToOne(targetEntity = UserEntity.class)
     @JoinColumn(name = "user_id",referencedColumnName = "id")
@@ -56,6 +60,14 @@ public class CommentEntity {
 
     public void setUser(UserEntity user) {
         this.user = user;
+    }
+
+    public LocalDateTime getPostedOn() {
+        return postedOn;
+    }
+
+    public void setPostedOn(LocalDateTime postedOn) {
+        this.postedOn = postedOn;
     }
 
     public PostEntity getPost() {

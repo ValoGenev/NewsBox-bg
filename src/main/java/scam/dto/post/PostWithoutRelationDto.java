@@ -14,6 +14,8 @@ public class PostWithoutRelationDto {
 
     private String descriptionOne;
 
+    private int views;
+
     private String descriptionTwo;
 
     private String descriptionThree;
@@ -35,6 +37,7 @@ public class PostWithoutRelationDto {
             String descriptionTwo,
             String descriptionThree,
             String facebookDescription,
+            int views,
             String youtubeUrl,
             String authorName,
             Category category,
@@ -46,6 +49,7 @@ public class PostWithoutRelationDto {
         this.descriptionTwo=descriptionTwo;
         this.descriptionThree=descriptionThree;
         this.facebookDescription=facebookDescription;
+        this.views=views;
         this.youtubeUrl=youtubeUrl;
         this.authorName=authorName;
         this.category = category;
@@ -105,6 +109,14 @@ public class PostWithoutRelationDto {
 
     public LocalDateTime getPostedOn() {
         return postedOn;
+    }
+
+    public int getViews() {
+        return views;
+    }
+
+    public void setViews(int views) {
+        this.views = views;
     }
 
     public void setPostedOn(LocalDateTime postedOn) {

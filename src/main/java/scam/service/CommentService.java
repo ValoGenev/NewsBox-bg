@@ -24,6 +24,7 @@ import scam.exception.PictureNotFoundException;
 import scam.exception.handlers.PostExceptionHandler;
 import scam.repository.ICommentRepository;
 
+import java.time.LocalDateTime;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -87,12 +88,15 @@ public class CommentService implements ICommentService {
 
     @Override
     public CommentAllPropertiesDto create(CommentAllPropertiesDto comment) {
+
         LOGGER.info(format(CREATE_COMMENT_MESSAGE, comment.getUser().getUsername()));
 
         UserAllPropertiesDto userInDb = userService.findOne(comment.getUser().getUsername());
         PostAllPropertiesDto postInDb = postService.findOne(comment.getPost().getId());
 
         CommentEntity commentToBeCreated = modelMapper.map(comment,CommentEntity.class);
+
+        commentToBeCreated.setPostedOn(LocalDateTime.now());
 
         commentToBeCreated.setUser(modelMapper.map(userInDb, UserEntity.class));
         commentToBeCreated.setPost(modelMapper.map(postInDb, PostEntity.class));

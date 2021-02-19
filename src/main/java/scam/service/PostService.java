@@ -116,6 +116,8 @@ public class PostService implements IPostService {
 
         post.setPictures(new HashSet<>(emptyIfNull(post.getPictures())));
 
+        post.setViews(new Random().nextInt(500-100)+100);
+
         PostEntity postToBeCreated = modelMapper.map(post, PostEntity.class);
 
         UserAllPropertiesDto userInDb = userService.findOne(post.getUser().getUsername());
@@ -223,7 +225,17 @@ public class PostService implements IPostService {
     }
 
     @Override
+    public PostAllPropertiesDto incrementView(String id) {
+        LOGGER.info(format("INCREMENTING VIEWS ON POST WITH ID [%s]",id));
+
+        PostEntity postInDb = findPost(id);
+        postInDb.setViews(postInDb.getViews()+1);
+        return modelMapper.map(createPost(postInDb),PostAllPropertiesDto.class);
+    }
+
+    @Override
     public Set<PostAllPropertiesDto> getRandomPosts() {
+        LOGGER.info("GETTING RANDOM NUMBERS");
 
         Random random = new Random();
 
@@ -247,7 +259,7 @@ public class PostService implements IPostService {
         randomPosts.add(posts.get(randomNumber));
 
         for(int i=0;i<posts.size()-1;i++){
-            if(i==1){
+            if(i==6){
                 break;
             }
             randomNumber = random.nextInt(listSize);

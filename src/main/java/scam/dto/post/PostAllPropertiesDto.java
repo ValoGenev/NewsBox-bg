@@ -40,6 +40,8 @@ public class PostAllPropertiesDto {
 
     private LocalDateTime postedOn;
 
+    private int views;
+
     @NotNull(message = "THUMBNAIL PROPERTY CANNOT BE NULL")
     private ThumbNailWithoutPropertiesDto thumbNailPic;
 
@@ -58,6 +60,7 @@ public class PostAllPropertiesDto {
             String descriptionOne,
             String descriptionTwo,
             String descriptionThree,
+            int views,
             String youtubeUrl,
             String authorName,
             LocalDateTime postedOn,
@@ -72,6 +75,7 @@ public class PostAllPropertiesDto {
         this.descriptionTwo=descriptionTwo;
         this.descriptionThree=descriptionThree;
         this.category = category;
+        this.views=views;
         this.facebookDescription=facebookDescription;
         this.youtubeUrl=youtubeUrl;
         this.authorName=authorName;
@@ -159,6 +163,14 @@ public class PostAllPropertiesDto {
 
     public String getAuthorName() {
         return authorName;
+    }
+
+    public int getViews() {
+        return views;
+    }
+
+    public void setViews(int views) {
+        this.views = views;
     }
 
     public void setAuthorName(String authorName) {

@@ -10,6 +10,7 @@ import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Null;
+import java.time.LocalDateTime;
 
 public class CommentAllPropertiesDto {
 
@@ -19,15 +20,18 @@ public class CommentAllPropertiesDto {
     @NotBlank(message = "COMMENT CANNOT BE NULL OR EMPTY")
     private String comment;
 
+    private LocalDateTime postedOn;
+
     @NotNull(message = "USER CANNOT BE NULL")
     private UserWithoutRelationDto user;
 
     @NotNull(message = "POST CANNOT BE NULL")
     private PostWithoutRelationDto post;
 
-    public CommentAllPropertiesDto(String id, String comment, UserWithoutRelationDto user, PostWithoutRelationDto post) {
+    public CommentAllPropertiesDto(String id, String comment,LocalDateTime postedOn, UserWithoutRelationDto user, PostWithoutRelationDto post) {
         this.id = id;
         this.comment = comment;
+        this.postedOn=postedOn;
         this.user = user;
         this.post = post;
     }
@@ -57,6 +61,14 @@ public class CommentAllPropertiesDto {
 
     public void setUser(UserWithoutRelationDto user) {
         this.user = user;
+    }
+
+    public LocalDateTime getPostedOn() {
+        return postedOn;
+    }
+
+    public void setPostedOn(LocalDateTime postedOn) {
+        this.postedOn = postedOn;
     }
 
     public PostWithoutRelationDto getPost() {
