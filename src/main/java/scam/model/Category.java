@@ -8,4 +8,5 @@ public enum Category {
     SPORT,
     SCANDAL,
     CULTURE,
+    CARS
 }
