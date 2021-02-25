@@ -24,6 +24,8 @@ public class CommentAllPropertiesDto {
 
     private String authorName;
 
+    private String avatarColor;
+
     private LocalDateTime postedOn;
 
     private UserWithoutRelationDto user;
@@ -31,10 +33,11 @@ public class CommentAllPropertiesDto {
     @NotNull(message = "POST CANNOT BE NULL")
     private PostWithoutRelationDto post;
 
-    public CommentAllPropertiesDto(String id, String comment,String authorName,LocalDateTime postedOn, UserWithoutRelationDto user, PostWithoutRelationDto post) {
+    public CommentAllPropertiesDto(String id, String comment,String authorName,String avatarColor,LocalDateTime postedOn, UserWithoutRelationDto user, PostWithoutRelationDto post) {
         this.id = id;
         this.comment = comment;
         this.authorName=authorName;
+        this.avatarColor=avatarColor;
         this.postedOn=postedOn;
         this.user = user;
         this.post = post;
@@ -81,6 +84,15 @@ public class CommentAllPropertiesDto {
 
     public void setPostedOn(LocalDateTime postedOn) {
         this.postedOn = postedOn;
+    }
+
+
+    public String getAvatarColor() {
+        return avatarColor;
+    }
+
+    public void setAvatarColor(String avatarColor) {
+        this.avatarColor = avatarColor;
     }
 
     public PostWithoutRelationDto getPost() {

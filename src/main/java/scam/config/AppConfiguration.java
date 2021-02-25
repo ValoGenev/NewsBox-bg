@@ -15,8 +15,8 @@ import scam.service.common.RandomAvatarColorGenerator;
 public class AppConfiguration {
 
     @Bean
-    ICommentService commentService(ICommentRepository commentRepository, ModelMapper modelMapper, IUserService userService, IPostService postService){
-        return new CommentService(commentRepository,modelMapper,userService,postService);
+    ICommentService commentService(ICommentRepository commentRepository, ModelMapper modelMapper, IUserService userService, IPostService postService,RandomAvatarColorGenerator randomAvatarColorGenerator){
+        return new CommentService(commentRepository,modelMapper,userService,postService,randomAvatarColorGenerator);
     }
 
     @Bean

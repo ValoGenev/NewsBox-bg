@@ -25,6 +25,7 @@ import scam.exception.ConflictException;
 import scam.exception.PictureNotFoundException;
 import scam.exception.handlers.PostExceptionHandler;
 import scam.repository.ICommentRepository;
+import scam.service.common.RandomAvatarColorGenerator;
 
 import java.time.LocalDateTime;
 import java.util.Set;
@@ -42,13 +43,15 @@ public class CommentService implements ICommentService {
     private final ModelMapper modelMapper;
     private final IUserService userService;
     private final IPostService postService;
+    private final RandomAvatarColorGenerator randomAvatarColorGenerator;
 
     @Autowired
-    public CommentService(ICommentRepository commentRepository, ModelMapper modelMapper, IUserService userService, IPostService postService) {
+    public CommentService(ICommentRepository commentRepository, ModelMapper modelMapper, IUserService userService, IPostService postService,RandomAvatarColorGenerator randomAvatarColorGenerator) {
         this.commentRepository = commentRepository;
         this.modelMapper = modelMapper;
         this.userService = userService;
         this.postService = postService;
+        this.randomAvatarColorGenerator=randomAvatarColorGenerator;
     }
 
     @Override
@@ -92,7 +95,7 @@ public class CommentService implements ICommentService {
     @Override
     public CommentAllPropertiesDto create(CommentAllPropertiesDto comment) {
 
-        UserAllPropertiesDto userInDb=null;
+        UserAllPropertiesDto userInDb;
 
         if(!isNull(comment.getUser())){
             LOGGER.info(format(CREATE_COMMENT_MESSAGE, comment.getUser().getUsername()));
@@ -100,8 +103,10 @@ public class CommentService implements ICommentService {
             userInDb = userService.findOne(comment.getUser().getUsername());
             comment.setUser(modelMapper.map(userInDb, UserWithoutRelationDto.class));
             comment.setAuthorName(userInDb.getUsername());
+            comment.setAvatarColor(userInDb.getAvatarColor());
         }else{
             LOGGER.info(format(CREATE_COMMENT_MESSAGE, comment.getAuthorName()));
+            comment.setAvatarColor(randomAvatarColorGenerator.getRandomColor());
         }
 
         PostAllPropertiesDto postInDb = postService.findOne(comment.getPost().getId());
@@ -124,12 +129,12 @@ public class CommentService implements ICommentService {
 
         comment.setId(commentInDb.getId());
 
-        UserAllPropertiesDto userInDb = userService.findOne(comment.getUser().getUsername());
+      //  UserAllPropertiesDto userInDb = userService.findOne(comment.getUser().getUsername());
         PostAllPropertiesDto postInDb = postService.findOne(comment.getPost().getId());
 
         CommentEntity commentToBeCreated = modelMapper.map(comment,CommentEntity.class);
 
-        commentToBeCreated.setUser(modelMapper.map(userInDb, UserEntity.class));
+       // commentToBeCreated.setUser(modelMapper.map(userInDb, UserEntity.class));
         commentToBeCreated.setPost(modelMapper.map(postInDb, PostEntity.class));
 
         return modelMapper.map(createComment(commentToBeCreated),CommentAllPropertiesDto.class);

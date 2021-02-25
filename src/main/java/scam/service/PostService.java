@@ -10,7 +10,6 @@ import org.springframework.dao.DataAccessException;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.transaction.annotation.Transactional;
 import scam.dto.comment.CommentAllPropertiesDto;
-import scam.dto.comment.CommentWithUserDto;
 import scam.dto.picture.PictureAllPropertiesDto;
 import scam.dto.picture.PictureWithIdHashCodeDto;
 import scam.dto.picture.PictureWithoutRelationDto;
@@ -31,6 +30,8 @@ import scam.service.common.RandomAuthorNameGenerator;
 
 import java.time.LocalDateTime;
 import java.util.*;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
 import static java.lang.String.format;
@@ -130,7 +131,8 @@ public class PostService implements IPostService {
         postToBeCreated.setThumbNailPic(modelMapper.map(createdThumbNail, ThumbNailEntity.class));
         postToBeCreated.setUser(modelMapper.map(userInDb, UserEntity.class));
         postToBeCreated.setComments(new HashSet<>());
-        postToBeCreated.setPostedOn(LocalDateTime.now());
+        postToBeCreated.setPostedOn(LocalDateTime.now().plusHours(2));
+        postToBeCreated.setYoutubeUrl(getEmbedString(postToBeCreated.getYoutubeUrl()));
         postToBeCreated.setAuthorName(randomAuthorNameGenerator.getRandomAuthor());
 
         PostEntity postEntity = createPost(postToBeCreated);
@@ -160,6 +162,7 @@ public class PostService implements IPostService {
 
         postToBeUpdated.setId(postInDb.getId());
         postToBeUpdated.setPictures(postInDb.getPictures());
+        postToBeUpdated.setYoutubeUrl(getEmbedString(postToBeUpdated.getYoutubeUrl()));
 
         ThumbNailAllPropertiesDto thumbNailToBeCreated = modelMapper.map(post.getThumbNailPic(), ThumbNailAllPropertiesDto.class);
         ThumbNailAllPropertiesDto updatedThumbNail = thumbNailService.update(thumbNailToBeCreated,thumbNailToBeCreated.getId());
@@ -298,6 +301,16 @@ public class PostService implements IPostService {
             LOGGER.error(DATABASE_ERROR_MESSAGE);
             throw new ServiceException(DATABASE_ERROR_MESSAGE);
         }
+    }
+
+    private String getEmbedString(String url){
+        Pattern MY_PATTERN = Pattern.compile("((http(s)?:\\/\\/)?)(www\\.)?((youtube\\.com\\/)|(youtu.be\\/))[\\S]+");
+        Matcher m = MY_PATTERN.matcher(url);
+        StringBuffer sb = new StringBuffer();
+
+        m.appendTail(sb);
+
+        return sb.toString().replace("youtube.com/watch?v=", "youtube.com/embed/");
     }
 
 

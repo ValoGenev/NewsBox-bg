@@ -23,6 +23,9 @@ public class CommentEntity {
     @Column(name = "author_name")
     private String authorName;
 
+    @Column(name = "avatar_color")
+    private String avatarColor;
+
     @Column(name = "comment",columnDefinition="text", length=10485760)
     private String comment;
 
@@ -67,6 +70,14 @@ public class CommentEntity {
 
     public LocalDateTime getPostedOn() {
         return postedOn;
+    }
+
+    public String getAvatarColor() {
+        return avatarColor;
+    }
+
+    public void setAvatarColor(String avatarColor) {
+        this.avatarColor = avatarColor;
     }
 
     public String getAuthorName() {
