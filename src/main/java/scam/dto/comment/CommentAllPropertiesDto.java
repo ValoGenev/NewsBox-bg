@@ -5,6 +5,7 @@ import scam.dto.post.PostWithoutRelationDto;
 import scam.dto.user.UserWithoutRelationDto;
 import scam.entity.PostEntity;
 import scam.entity.UserEntity;
+import scam.validation.CommentWithValidUser;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
@@ -12,6 +13,7 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Null;
 import java.time.LocalDateTime;
 
+@CommentWithValidUser
 public class CommentAllPropertiesDto {
 
     @Null(message = "ID SHOULD BE NULL")
@@ -20,17 +22,19 @@ public class CommentAllPropertiesDto {
     @NotBlank(message = "COMMENT CANNOT BE NULL OR EMPTY")
     private String comment;
 
+    private String authorName;
+
     private LocalDateTime postedOn;
 
-    @NotNull(message = "USER CANNOT BE NULL")
     private UserWithoutRelationDto user;
 
     @NotNull(message = "POST CANNOT BE NULL")
     private PostWithoutRelationDto post;
 
-    public CommentAllPropertiesDto(String id, String comment,LocalDateTime postedOn, UserWithoutRelationDto user, PostWithoutRelationDto post) {
+    public CommentAllPropertiesDto(String id, String comment,String authorName,LocalDateTime postedOn, UserWithoutRelationDto user, PostWithoutRelationDto post) {
         this.id = id;
         this.comment = comment;
+        this.authorName=authorName;
         this.postedOn=postedOn;
         this.user = user;
         this.post = post;
@@ -57,6 +61,14 @@ public class CommentAllPropertiesDto {
 
     public UserWithoutRelationDto getUser() {
         return user;
+    }
+
+    public String getAuthorName() {
+        return authorName;
+    }
+
+    public void setAuthorName(String authorName) {
+        this.authorName = authorName;
     }
 
     public void setUser(UserWithoutRelationDto user) {

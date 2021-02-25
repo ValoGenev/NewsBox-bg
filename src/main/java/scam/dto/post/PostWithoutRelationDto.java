@@ -5,6 +5,7 @@ import scam.model.Category;
 import javax.persistence.Column;
 import javax.validation.constraints.Null;
 import java.time.LocalDateTime;
+import java.util.Set;
 
 public class PostWithoutRelationDto {
 
@@ -28,7 +29,7 @@ public class PostWithoutRelationDto {
 
     private String authorName;
 
-    private Category category;
+    private Set<String> categories;
 
     private LocalDateTime postedOn;
 
@@ -38,12 +39,12 @@ public class PostWithoutRelationDto {
             String descriptionOne,
             String descriptionTwo,
             String descriptionThree,
+            Set<String> categories,
             String facebookDescription,
             String url,
             int views,
             String youtubeUrl,
             String authorName,
-            Category category,
             LocalDateTime postedOn
     ) {
         this.id = id;
@@ -52,11 +53,11 @@ public class PostWithoutRelationDto {
         this.descriptionTwo=descriptionTwo;
         this.descriptionThree=descriptionThree;
         this.facebookDescription=facebookDescription;
+        this.categories=categories;
         this.url=url;
         this.views=views;
         this.youtubeUrl=youtubeUrl;
         this.authorName=authorName;
-        this.category = category;
         this.postedOn = postedOn;
     }
 
@@ -91,6 +92,7 @@ public class PostWithoutRelationDto {
         return descriptionTwo;
     }
 
+
     public void setDescriptionTwo(String descriptionTwo) {
         this.descriptionTwo = descriptionTwo;
     }
@@ -107,17 +109,18 @@ public class PostWithoutRelationDto {
         return url;
     }
 
+    public Set<String> getCategories() {
+        return categories;
+    }
+
+    public void setCategories(Set<String> categories) {
+        this.categories = categories;
+    }
+
     public void setUrl(String url) {
         this.url = url;
     }
 
-    public Category getCategory() {
-        return category;
-    }
-
-    public void setCategory(Category category) {
-        this.category = category;
-    }
 
     public LocalDateTime getPostedOn() {
         return postedOn;

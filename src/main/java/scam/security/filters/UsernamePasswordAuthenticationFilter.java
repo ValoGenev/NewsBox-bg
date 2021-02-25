@@ -73,9 +73,9 @@ public class UsernamePasswordAuthenticationFilter extends OncePerRequestFilter {
 //                }
 //            }
 
-            httpServletResponse.setHeader(HttpHeaders.SET_COOKIE,cookie.getName()+"="+cookie.getValue()+";HttpOnly;Secure;SameSite=None");
+             httpServletResponse.setHeader(HttpHeaders.SET_COOKIE,cookie.getName()+"="+cookie.getValue()+";HttpOnly;Secure;SameSite=None");
 
-            //httpServletResponse.addCookie(cookie);
+            // httpServletResponse.addCookie(cookie);
 
         }
         filterChain.doFilter(httpServletRequest,httpServletResponse);

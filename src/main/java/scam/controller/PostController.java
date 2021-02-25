@@ -55,7 +55,7 @@ public class PostController {
     }
 
     @GetMapping(produces = APPLICATION_JSON_VALUE,params = "category")
-    public ResponseEntity<Set<PostAllPropertiesDto>> findAllWithSpecificCategory(@RequestParam("category") @ValidPostCategory String category) {
+    public ResponseEntity<Set<PostAllPropertiesDto>> findAllWithSpecificCategory(@RequestParam("category") String category) {
         LOGGER.info(format(GET_ALL_POSTS_WITH_CATEGORY_MESSAGE, category));
         return ok(postService.findAllWithCategory(Category.valueOf(category)));
     }

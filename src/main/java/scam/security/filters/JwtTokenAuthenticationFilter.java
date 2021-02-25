@@ -1,6 +1,7 @@
 package scam.security.filters;
 
 
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.BadCredentialsException;
@@ -43,7 +44,9 @@ public class JwtTokenAuthenticationFilter extends OncePerRequestFilter {
                 .filter(cookie -> cookie.getName().equals("jwt-token"))
                 .findFirst().orElseThrow(() -> new BadCredentialsException("BAD CREDENTIALS"));
 
-        System.out.println(jwtCookie.getValue());
+        if(StringUtils.isBlank(jwtCookie.getValue())) {
+            throw new BadCredentialsException("BAD CREDENTIALS");
+        }
 
         Authentication auth = authenticationManager.authenticate(new JwtAuthentication(jwtCookie.getValue(), null));
 
@@ -70,6 +73,10 @@ public class JwtTokenAuthenticationFilter extends OncePerRequestFilter {
         }
 
         if(method.equals("GET") || method.equals("POST") && request.getServletPath().matches("/config/api/v1/users.*")){
+            return true;
+        }
+
+        if(request.getServletPath().matches("/config/api/v1/comments.*")){
             return true;
         }
 

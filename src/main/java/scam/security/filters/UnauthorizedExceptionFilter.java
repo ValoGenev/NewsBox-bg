@@ -3,6 +3,8 @@ package scam.security.filters;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
+import org.springframework.security.authentication.BadCredentialsException;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.web.filter.OncePerRequestFilter;
 import org.springframework.web.servlet.HandlerExceptionResolver;
 import scam.exception.ErrorMessage;
@@ -26,9 +28,11 @@ public class UnauthorizedExceptionFilter extends OncePerRequestFilter {
         try{
             filterChain.doFilter(httpServletRequest,httpServletResponse);
         }
-        catch (Exception e) {
+        catch (BadCredentialsException | UsernameNotFoundException e) {
+
             handlerExceptionResolver.resolveException(httpServletRequest, httpServletResponse, null, e);
 
+            System.out.println(e.getMessage());
             httpServletResponse.resetBuffer();
             httpServletResponse.setStatus(401);
             httpServletResponse.setHeader(HttpHeaders.CONTENT_TYPE, "application/json");

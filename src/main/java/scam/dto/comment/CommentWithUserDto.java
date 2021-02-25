@@ -16,14 +16,16 @@ public class CommentWithUserDto {
 
     private String comment;
 
+    private String authorName;
 
     private LocalDateTime postedOn;
 
     private UserWithoutRelationDto user;
 
-    public CommentWithUserDto(String id, String comment, LocalDateTime postedOn ,UserWithoutRelationDto user) {
+    public CommentWithUserDto(String id, String comment, String authorName,LocalDateTime postedOn ,UserWithoutRelationDto user) {
         this.id = id;
         this.comment = comment;
+        this.authorName=authorName;
         this.postedOn=postedOn;
         this.user = user;
     }
@@ -45,6 +47,14 @@ public class CommentWithUserDto {
 
     public void setComment(String comment) {
         this.comment = comment;
+    }
+
+    public String getAuthorName() {
+        return authorName;
+    }
+
+    public void setAuthorName(String authorName) {
+        this.authorName = authorName;
     }
 
     public UserWithoutRelationDto getUser() {

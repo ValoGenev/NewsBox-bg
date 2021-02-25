@@ -20,6 +20,9 @@ public class CommentEntity {
     @Column(name = "id")
     private String id;
 
+    @Column(name = "author_name")
+    private String authorName;
+
     @Column(name = "comment",columnDefinition="text", length=10485760)
     private String comment;
 
@@ -64,6 +67,14 @@ public class CommentEntity {
 
     public LocalDateTime getPostedOn() {
         return postedOn;
+    }
+
+    public String getAuthorName() {
+        return authorName;
+    }
+
+    public void setAuthorName(String authorName) {
+        this.authorName = authorName;
     }
 
     public void setPostedOn(LocalDateTime postedOn) {

@@ -14,7 +14,7 @@ import java.util.Set;
 @Repository
 public interface IPostRepository extends JpaRepository<PostEntity,String> {
 
-    @Query("select p from PostEntity as p where p.category = :category")
+    @Query("select p from PostEntity as p inner join p.categories as c where c= :category")
     Set<PostEntity> findAllByCategory(@Param("category") Category category);
 
 

@@ -9,11 +9,14 @@ public class CommentWithoutRelationDto {
 
     private String comment;
 
+    private String authorName;
+
 
     private LocalDateTime postedOn;
 
-    public CommentWithoutRelationDto(String id, String comment,LocalDateTime postedOn) {
+    public CommentWithoutRelationDto(String id, String comment,String authorName, LocalDateTime postedOn) {
         this.id = id;
+        this.authorName=authorName;
         this.comment = comment;
         this.postedOn=postedOn;
     }
@@ -39,6 +42,14 @@ public class CommentWithoutRelationDto {
 
     public LocalDateTime getPostedOn() {
         return postedOn;
+    }
+
+    public String getAuthorName() {
+        return authorName;
+    }
+
+    public void setAuthorName(String authorName) {
+        this.authorName = authorName;
     }
 
     public void setPostedOn(LocalDateTime postedOn) {

@@ -28,10 +28,6 @@ public class PostAllPropertiesDto {
 
     private String descriptionThree;
 
-    @NotNull(message = "CATEGORY CANNOT BE EMPTY OR NULL")
-    @ValidPostCategory
-    private String category;
-
     private String url;
 
     private String facebookDescription;
@@ -39,6 +35,9 @@ public class PostAllPropertiesDto {
     private String youtubeUrl;
 
     private String authorName;
+
+    @ValidPostCategory
+    private Set<String> categories;
 
     private LocalDateTime postedOn;
 
@@ -57,11 +56,11 @@ public class PostAllPropertiesDto {
     public PostAllPropertiesDto(
             String id,
             String title,
-            String category,
             String facebookDescription,
             String descriptionOne,
             String descriptionTwo,
             String descriptionThree,
+            Set<String> categories,
             int views,
             String url,
             String youtubeUrl,
@@ -78,7 +77,7 @@ public class PostAllPropertiesDto {
         this.descriptionTwo=descriptionTwo;
         this.descriptionThree=descriptionThree;
         this.url=url;
-        this.category = category;
+        this.categories=categories;
         this.views=views;
         this.facebookDescription=facebookDescription;
         this.youtubeUrl=youtubeUrl;
@@ -141,16 +140,16 @@ public class PostAllPropertiesDto {
         this.descriptionThree = descriptionThree;
     }
 
-    public String getCategory() {
-        return category;
-    }
-
-    public void setCategory(String category) {
-        this.category = category;
-    }
-
     public LocalDateTime getPostedOn() {
         return postedOn;
+    }
+
+    public Set<String> getCategories() {
+        return categories;
+    }
+
+    public void setCategories(Set<String> categories) {
+        this.categories = categories;
     }
 
     public void setPostedOn(LocalDateTime postedOn) {

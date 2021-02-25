@@ -38,10 +38,12 @@ public class PostEntity {
     @Column(name = "description_three",columnDefinition="text", length=10485760)
     private String descriptionThree;
 
-    @Column(name = "category")
+    @ElementCollection(targetClass = Category.class)
+    @CollectionTable(name = "post_category",
+            joinColumns = @JoinColumn(name = "post_id"))
     @Enumerated(EnumType.STRING)
-    private Category category;
-
+    @Column(name = "category_name")
+    private Set<Category> categories;
 
     @Column(name="facebook_description",columnDefinition="text", length=10485760)
     private String facebookDescription;
@@ -116,16 +118,16 @@ public class PostEntity {
         this.url = url;
     }
 
+    public Set<Category> getCategories() {
+        return categories;
+    }
+
+    public void setCategories(Set<Category> categories) {
+        this.categories = categories;
+    }
+
     public void setDescriptionThree(String descriptionThree) {
         this.descriptionThree = descriptionThree;
-    }
-
-    public Category getCategory() {
-        return category;
-    }
-
-    public void setCategory(Category category) {
-        this.category = category;
     }
 
     public String getFacebookDescription() {

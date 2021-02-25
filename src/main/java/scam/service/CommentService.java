@@ -1,5 +1,6 @@
 package scam.service;
 
+import org.apache.commons.lang3.StringUtils;
 import org.hibernate.service.spi.ServiceException;
 import org.modelmapper.ModelMapper;
 import org.slf4j.Logger;
@@ -13,6 +14,7 @@ import scam.dto.picture.PictureAllPropertiesDto;
 import scam.dto.picture.PictureWithoutRelationDto;
 import scam.dto.post.PostAllPropertiesDto;
 import scam.dto.user.UserAllPropertiesDto;
+import scam.dto.user.UserWithoutRelationDto;
 import scam.entity.CommentEntity;
 import scam.entity.PictureEntity;
 import scam.entity.PostEntity;
@@ -29,6 +31,7 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 import static java.lang.String.format;
+import static java.util.Objects.isNull;
 import static scam.utils.Constants.*;
 
 public class CommentService implements ICommentService {
@@ -89,16 +92,25 @@ public class CommentService implements ICommentService {
     @Override
     public CommentAllPropertiesDto create(CommentAllPropertiesDto comment) {
 
-        LOGGER.info(format(CREATE_COMMENT_MESSAGE, comment.getUser().getUsername()));
+        UserAllPropertiesDto userInDb=null;
 
-        UserAllPropertiesDto userInDb = userService.findOne(comment.getUser().getUsername());
+        if(!isNull(comment.getUser())){
+            LOGGER.info(format(CREATE_COMMENT_MESSAGE, comment.getUser().getUsername()));
+
+            userInDb = userService.findOne(comment.getUser().getUsername());
+            comment.setUser(modelMapper.map(userInDb, UserWithoutRelationDto.class));
+            comment.setAuthorName(userInDb.getUsername());
+        }else{
+            LOGGER.info(format(CREATE_COMMENT_MESSAGE, comment.getAuthorName()));
+        }
+
         PostAllPropertiesDto postInDb = postService.findOne(comment.getPost().getId());
 
         CommentEntity commentToBeCreated = modelMapper.map(comment,CommentEntity.class);
 
         commentToBeCreated.setPostedOn(LocalDateTime.now());
 
-        commentToBeCreated.setUser(modelMapper.map(userInDb, UserEntity.class));
+       // commentToBeCreated.setUser(modelMapper.map(userInDb, UserEntity.class));
         commentToBeCreated.setPost(modelMapper.map(postInDb, PostEntity.class));
 
         return modelMapper.map(createComment(commentToBeCreated),CommentAllPropertiesDto.class);

@@ -48,6 +48,7 @@ C:\Users\seasi\Desktop\coop backup\bot 1\scamsite\src\main\java\scam\exception\h
 C:\Users\seasi\Desktop\coop backup\bot 1\scamsite\src\main\java\scam\security\filters\UsernamePasswordAuthenticationFilter.java
 C:\Users\seasi\Desktop\coop backup\bot 1\scamsite\src\main\java\scam\dto\picture\PictureWithIdHashCodeDto.java
 C:\Users\seasi\Desktop\coop backup\bot 1\scamsite\src\main\java\scam\security\userdetails\UserDetailsServiceImpl.java
+C:\Users\seasi\Desktop\coop backup\bot 1\scamsite\src\main\java\scam\validation\CommentWithValidUserValidator.java
 C:\Users\seasi\Desktop\coop backup\bot 1\scamsite\src\main\java\scam\controller\ThumbNailController.java
 C:\Users\seasi\Desktop\coop backup\bot 1\scamsite\src\main\java\scam\exception\ConflictException.java
 C:\Users\seasi\Desktop\coop backup\bot 1\scamsite\src\main\java\scam\dto\comment\CommentAllPropertiesDto.java
@@ -63,6 +64,7 @@ C:\Users\seasi\Desktop\coop backup\bot 1\scamsite\src\main\java\scam\service\Com
 C:\Users\seasi\Desktop\coop backup\bot 1\scamsite\src\main\java\scam\dto\picture\PictureWithoutRelationDto.java
 C:\Users\seasi\Desktop\coop backup\bot 1\scamsite\src\main\java\scam\repository\ICommentRepository.java
 C:\Users\seasi\Desktop\coop backup\bot 1\scamsite\src\main\java\scam\dto\post\PostWithoutRelationDto.java
+C:\Users\seasi\Desktop\coop backup\bot 1\scamsite\src\main\java\scam\validation\CommentWithValidUser.java
 C:\Users\seasi\Desktop\coop backup\bot 1\scamsite\src\main\java\scam\controller\UserController.java
 C:\Users\seasi\Desktop\coop backup\bot 1\scamsite\src\main\java\scam\exception\AlreadyExistingUserNameException.java
 C:\Users\seasi\Desktop\coop backup\bot 1\scamsite\src\main\java\scam\security\jwt\JwtTokenUtil.java

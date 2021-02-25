@@ -49,6 +49,7 @@ scam\service\IPictureService.class
 scam\entity\UserEntity.class
 scam\security\wrappers\WrappedHttpServletRequest.class
 scam\service\PostService.class
+scam\validation\CommentWithValidUserValidator.class
 scam\exception\AlreadyExistingEmailException.class
 scam\service\ICommentService.class
 scam\exception\UserNotFoundException.class
@@ -88,3 +89,4 @@ scam\exception\ConflictException.class
 scam\security\jwt\JwtTokenUtil.class
 scam\service\PictureService.class
 scam\validation\PostCategoryValidator.class
+scam\validation\CommentWithValidUser.class

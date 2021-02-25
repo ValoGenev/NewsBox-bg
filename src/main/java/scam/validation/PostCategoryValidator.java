@@ -6,11 +6,12 @@ import scam.model.Category;
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 import java.util.Arrays;
+import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.regex.PatternSyntaxException;
 
-public class PostCategoryValidator implements ConstraintValidator<ValidPostCategory, String> {
+public class PostCategoryValidator implements ConstraintValidator<ValidPostCategory, Set<String>> {
 
 
     @Override
@@ -18,8 +19,15 @@ public class PostCategoryValidator implements ConstraintValidator<ValidPostCateg
     }
 
     @Override
-    public boolean isValid(String category, ConstraintValidatorContext context) {
+    public boolean isValid(Set<String> categories, ConstraintValidatorContext context) {
 
-        return EnumUtils.isValidEnum(Category.class,category);
+        for (String category: categories) {
+            if(!EnumUtils.isValidEnum(Category.class,category)){
+                return false;
+            }
+        }
+
+        return true;
+
     }
 }
