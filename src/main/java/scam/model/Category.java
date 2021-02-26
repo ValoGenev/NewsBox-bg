@@ -35,6 +35,7 @@ public enum Category {
         HOLIDAYS,
         BOOKS,
         FASHION,
+        NATURE,
 
 
     CARS,

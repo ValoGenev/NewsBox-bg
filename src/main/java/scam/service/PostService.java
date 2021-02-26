@@ -262,8 +262,8 @@ public class PostService implements IPostService {
 
         randomPosts.add(posts.get(randomNumber));
 
-        for(int i=0;i<posts.size()-1;i++){
-            if(i==6){
+        for(int i=1;i<posts.size()-1;i++){
+            if(i==8){
                 break;
             }
             randomNumber = random.nextInt(listSize);
