@@ -3,6 +3,7 @@ package scam.entity;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Type;
 import scam.model.Category;
+import scam.model.SubCategory;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -28,6 +29,13 @@ public class PostEntity {
 
     @Column(name = "url",columnDefinition="text", length=200)
     private String url;
+
+    @ElementCollection(targetClass = SubCategory.class)
+    @CollectionTable(name = "post_subcategory",
+            joinColumns = @JoinColumn(name = "post_id"))
+    @Enumerated(EnumType.STRING)
+    @Column(name = "subcategory_name")
+    private Set<SubCategory> subCategories;
 
     @Column(name = "description_one",columnDefinition="text", length=10485760)
     private String descriptionOne;
@@ -120,6 +128,14 @@ public class PostEntity {
 
     public Set<Category> getCategories() {
         return categories;
+    }
+
+    public Set<SubCategory> getSubCategories() {
+        return subCategories;
+    }
+
+    public void setSubCategories(Set<SubCategory> subCategories) {
+        this.subCategories = subCategories;
     }
 
     public void setCategories(Set<Category> categories) {

@@ -5,6 +5,7 @@ import scam.dto.picture.PictureWithoutRelationDto;
 import scam.dto.thumbnail.ThumbNailWithoutPropertiesDto;
 import scam.dto.user.UserWithoutRelationDto;
 import scam.validation.ValidPostCategories;
+import scam.validation.ValidPostSubCategories;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -37,6 +38,9 @@ public class PostAllPropertiesDto {
     @ValidPostCategories
     private Set<String> categories;
 
+    @ValidPostSubCategories
+    private Set<String> subCategories;
+
     private LocalDateTime postedOn;
 
     private int views;
@@ -59,6 +63,7 @@ public class PostAllPropertiesDto {
             String descriptionTwo,
             String descriptionThree,
             Set<String> categories,
+            Set<String> subCategories,
             int views,
             String url,
             String youtubeUrl,
@@ -76,6 +81,7 @@ public class PostAllPropertiesDto {
         this.descriptionThree=descriptionThree;
         this.url=url;
         this.categories=categories;
+        this.subCategories=subCategories;
         this.views=views;
         this.facebookDescription=facebookDescription;
         this.youtubeUrl=youtubeUrl;
@@ -178,7 +184,13 @@ public class PostAllPropertiesDto {
         return views;
     }
 
+    public Set<String> getSubCategories() {
+        return subCategories;
+    }
 
+    public void setSubCategories(Set<String> subCategories) {
+        this.subCategories = subCategories;
+    }
 
     public void setViews(int views) {
         this.views = views;

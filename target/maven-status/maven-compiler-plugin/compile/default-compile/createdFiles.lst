@@ -33,12 +33,14 @@ scam\validation\CommentWithValidUserValidator.class
 scam\service\ICommentService.class
 scam\exception\UserNotFoundException.class
 scam\validation\ValidPostCategories.class
+scam\validation\ValidPostSubCategories.class
 scam\security\config\SecurityConfiguration.class
 scam\exception\OrderNotFoundException.class
 scam\exception\ProductNotFoundException.class
 scam\dto\picture\PictureAllPropertiesDto.class
 scam\security\filters\UnauthorizedExceptionFilter.class
 scam\service\ThumbNailService.class
+scam\validation\SubCategoryValidator.class
 scam\security\filters\UsernamePasswordAuthenticationFilter.class
 scam\exception\PostNotFoundException.class
 scam\dto\thumbnail\ThumbNailWithoutPropertiesDto.class

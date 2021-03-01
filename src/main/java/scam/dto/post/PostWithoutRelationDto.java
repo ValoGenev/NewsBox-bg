@@ -1,6 +1,7 @@
 package scam.dto.post;
 
 import scam.model.Category;
+import scam.model.SubCategory;
 
 import javax.persistence.Column;
 import javax.validation.constraints.Null;
@@ -31,6 +32,8 @@ public class PostWithoutRelationDto {
 
     private Set<String> categories;
 
+    private Set<String> subCategories;
+
     private LocalDateTime postedOn;
 
     public PostWithoutRelationDto(
@@ -41,6 +44,7 @@ public class PostWithoutRelationDto {
             String descriptionThree,
             Set<String> categories,
             String facebookDescription,
+            Set<String> subCategories,
             String url,
             int views,
             String youtubeUrl,
@@ -52,6 +56,7 @@ public class PostWithoutRelationDto {
         this.descriptionOne=descriptionOne;
         this.descriptionTwo=descriptionTwo;
         this.descriptionThree=descriptionThree;
+        this.subCategories=subCategories;
         this.facebookDescription=facebookDescription;
         this.categories=categories;
         this.url=url;
@@ -92,6 +97,13 @@ public class PostWithoutRelationDto {
         return descriptionTwo;
     }
 
+    public Set<String> getSubCategories() {
+        return subCategories;
+    }
+
+    public void setSubCategories(Set<String> subCategories) {
+        this.subCategories = subCategories;
+    }
 
     public void setDescriptionTwo(String descriptionTwo) {
         this.descriptionTwo = descriptionTwo;
