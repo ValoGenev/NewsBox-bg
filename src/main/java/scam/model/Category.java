@@ -1,6 +1,8 @@
 package scam.model;
 
 public enum Category {
+
+
     POLITIC,
         BULGARIA,
         WORLD,
@@ -37,7 +39,6 @@ public enum Category {
         FASHION,
         NATURE,
 
-
     CARS,
         TRAFFIC,
         CRASHES,
@@ -54,6 +55,5 @@ public enum Category {
         SKI_REVIEW,
         COSMETIC,
         SCHOOL
-
 
 }

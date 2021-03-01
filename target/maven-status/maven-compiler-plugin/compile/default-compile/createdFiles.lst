@@ -12,6 +12,7 @@ scam\exception\RestaurantNotFoundException.class
 scam\dto\post\PostWithoutRelationDto.class
 scam\dto\user\UserAllPropertiesDto.class
 scam\SpringApplication.class
+scam\validation\PostCategoriesValidator.class
 scam\dto\comment\CommentWithUserDto.class
 scam\security\userdetails\UserDetailsServiceImpl.class
 scam\security\runner\InitialAdminRunner.class
@@ -50,12 +51,13 @@ scam\entity\UserEntity.class
 scam\security\wrappers\WrappedHttpServletRequest.class
 scam\service\PostService.class
 scam\validation\CommentWithValidUserValidator.class
+scam\validation\CategoryParamValidator.class
 scam\exception\AlreadyExistingEmailException.class
 scam\service\ICommentService.class
 scam\exception\UserNotFoundException.class
 scam\security\authentication\JwtAuthentication.class
 scam\config\AppConfiguration.class
-scam\validation\ValidPostCategory.class
+scam\validation\ValidPostCategories.class
 scam\entity\PostEntity.class
 scam\security\config\SecurityConfiguration.class
 scam\exception\OrderNotFoundException.class
@@ -76,6 +78,7 @@ scam\entity\ThumbNailEntity.class
 scam\exception\CommentNotFoundException.class
 scam\utils\Constants.class
 scam\repository\ICommentRepository.class
+scam\validation\ValidCategoryParam.class
 scam\dto\picture\PictureWithoutRelationDto.class
 scam\dto\thumbnail\ThumbNailAllPropertiesDto.class
 scam\model\UserRole.class
@@ -88,5 +91,4 @@ scam\controller\UserController.class
 scam\exception\ConflictException.class
 scam\security\jwt\JwtTokenUtil.class
 scam\service\PictureService.class
-scam\validation\PostCategoryValidator.class
 scam\validation\CommentWithValidUser.class

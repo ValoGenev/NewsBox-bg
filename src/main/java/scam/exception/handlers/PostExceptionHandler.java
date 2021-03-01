@@ -50,13 +50,6 @@ public class PostExceptionHandler {
         return status(BAD_REQUEST).body(new ErrorMessage(errors, BAD_REQUEST.value()));
     }
 
-    @ExceptionHandler(HttpMessageNotReadableException.class)
-    public ResponseEntity<ErrorMessage> handleMethodArgumentNotValidException(HttpMessageNotReadableException exception) {
-        LOGGER.error(PICTURES_WITH_SAME_URL_EXCEPTION_MESSAGE,exception);
-
-        return status(BAD_REQUEST).body(new ErrorMessage(PICTURES_WITH_SAME_URL_EXCEPTION_MESSAGE, BAD_REQUEST.value()));
-    }
-
     @ExceptionHandler(AlreadyExistingResourceException.class)
     public ResponseEntity<ErrorMessage> handleAlreadyExistingResourceException(AlreadyExistingResourceException exception) {
         LOGGER.error(EXISTING_RESOURCE_MESSAGE,exception);

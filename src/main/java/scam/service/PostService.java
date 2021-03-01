@@ -36,6 +36,7 @@ import java.util.stream.Collectors;
 
 import static java.lang.String.format;
 import static org.apache.commons.collections4.CollectionUtils.*;
+import static org.apache.commons.lang3.StringUtils.isNotBlank;
 import static scam.utils.Constants.*;
 
 public class PostService implements IPostService {
@@ -132,7 +133,10 @@ public class PostService implements IPostService {
         postToBeCreated.setUser(modelMapper.map(userInDb, UserEntity.class));
         postToBeCreated.setComments(new HashSet<>());
         postToBeCreated.setPostedOn(LocalDateTime.now().plusHours(2));
-        postToBeCreated.setYoutubeUrl(getEmbedString(postToBeCreated.getYoutubeUrl()));
+
+        if(isNotBlank(postToBeCreated.getYoutubeUrl())){
+            postToBeCreated.setYoutubeUrl(getEmbedString(postToBeCreated.getYoutubeUrl()));
+        }
         postToBeCreated.setAuthorName(randomAuthorNameGenerator.getRandomAuthor());
 
         PostEntity postEntity = createPost(postToBeCreated);
@@ -162,8 +166,9 @@ public class PostService implements IPostService {
 
         postToBeUpdated.setId(postInDb.getId());
         postToBeUpdated.setPictures(postInDb.getPictures());
-        postToBeUpdated.setYoutubeUrl(getEmbedString(postToBeUpdated.getYoutubeUrl()));
-
+        if(isNotBlank(postToBeUpdated.getYoutubeUrl())){
+            postToBeUpdated.setYoutubeUrl(getEmbedString(postToBeUpdated.getYoutubeUrl()));
+        }
         ThumbNailAllPropertiesDto thumbNailToBeCreated = modelMapper.map(post.getThumbNailPic(), ThumbNailAllPropertiesDto.class);
         ThumbNailAllPropertiesDto updatedThumbNail = thumbNailService.update(thumbNailToBeCreated,thumbNailToBeCreated.getId());
         postToBeUpdated.setThumbNailPic(modelMapper.map(updatedThumbNail,ThumbNailEntity.class));
@@ -230,7 +235,7 @@ public class PostService implements IPostService {
 
     @Override
     public PostAllPropertiesDto incrementView(String id) {
-        LOGGER.info(format("INCREMENTING VIEWS ON POST WITH ID [%s]",id));
+        LOGGER.info(format(INCREMENT_VIEWS_ON_POST_MESSAGE,id));
 
         PostEntity postInDb = findPost(id);
         postInDb.setViews(postInDb.getViews()+1);
@@ -238,17 +243,33 @@ public class PostService implements IPostService {
     }
 
     @Override
-    public Set<PostAllPropertiesDto> getPostsFromTwoDays() {
-        System.out.println("GETTING POST FROM TWO DAYS");
+    public Set<PostAllPropertiesDto> createMultiplePosts(Set<PostAllPropertiesDto> posts) {
+        posts.forEach(s->{
+            s.setId(null);
+            s.setComments(new HashSet<>());
+            s.getThumbNailPic().setId(null);
+            s.setPictures(s.getPictures().stream().map(p->{
+                p.setId(null);
+                return p;
+            }).collect(Collectors.toSet()));
+            create(s);
+        });
 
-        return postRepository.findTop10ByOrderByPostedOnDesc().stream()
+        return posts;
+    }
+
+    @Override
+    public Set<PostAllPropertiesDto> getHeadingPosts() {
+        LOGGER.info(GET_HEADING_POSTS);
+
+        return postRepository.getAllByPostedOnAfterOrderByPostedOnAsc(LocalDateTime.now().minusDays(2)).stream()
                 .map(p->modelMapper.map(p,PostAllPropertiesDto.class))
                 .collect(Collectors.toSet());
     }
 
     @Override
     public Set<PostAllPropertiesDto> getRandomPosts() {
-        LOGGER.info("GETTING RANDOM NUMBERS");
+        LOGGER.info(GET_RANDOM_POSTS_MESSAGE);
 
         Random random = new Random();
 
@@ -313,7 +334,7 @@ public class PostService implements IPostService {
     }
 
     private String getEmbedString(String url){
-        Pattern MY_PATTERN = Pattern.compile("((http(s)?:\\/\\/)?)(www\\.)?((youtube\\.com\\/)|(youtu.be\\/))[\\S]+");
+        Pattern MY_PATTERN = Pattern.compile("((http(s)?://)?)(www\\.)?((youtube\\.com/)|(youtu.be/))[\\S]+");
         Matcher m = MY_PATTERN.matcher(url);
         StringBuffer sb = new StringBuffer();
 

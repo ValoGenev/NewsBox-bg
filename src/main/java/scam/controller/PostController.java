@@ -6,15 +6,10 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import scam.dto.comment.CommentAllPropertiesDto;
-import scam.dto.comment.CommentWithUserDto;
 import scam.dto.post.PostAllPropertiesDto;
-import scam.dto.post.PostWithoutRelationDto;
-import scam.dto.user.UserAllPropertiesDto;
-import scam.dto.user.UserWithoutRelationDto;
 import scam.model.Category;
 import scam.service.IPostService;
-import scam.service.IUserService;
-import scam.validation.ValidPostCategory;
+import scam.validation.ValidCategoryParam;
 
 import javax.validation.Valid;
 
@@ -54,20 +49,17 @@ public class PostController {
         return ok(postService.findOne(id));
     }
 
-
     @GetMapping(produces = APPLICATION_JSON_VALUE,params = "category")
-    public ResponseEntity<Set<PostAllPropertiesDto>> findAllWithSpecificCategory(@RequestParam("category") String category) {
+    public ResponseEntity<Set<PostAllPropertiesDto>> findAllWithSpecificCategory(@RequestParam("category") @ValidCategoryParam  String category) {
         LOGGER.info(format(GET_ALL_POSTS_WITH_CATEGORY_MESSAGE, category));
         return ok(postService.findAllWithCategory(Category.valueOf(category)));
     }
 
-
     @GetMapping(value = "/heading",produces = APPLICATION_JSON_VALUE)
     public ResponseEntity<Set<PostAllPropertiesDto>> getAllFromTwoDays() {
-        LOGGER.info(GET_ALL_POSTS_MESSAGE+ "FROM TWO DAYS");
-        return ok(postService.findAll());
+        LOGGER.info(GET_HEADING_POSTS);
+        return ok(postService.getHeadingPosts());
     }
-
 
     @PostMapping(consumes = APPLICATION_JSON_VALUE, produces = APPLICATION_JSON_VALUE)
     public ResponseEntity<PostAllPropertiesDto> create(@Valid @RequestBody PostAllPropertiesDto post) {
@@ -88,7 +80,6 @@ public class PostController {
         return ok(postService.update(post, id));
     }
 
-
     @GetMapping(value = "/{id}/comments",  produces = APPLICATION_JSON_VALUE)
     public ResponseEntity<Set<CommentAllPropertiesDto>> getPostComments(@PathVariable("id") String id) {
         LOGGER.info(format(GET_POST_COMMENTS_MESSAGE, id));
@@ -97,14 +88,21 @@ public class PostController {
 
     @GetMapping(value = "/random",  produces = APPLICATION_JSON_VALUE)
     public ResponseEntity<Set<PostAllPropertiesDto>> getRandomPosts() {
-        LOGGER.info("GET RANDOM POSTS");
+        LOGGER.info(GET_RANDOM_POSTS_MESSAGE);
         return ok(postService.getRandomPosts());
     }
 
     @PatchMapping(value = "/{id}/incrementView",  produces = APPLICATION_JSON_VALUE)
     public ResponseEntity<PostAllPropertiesDto> incrementViews(@PathVariable("id") String id) {
-        LOGGER.info(format("INCREMENTING VIEWS ON POST WITH ID [%s]",id));
+        LOGGER.info(format(INCREMENT_VIEWS_ON_POST_MESSAGE,id));
         return ok(postService.incrementView(id));
+    }
+
+
+    @PostMapping(value = "/saveAll",consumes = APPLICATION_JSON_VALUE, produces = APPLICATION_JSON_VALUE)
+    public ResponseEntity<Set<PostAllPropertiesDto>> create(@Valid @RequestBody Set<PostAllPropertiesDto> posts) {
+        LOGGER.info("CREATING POSTS");
+        return status(CREATED).body(postService.createMultiplePosts(posts));
     }
 
 

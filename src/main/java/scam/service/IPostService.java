@@ -29,5 +29,7 @@ public interface IPostService {
 
     PostAllPropertiesDto incrementView(String id);
 
-    Set<PostAllPropertiesDto> getPostsFromTwoDays();
+    Set<PostAllPropertiesDto> getHeadingPosts();
+
+    Set<PostAllPropertiesDto> createMultiplePosts(Set<PostAllPropertiesDto> posts);
 }

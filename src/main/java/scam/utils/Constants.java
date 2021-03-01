@@ -16,6 +16,9 @@ public interface Constants {
     String DELETE_POST_BY_ID_MESSAGE = "DELETING POST with ID: [%s].";
     String GET_ALL_POSTS_MESSAGE = "GETTING ALL POST.";
     String GET_ALL_POSTS_WITH_CATEGORY_MESSAGE = "GETTING ALL POST WITH CATEGORY [%s].";
+    String GET_RANDOM_POSTS_MESSAGE="GETTING RANDOMS POSTS";
+    String INCREMENT_VIEWS_ON_POST_MESSAGE="INCREMENTING VIEWS ON POST WITH ID [%s]";
+    String GET_HEADING_POSTS="GET HEADING POSTS";
 
     // PRODUCTS CONSTANTS
     String FIND_PIC_BY_ID_MESSAGE = "FINDING PIC with ID: [%s].";
@@ -57,9 +60,6 @@ public interface Constants {
     String COMMENT_NOT_FOUND_EXCEPTION="Cannot find COMMENT with ID [%s].";
 
     String PICTURES_WITH_SAME_URL_EXCEPTION_MESSAGE="CANNOT ADD PICTURES WITH SAME URLS";
-    String CREATE_FACEBOOK_USER_MESSAGE="Creating facebook USER with USERNAME [%s]";
-
-    String CREATE_GUEST_USER_MESSAGE = "Creating guest user";
 
     String DATABASE_ERROR_MESSAGE = "Database error occurred.";
     String NOT_FOUND_MESSAGE = "Resource was not found";
@@ -67,23 +67,12 @@ public interface Constants {
     String CONFLICT_CREATE_MESSAGE = "Conflict while creating entity";
     String EXISTING_RESOURCE_MESSAGE = "Resource already exists.";
     String CONFLICT_DELETE_MESSAGE = "Entity  not allowed to be deleted";
-    String UNAUTHORIZED_MESSAGE= "Unauthorized request was given.";
-    String CONFIRM_PASS_DOES_NOT_MATCH_MESSAGE="Confirm pass does not match user password.";
-    String INVALID_CREDENTIALS_MESSAGE="Invalid credentials.";
-    String USERNAME_NOT_EQUAL_MESSAGE="Username cannot be changed.";
-    String BORN_DATE_NOT_EQAL_MESSAGE="Born Date cannot be changed.";
-    String EMAIL_NOT_EQUAL_MESSAGE="Email cannot be changed.";
-    String ROLE_NOT_EQUAL_MESSAGE="Role cannot be changed.";
 
-    String EXISTING_EMAIL_MESSAGE="Email [%s] already exists.";
+    String USERNAME_NOT_EQUAL_MESSAGE="Username cannot be changed.";
+
+    String EMAIL_NOT_EQUAL_MESSAGE="Email cannot be changed.";
+
     String EXISTING_USERNAME_MESSAGE="Username [%s] already exists.";
 
-    String PASSWORD_RESET_MESSAGE="Resetting password on user with email [%s]";
 
-    String EMAIL_NOT_FOUND_MESSAGE = "Email [%s] was not found";
-
-    String RESTAURANT_NOT_FOUND_MESSAGE="Restaurant with id [%s] was not found.";
-    String ORDER_NOT_FOUND_MESSAGE="Order with id [%s] was not found.";
-
-    String RESET_PASSWORD_SENT_MESSAGE="Sending new password TOKEN [%s] to USER [%s] with EMAIL [%s]";
 }

@@ -1,12 +1,10 @@
 package scam.dto.post;
 
 import scam.dto.comment.CommentWithUserDto;
-import scam.dto.comment.CommentWithoutRelationDto;
 import scam.dto.picture.PictureWithoutRelationDto;
 import scam.dto.thumbnail.ThumbNailWithoutPropertiesDto;
 import scam.dto.user.UserWithoutRelationDto;
-import scam.model.Category;
-import scam.validation.ValidPostCategory;
+import scam.validation.ValidPostCategories;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -36,7 +34,7 @@ public class PostAllPropertiesDto {
 
     private String authorName;
 
-    @ValidPostCategory
+    @ValidPostCategories
     private Set<String> categories;
 
     private LocalDateTime postedOn;

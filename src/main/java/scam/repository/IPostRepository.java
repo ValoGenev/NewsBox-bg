@@ -19,7 +19,7 @@ public interface IPostRepository extends JpaRepository<PostEntity,String> {
     Set<PostEntity> findAllByCategory(@Param("category") Category category);
 
 
-    Set<PostEntity> findTop10ByOrderByPostedOnDesc();
+    Set<PostEntity> getAllByPostedOnAfterOrderByPostedOnAsc(LocalDateTime twoDaysAgo);
 
 
 

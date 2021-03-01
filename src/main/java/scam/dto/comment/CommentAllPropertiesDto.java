@@ -86,7 +86,6 @@ public class CommentAllPropertiesDto {
         this.postedOn = postedOn;
     }
 
-
     public String getAvatarColor() {
         return avatarColor;
     }

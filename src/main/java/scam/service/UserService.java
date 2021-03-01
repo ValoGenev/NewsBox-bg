@@ -107,7 +107,9 @@ public class UserService implements IUserService {
 
         UserEntity userToBeUpdated = modelMapper.map(user,UserEntity.class);
 
+        userToBeUpdated.setRole(userInDb.getRole());
         userToBeUpdated.setId(userInDb.getId());
+        userToBeUpdated.setAvatarColor(userInDb.getAvatarColor());
         userToBeUpdated.setPassword(passwordEncoder.encode(user.getPassword()));
         userToBeUpdated.setComments(userInDb.getComments());
         userToBeUpdated.setPosts(userInDb.getPosts());

@@ -30,6 +30,8 @@ public class UnauthorizedExceptionFilter extends OncePerRequestFilter {
         }
         catch (BadCredentialsException | UsernameNotFoundException e) {
 
+            System.out.println("CATCHING EXCEPTIONS");
+
             handlerExceptionResolver.resolveException(httpServletRequest, httpServletResponse, null, e);
 
             System.out.println(e.getMessage());
