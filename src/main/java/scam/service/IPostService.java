@@ -28,4 +28,6 @@ public interface IPostService {
     Set<PostAllPropertiesDto> getRandomPosts();
 
     PostAllPropertiesDto incrementView(String id);
+
+    Set<PostAllPropertiesDto> getPostsFromTwoDays();
 }

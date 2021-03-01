@@ -9,6 +9,7 @@ import scam.entity.PostEntity;
 import scam.model.Category;
 
 import javax.persistence.PostRemove;
+import java.time.LocalDateTime;
 import java.util.Set;
 
 @Repository
@@ -16,6 +17,9 @@ public interface IPostRepository extends JpaRepository<PostEntity,String> {
 
     @Query("select p from PostEntity as p inner join p.categories as c where c= :category")
     Set<PostEntity> findAllByCategory(@Param("category") Category category);
+
+
+    Set<PostEntity> findTop10ByOrderByPostedOnDesc();
 
 
 

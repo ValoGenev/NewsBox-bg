@@ -113,7 +113,7 @@ public class CommentService implements ICommentService {
 
         CommentEntity commentToBeCreated = modelMapper.map(comment,CommentEntity.class);
 
-        commentToBeCreated.setPostedOn(LocalDateTime.now());
+        commentToBeCreated.setPostedOn(LocalDateTime.now().plusHours(2));
 
        // commentToBeCreated.setUser(modelMapper.map(userInDb, UserEntity.class));
         commentToBeCreated.setPost(modelMapper.map(postInDb, PostEntity.class));

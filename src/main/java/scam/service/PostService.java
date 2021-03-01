@@ -238,6 +238,15 @@ public class PostService implements IPostService {
     }
 
     @Override
+    public Set<PostAllPropertiesDto> getPostsFromTwoDays() {
+        System.out.println("GETTING POST FROM TWO DAYS");
+
+        return postRepository.findTop10ByOrderByPostedOnDesc().stream()
+                .map(p->modelMapper.map(p,PostAllPropertiesDto.class))
+                .collect(Collectors.toSet());
+    }
+
+    @Override
     public Set<PostAllPropertiesDto> getRandomPosts() {
         LOGGER.info("GETTING RANDOM NUMBERS");
 

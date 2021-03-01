@@ -54,10 +54,18 @@ public class PostController {
         return ok(postService.findOne(id));
     }
 
+
     @GetMapping(produces = APPLICATION_JSON_VALUE,params = "category")
     public ResponseEntity<Set<PostAllPropertiesDto>> findAllWithSpecificCategory(@RequestParam("category") String category) {
         LOGGER.info(format(GET_ALL_POSTS_WITH_CATEGORY_MESSAGE, category));
         return ok(postService.findAllWithCategory(Category.valueOf(category)));
+    }
+
+
+    @GetMapping(value = "/heading",produces = APPLICATION_JSON_VALUE)
+    public ResponseEntity<Set<PostAllPropertiesDto>> getAllFromTwoDays() {
+        LOGGER.info(GET_ALL_POSTS_MESSAGE+ "FROM TWO DAYS");
+        return ok(postService.findAll());
     }
 
 

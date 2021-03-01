@@ -40,9 +40,15 @@ public class JwtTokenAuthenticationFilter extends OncePerRequestFilter {
 
         Cookie[] cookies = httpServletRequest.getCookies();
 
-        Cookie jwtCookie = Arrays.stream(cookies)
-                .filter(cookie -> cookie.getName().equals("jwt-token"))
-                .findFirst().orElseThrow(() -> new BadCredentialsException("BAD CREDENTIALS"));
+        Cookie jwtCookie;
+
+        try {
+             jwtCookie = Arrays.stream(cookies)
+                    .filter(cookie -> cookie.getName().equals("jwt-token"))
+                    .findFirst().orElseThrow(() -> new BadCredentialsException("BAD CREDENTIALS"));
+        }catch (NullPointerException e){
+            throw new BadCredentialsException("BAD CREDENTIALS");
+        }
 
         if(StringUtils.isBlank(jwtCookie.getValue())) {
             throw new BadCredentialsException("BAD CREDENTIALS");
