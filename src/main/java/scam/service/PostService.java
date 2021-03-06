@@ -8,6 +8,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.transaction.annotation.Transactional;
 import scam.dto.comment.CommentAllPropertiesDto;
 import scam.dto.picture.PictureAllPropertiesDto;
@@ -205,6 +207,11 @@ public class PostService implements IPostService {
         updatedPost.setPictures(newPictures);
 
         return modelMapper.map(updatedPost,PostAllPropertiesDto.class);
+    }
+
+    @Override
+    public Page<PostAllPropertiesDto> findWithPageable(String name, PageRequest pageRequest) {
+        return postRepository.findAllPageable(name,pageRequest).map(s->modelMapper.map(s,PostAllPropertiesDto.class));
     }
 
     @Override

@@ -2,6 +2,9 @@ package scam.controller;
 
 import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
@@ -13,6 +16,7 @@ import scam.validation.ValidCategoryParam;
 
 import javax.validation.Valid;
 
+import java.util.Optional;
 import java.util.Set;
 
 import static java.lang.String.format;
@@ -103,6 +107,13 @@ public class PostController {
     public ResponseEntity<Set<PostAllPropertiesDto>> create(@Valid @RequestBody Set<PostAllPropertiesDto> posts) {
         LOGGER.info("CREATING POSTS");
         return status(CREATED).body(postService.createMultiplePosts(posts));
+    }
+
+    @GetMapping(value = "/test", produces = APPLICATION_JSON_VALUE)
+    public ResponseEntity<Page<PostAllPropertiesDto>> findPageable(@RequestParam("title") Optional<String> title,@RequestParam("page")Optional<Integer> pageNumber,@RequestParam("sortBy") Optional<String> sortBy) {
+        LOGGER.info("TESTING LIITLE API OFC");
+
+        return ResponseEntity.ok(postService.findWithPageable(title.orElse("_"),PageRequest.of(pageNumber.orElse(0),20, Sort.Direction.ASC,sortBy.orElse("postedOn"))));
     }
 
 

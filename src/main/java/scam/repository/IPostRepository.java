@@ -1,5 +1,7 @@
 package scam.repository;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -20,6 +22,9 @@ public interface IPostRepository extends JpaRepository<PostEntity,String> {
 
 
     Set<PostEntity> getAllByPostedOnAfterOrderByPostedOnAsc(LocalDateTime twoDaysAgo);
+
+    @Query("select p from PostEntity as p where p.title like %:name%")
+    Page<PostEntity> findAllPageable(String name, Pageable pageable);
 
 
 

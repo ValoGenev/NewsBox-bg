@@ -3,18 +3,18 @@
   <component name="ChangeListManager">
     <list default="true" id="94dea836-77e1-43a3-8933-fa85f41c10b5" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/scam/dto/post/PostAllPropertiesDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/scam/dto/post/PostAllPropertiesDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/scam/dto/post/PostWithoutRelationDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/scam/dto/post/PostWithoutRelationDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/scam/entity/PostEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/scam/entity/PostEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/scam/security/filters/CorsFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/scam/security/filters/CorsFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/scam/dto/post/PostAllPropertiesDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/scam/dto/post/PostAllPropertiesDto.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/scam/dto/post/PostWithoutRelationDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/scam/dto/post/PostWithoutRelationDto.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/scam/entity/PostEntity.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/scam/entity/PostEntity.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/scam/security/filters/CorsFilter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/scam/security/filters/CorsFilter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scamsite-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/scamsite-1.0-SNAPSHOT.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scamsite-1.0-SNAPSHOT.jar.original" beforeDir="false" afterPath="$PROJECT_DIR$/target/scamsite-1.0-SNAPSHOT.jar.original" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/scam/controller/PostController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/scam/controller/PostController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/scam/repository/IPostRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/scam/repository/IPostRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/scam/security/filters/UsernamePasswordAuthenticationFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/scam/security/filters/UsernamePasswordAuthenticationFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/scam/service/IPostService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/scam/service/IPostService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/scam/service/PostService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/scam/service/PostService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/scam/controller/PostController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/scam/controller/PostController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/scam/repository/IPostRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/scam/repository/IPostRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/scam/security/filters/UsernamePasswordAuthenticationFilter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/scam/security/filters/UsernamePasswordAuthenticationFilter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/scam/service/IPostService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/scam/service/IPostService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/scam/service/PostService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/scam/service/PostService.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -160,7 +160,12 @@
       <workItem from="1613905280107" duration="4285000" />
       <workItem from="1614252106798" duration="23883000" />
       <workItem from="1614328702253" duration="2739000" />
-      <workItem from="1614584611042" duration="17689000" />
+      <workItem from="1614584611042" duration="20951000" />
+      <workItem from="1614673204614" duration="4301000" />
+      <workItem from="1614847667775" duration="2941000" />
+      <workItem from="1614936814290" duration="1723000" />
+      <workItem from="1614972892203" duration="647000" />
+      <workItem from="1615027080051" duration="1037000" />
     </task>
     <servers />
   </component>
@@ -181,10 +186,10 @@
     </state>
     <state x="552" y="181" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1613082892789" />
     <state x="552" y="181" key="#com.intellij.execution.impl.EditConfigurationsDialog/1920.37.1680.1010/0.0.1920.1040@0.0.1920.1040" timestamp="1613478671346" />
-    <state x="765" y="212" key="#com.intellij.ide.util.MemberChooser" timestamp="1614605466675">
+    <state x="765" y="212" key="#com.intellij.ide.util.MemberChooser" timestamp="1614611187718">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="765" y="212" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1614605466675" />
+    <state x="765" y="212" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1614611187718" />
     <state x="765" y="212" key="#com.intellij.ide.util.MemberChooser/1920.37.1680.1010/0.0.1920.1040@0.0.1920.1040" timestamp="1614329896578" />
     <state x="690" y="308" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1613319310850">
       <screen x="0" y="0" width="1920" height="1040" />
@@ -204,49 +209,49 @@
     </state>
     <state x="740" y="277" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1613323797167" />
     <state x="740" y="277" key="FileChooserDialogImpl/1920.37.1680.1010/0.0.1920.1040@0.0.1920.1040" timestamp="1613743799783" />
-    <state width="1877" height="171" key="GridCell.Tab.0.bottom" timestamp="1614607159403">
+    <state width="1877" height="87" key="GridCell.Tab.0.bottom" timestamp="1615037523731">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1632" height="264" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.37.1680.1010@0.0.1920.1040" timestamp="1613909787589" />
-    <state width="1877" height="171" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1614607159403" />
-    <state width="1877" height="366" key="GridCell.Tab.0.bottom/1920.37.1680.1010/0.0.1920.1040@0.0.1920.1040" timestamp="1614331471830" />
-    <state width="1877" height="171" key="GridCell.Tab.0.center" timestamp="1614607159403">
+    <state width="1877" height="225" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1614675470907" />
+    <state width="1877" height="87" key="GridCell.Tab.0.bottom/1920.37.1680.1010/0.0.1920.1040@0.0.1920.1040" timestamp="1615037523731" />
+    <state width="1877" height="87" key="GridCell.Tab.0.center" timestamp="1615037523730">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1632" height="264" key="GridCell.Tab.0.center/0.0.1920.1040/1920.37.1680.1010@0.0.1920.1040" timestamp="1613909787589" />
-    <state width="1877" height="171" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1614607159403" />
-    <state width="1877" height="366" key="GridCell.Tab.0.center/1920.37.1680.1010/0.0.1920.1040@0.0.1920.1040" timestamp="1614331471830" />
-    <state width="1877" height="171" key="GridCell.Tab.0.left" timestamp="1614607159403">
+    <state width="1877" height="225" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1614675470907" />
+    <state width="1877" height="87" key="GridCell.Tab.0.center/1920.37.1680.1010/0.0.1920.1040@0.0.1920.1040" timestamp="1615037523730" />
+    <state width="1877" height="87" key="GridCell.Tab.0.left" timestamp="1615037523730">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1632" height="264" key="GridCell.Tab.0.left/0.0.1920.1040/1920.37.1680.1010@0.0.1920.1040" timestamp="1613909787589" />
-    <state width="1877" height="171" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1614607159403" />
-    <state width="1877" height="366" key="GridCell.Tab.0.left/1920.37.1680.1010/0.0.1920.1040@0.0.1920.1040" timestamp="1614331471830" />
-    <state width="1877" height="171" key="GridCell.Tab.0.right" timestamp="1614607159403">
+    <state width="1877" height="225" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1614675470907" />
+    <state width="1877" height="87" key="GridCell.Tab.0.left/1920.37.1680.1010/0.0.1920.1040@0.0.1920.1040" timestamp="1615037523730" />
+    <state width="1877" height="87" key="GridCell.Tab.0.right" timestamp="1615037523731">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1632" height="264" key="GridCell.Tab.0.right/0.0.1920.1040/1920.37.1680.1010@0.0.1920.1040" timestamp="1613909787589" />
-    <state width="1877" height="171" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1614607159403" />
-    <state width="1877" height="366" key="GridCell.Tab.0.right/1920.37.1680.1010/0.0.1920.1040@0.0.1920.1040" timestamp="1614331471830" />
-    <state width="1877" height="171" key="GridCell.Tab.1.bottom" timestamp="1614607150706">
+    <state width="1877" height="225" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1614675470907" />
+    <state width="1877" height="87" key="GridCell.Tab.0.right/1920.37.1680.1010/0.0.1920.1040@0.0.1920.1040" timestamp="1615037523731" />
+    <state width="1877" height="225" key="GridCell.Tab.1.bottom" timestamp="1614675470908">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="171" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1614607150706" />
+    <state width="1877" height="225" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1614675470908" />
     <state width="1877" height="366" key="GridCell.Tab.1.bottom/1920.37.1680.1010/0.0.1920.1040@0.0.1920.1040" timestamp="1614331471830" />
-    <state width="1877" height="171" key="GridCell.Tab.1.center" timestamp="1614607150706">
+    <state width="1877" height="225" key="GridCell.Tab.1.center" timestamp="1614675470908">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="171" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1614607150706" />
+    <state width="1877" height="225" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1614675470908" />
     <state width="1877" height="366" key="GridCell.Tab.1.center/1920.37.1680.1010/0.0.1920.1040@0.0.1920.1040" timestamp="1614331471830" />
-    <state width="1877" height="171" key="GridCell.Tab.1.left" timestamp="1614607150706">
+    <state width="1877" height="225" key="GridCell.Tab.1.left" timestamp="1614675470908">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="171" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1614607150706" />
+    <state width="1877" height="225" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1614675470908" />
     <state width="1877" height="366" key="GridCell.Tab.1.left/1920.37.1680.1010/0.0.1920.1040@0.0.1920.1040" timestamp="1614331471830" />
-    <state width="1877" height="171" key="GridCell.Tab.1.right" timestamp="1614607150706">
+    <state width="1877" height="225" key="GridCell.Tab.1.right" timestamp="1614675470908">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="171" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1614607150706" />
+    <state width="1877" height="225" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1614675470908" />
     <state width="1877" height="366" key="GridCell.Tab.1.right/1920.37.1680.1010/0.0.1920.1040@0.0.1920.1040" timestamp="1614331471830" />
     <state width="1877" height="258" key="GridCell.Tab.2.bottom" timestamp="1614597838712">
       <screen x="0" y="0" width="1920" height="1040" />
@@ -280,15 +285,16 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="810" y="412" width="319" height="225" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1/0.0.1920.1040@0.0.1920.1040" timestamp="1613306152627" />
-    <state x="668" y="347" key="com.intellij.ide.util.TipDialog" timestamp="1614584611783">
+    <state x="668" y="347" key="com.intellij.ide.util.TipDialog" timestamp="1615027114212">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="668" y="347" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1614584611783" />
-    <state x="668" y="347" key="com.intellij.ide.util.TipDialog/1920.37.1680.1010/0.0.1920.1040@0.0.1920.1040" timestamp="1614252159307" />
-    <state x="342" y="224" key="new project wizard" timestamp="1613380161146">
+    <state x="668" y="347" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1614673233176" />
+    <state x="668" y="347" key="com.intellij.ide.util.TipDialog/1920.37.1680.1010/0.0.1920.1040@0.0.1920.1040" timestamp="1615027114212" />
+    <state x="342" y="224" key="new project wizard" timestamp="1615027187759">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="342" y="224" key="new project wizard/0.0.1920.1040@0.0.1920.1040" timestamp="1613380161146" />
+    <state x="342" y="224" key="new project wizard/1920.37.1680.1010/0.0.1920.1040@0.0.1920.1040" timestamp="1615027187759" />
     <state x="702" y="145" key="refactoring.ChangeSignatureDialog" timestamp="1614276395071">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -308,7 +314,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/scam/service/PostService.java</url>
-          <line>213</line>
+          <line>220</line>
           <option name="timeStamp" value="7" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -318,7 +324,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/scam/service/PostService.java</url>
-          <line>257</line>
+          <line>264</line>
           <option name="timeStamp" value="12" />
         </line-breakpoint>
       </breakpoints>

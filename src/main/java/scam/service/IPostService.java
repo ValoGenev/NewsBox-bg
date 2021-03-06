@@ -1,5 +1,7 @@
 package scam.service;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import scam.dto.comment.CommentAllPropertiesDto;
 import scam.dto.comment.CommentWithUserDto;
 import scam.dto.post.PostAllPropertiesDto;
@@ -32,4 +34,6 @@ public interface IPostService {
     Set<PostAllPropertiesDto> getHeadingPosts();
 
     Set<PostAllPropertiesDto> createMultiplePosts(Set<PostAllPropertiesDto> posts);
+
+    Page<PostAllPropertiesDto> findWithPageable(String name, PageRequest pageRequest);
 }
