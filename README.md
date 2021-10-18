@@ -1,5 +1,5 @@
-# PepeFood
+# NewsBox
 
-Simple backend app that helps restaurants,hotels,shops to sell their food which expiration date is close to its end.
+Backend for website for fake news with clickbait pictures(made just for fun)
 
-FrontEnd hosted at  https://pedantic-varahamihira-a012b2.netlify.app
+FrontEnd hosted at  https://www.newsbox-bg.com
